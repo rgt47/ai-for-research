@@ -477,19 +477,167 @@ the solution.
 
 ## Solutions
 
-**Problem 1.** Placeholder.
+**Problem 1.** A minimal log is a single Markdown file at the
+project root. One entry per interaction is enough:
 
-**Problem 2.** Placeholder.
+```text
+# Provenance log
 
-**Problem 3.** Placeholder.
+2026-03-04  Claude  Literature search on remote-work outcomes.
+            14 candidate references; all resolved in Crossref,
+            2 discarded as off-topic.
 
-**Problem 4.** Placeholder.
+2026-03-11  Claude Code  Drafted scripts/clean.R.
+            Reviewed line by line; added a test for empty input.
 
-**Problem 5.** Placeholder.
+2026-03-19  Claude  Copyedited the discussion for concision.
+            Re-read for claim strength; restored one hedge.
+```
 
-**Problem 6.** Placeholder.
+Commit it alongside the work it describes:
 
-**Problem 7.** Placeholder.
+```bash
+git add PROVENANCE.md
+git commit -m "Add provenance log"
+```
+
+Two design choices matter more than the format itself. Write
+each entry at the moment of use, since this chapter's argument
+is that later reconstruction is unreliable. Log whatever
+materially shaped a result, and skip routine autocomplete, which
+keeps the habit cheap enough to sustain across a long project.
+
+**Problem 2.** Your report is specific to your draft, so this
+solution describes the shape of a complete one and the findings
+that recur.
+
+Work through the six checklist items in order. For each, record
+either "pass" or the correction you made. Two items account for
+most failures. Item 3 fails when the disclosure statement was
+written from memory at submission time, and omits an early use
+that no longer feels significant. Item 1 fails in its subtle
+form: the citation resolves correctly, but it supports the
+paper's general topic rather than the specific claim in your
+sentence.
+
+Item 5 rarely fails, and it still merits the minute it takes.
+Item 6 is worth checking with your co-authors rather than
+against your own memory alone. A complete answer states what you
+corrected, and not merely what failed.
+
+**Problem 3.** A statement built from the log in Problem 1:
+
+> AI assistance was used in this project as follows. An
+> AI-assisted literature search informed the initial reference
+> list. Every citation was verified against its primary source
+> before inclusion, and two candidates were discarded. An AI
+> coding assistant drafted `scripts/clean.R`; the authors
+> reviewed the script line by line and added a test for empty
+> input before use. An AI tool was used to copyedit the
+> discussion section for concision; the authors reviewed every
+> revised sentence and restored qualifying language that the
+> revision had weakened. The authors take full responsibility
+> for all content.
+
+Note the structure. Each sentence names a component, the tool's
+role in it, and the verification that followed. That three-part
+shape is what separates this statement from a blanket
+disclosure, and it is what ICMJE and COPE ask for
+[@icmje2025ai; @cope2023authorship].
+
+**Problem 4.** The simplest convention needs no branches at all.
+Commit the AI-drafted artifact by itself, then commit your
+revision separately:
+
+```bash
+git add scripts/clean.R
+git commit -m "Add AI-drafted cleaning script, unreviewed"
+# review and revise the script
+git add scripts/clean.R PROVENANCE.md
+git commit -m "Revise cleaning script: fix unit conversion"
+```
+
+The diff between those two commits is the evidence. It shows the
+review rather than asserting that a review occurred, which is
+the argument this chapter makes for version control as a
+disclosure record.
+
+For prose, a branch makes the sequence easier to read later.
+Draft on a branch named `ai-draft/discussion`, revise on that
+same branch, then merge with `git merge --no-ff`. The merge
+commit preserves the draft-then-revision sequence that a
+fast-forward merge would flatten.
+
+Whichever convention you choose, update the provenance log in
+the same commit as the work it describes. A log committed
+separately, weeks later, reintroduces the reconstruction problem
+that the log exists to prevent.
+
+**Problem 5.** The gap you find will be your own, and four recur
+often enough to name here.
+
+The chat window is the most common. Questions asked while
+drafting, in a separate browser tab, leave no trace in the
+project at all. Editor autocomplete is the second, and it sits
+correctly below the logging threshold, although that boundary
+drifts upward as suggestions grow longer. A literature search
+run months before writing is the third, since by submission it
+no longer feels like part of the manuscript.
+
+The fourth is missed most often and matters most. Your
+disclosure covers the project, and not only your own keystrokes,
+so a co-author's AI use belongs in it. Ask co-authors at the
+start of a project rather than at submission.
+
+A workable proposal has two parts. Put `PROVENANCE.md` where you
+will see it, next to the manuscript rather than in a
+subdirectory. Write each entry at the moment of use, in one
+line, since a habit that costs a minute will not survive a
+deadline.
+
+**Problem 6.** A reflection has no single correct answer, so
+this solution describes what a substantive one contains. Name
+one habit, state what it replaces, and say what it costs. The
+cost matters, because a habit with no cost is one you were
+already keeping.
+
+Three choices are defensible on the material in this book.
+Verifying each citation at the moment you receive it, rather
+than in a batch before submission, is the Day 2 habit with the
+clearest payoff. Writing the provenance entry at the moment of
+use is the Day 5 habit that makes every later disclosure cheap.
+Asking the assistant to question you before it proposes an
+outline is the Day 4 habit that changes what the tool is for.
+
+An answer reporting only an intention to be more careful is not
+a habit. It names no trigger, no replacement, and no cost.
+
+**Problem 7.** The policies you found are specific to your
+field, so this solution gives the baseline and the method for
+comparing against it.
+
+The baseline from this chapter runs as follows. ICMJE and COPE
+both refuse AI authorship and require disclosure, with the human
+authors remaining fully responsible [@icmje2025ai;
+@cope2023authorship]. Major publishers prohibit reviewers from
+uploading manuscripts into generative AI tools
+[@publisherconfidentiality2024]. NIH prohibits generative AI in
+its peer-review process outright [@nih2023genai].
+
+Expect your answers to fall into a pattern. On (a), authorship,
+essentially every policy agrees, and you should expect no
+variation. On (b), disclosure, you will find the most variation,
+both in placement and in what is exempt. On (c),
+confidentiality, journal policies usually address reviewers,
+while university policies are often silent on confidentiality
+and stricter on coursework.
+
+Two tests separate stricter from looser. A policy is stricter
+than the baseline when it caps how much AI may contribute
+regardless of disclosure, and NIH's applicant-side standard is
+the clearest instance [@nih2025fairness]. A policy is looser
+when it exempts a category of use from declaration, as Springer
+Nature does for copy editing [@springernature2024ai].
 
 ## What's next
 

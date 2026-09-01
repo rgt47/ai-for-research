@@ -399,17 +399,142 @@ the solution.
 
 ## Solutions
 
-**Problem 1.** Placeholder.
+**Problem 1.** The review is the exercise, not the generation.
+Read the returned function line by line and ask what it does on
+three inputs its author probably never considered: an empty
+input, a single row, and a column that is entirely missing.
 
-**Problem 2.** Placeholder.
+As an illustration, a request for a mean and confidence interval
+will commonly produce something of this shape:
 
-**Problem 3.** Placeholder.
+```r
+mean_ci <- function(x, conf = 0.95) {
+  x <- x[!is.na(x)]
+  se <- sd(x) / sqrt(length(x))
+  crit <- qt(1 - (1 - conf) / 2, df = length(x) - 1)
+  c(mean = mean(x), lower = mean(x) - crit * se,
+    upper = mean(x) + crit * se)
+}
+```
 
-**Problem 4.** Placeholder.
+The function is correct on ordinary input. It drops missing
+values silently, which may or may not be what the analysis
+wants, and it has no guard at all on the size of what remains.
+Note that the missing-value choice is a deciding question in the
+sense of this chapter, made here by a tool rather than by you.
 
-**Problem 5.** Placeholder.
+**Problem 2.** The distinction that matters is between a clear
+error and a silent wrong answer. A function that stops with a
+message has cost you a minute. A function that returns a
+plausible number from invalid input can put that number in a
+manuscript.
 
-**Problem 6.** Placeholder.
+Passing an empty vector to the illustrative function above
+returns `NaN` for all three elements rather than raising an
+error. A single non-missing value, as in `c(3, NA)`, is more
+dangerous: the point estimate comes back as a real number and
+only the two bounds are `NaN`, which reads far more like a
+reportable result than three `NaN` values do.
+
+Neither case is entirely silent. R emits a warning from `qt()`,
+which receives zero degrees of freedom once the missing value is
+dropped. A warning is not an error, though. It does not stop the
+script, it is easily lost in a long console log, and it is
+invisible in a rendered document whose chunks are set to
+suppress warnings, which is a common default.
+
+That is the outcome to record, and it is the general pattern
+this chapter warns about: the code ran, returned a value, and
+was wrong.
+
+**Problem 3.** The fix adds a guard, and the test encodes what
+the guard is supposed to do:
+
+```r
+mean_ci <- function(x, conf = 0.95) {
+  x <- x[!is.na(x)]
+  if (length(x) < 2) {
+    stop("mean_ci() needs at least two non-missing values")
+  }
+  se <- stats::sd(x) / sqrt(length(x))
+  crit <- stats::qt(1 - (1 - conf) / 2, df = length(x) - 1)
+  c(mean = mean(x), lower = mean(x) - crit * se,
+    upper = mean(x) + crit * se)
+}
+```
+
+```r
+# inst/tinytest/test-mean-ci.R
+expect_error(mean_ci(numeric(0)),
+  pattern = "at least two",
+  info = "empty input errors rather than returning NaN")
+
+expect_error(mean_ci(c(3, NA)),
+  pattern = "at least two",
+  info = "one non-missing value cannot support an interval")
+
+expect_equal(unname(mean_ci(c(1, 2, 3))["mean"]), 2,
+  info = "point estimate is the arithmetic mean")
+```
+
+The first two assertions fail against the original function and
+pass against the corrected one, which is what makes them worth
+keeping. The third guards the ordinary case, so that a later fix
+to the edge cases cannot quietly break the common path. Run them
+with `tinytest::run_test_dir("inst/tinytest")`.
+
+**Problem 4.** Judge the suggestions against the data's actual
+structure rather than against their general reasonableness.
+Three checks are usually enough.
+
+Does the suggested plot match each variable's type and
+distribution? A histogram for a variable with six distinct
+values, or a scatter plot for a categorical predictor, indicates
+that the assistant inferred structure it was never shown.
+
+Does the suggestion respect the design? Repeated measures,
+clustering, and stratification are invisible in a column of
+numbers, and a plot that ignores them will mislead even when the
+code is correct.
+
+Did you supply the data dictionary? Most poor suggestions in
+this exercise trace to context the assistant did not have, which
+is the point made under "Working with a coding assistant" above.
+
+**Problem 5.** The instructive changes are rarely the ones that
+break. Look for a change that is defensible but not yours: a
+rewritten loop, a renamed variable, a silently added default
+argument, a dependency introduced to save three lines.
+
+For each, ask whether the change alters behavior or only style.
+A change that alters behavior belongs in the review even when it
+is an improvement, because it is a decision. A style change can
+be accepted or reverted on preference, and reverting it costs
+nothing.
+
+An answer that finds nothing worth noting usually means the diff
+was read for errors rather than for decisions. Unfortunately,
+that is the easier reading, and it is the one that lets an
+unexamined choice into the codebase.
+
+**Problem 6.** Any decision that determines what the analysis
+concludes, rather than how it is executed, belongs on this list.
+The handling of missing data is the clearest example in this
+chapter. Whether to drop, impute, or model missingness depends
+on a mechanism the data cannot reveal on its own, and the choice
+changes the estimate.
+
+Equally defensible answers include the choice of primary
+endpoint, the decision to adjust for a covariate, the threshold
+for declaring a result meaningful, and any judgment about
+whether an assumption is satisfied. Each requires knowledge of
+how the data were generated, which sits with you rather than
+with a tool that has seen only the columns.
+
+The general criterion is the drafting and deciding boundary
+developed earlier. If the task has a checkable correct answer,
+delegation is reasonable. If the task determines what counts as
+the correct answer, it is not.
 
 ## What's next
 

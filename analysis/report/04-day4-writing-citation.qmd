@@ -475,17 +475,127 @@ the solution.
 
 ## Solutions
 
-**Problem 1.** Placeholder.
+**Problem 1.** Five requests, classified:
 
-**Problem 2.** Placeholder.
+a) "Correct the grammar and punctuation in this paragraph."
+   Editorial.
+b) "Cut this abstract from 250 words to 200 without dropping a
+   finding." Editorial.
+c) "Rewrite these sentences in the passive voice to match the
+   journal's house style." Editorial.
+d) "Which of my three results should the discussion lead with?"
+   Substantive.
+e) "Make this paragraph flow better." Borderline.
 
-**Problem 3.** Placeholder.
+Request (e) is the borderline case, and it repays working
+through. The request names no target, so the classification
+depends on why the paragraph reads badly. If two sentences sit
+in the wrong order, the fix is editorial and carries little
+risk. If the paragraph reads badly because it is making two
+claims at once, then improving the flow requires deciding which
+claim survives. That decision is substantive, and the tool will
+make it silently. Treat a flow request as editorial only when
+you can state the paragraph's single point before you read the
+revision. Otherwise scrutinize the result as substantive help.
 
-**Problem 4.** Placeholder.
+**Problem 2.** Your tool's revision will differ from anyone
+else's, so what follows is what to look for rather than what you
+found. Meaning changes cluster in four places. Hedges weaken or
+vanish, so that "may contribute to" becomes "contributes to".
+Quantifiers drift, so that "several participants" becomes
+"participants". Causal language strengthens, so that "was
+associated with" becomes "led to". Qualifying clauses disappear
+entirely, usually the ones that made the sentence awkward, which
+is why the tool removed them.
 
-**Problem 5.** Placeholder.
+Most readers find the change in a hedge. That result is
+expected. Removing a hedge nearly always makes a sentence read
+more cleanly, and reading cleanly is what the tool was asked to
+optimize. A complete answer names the words that changed and
+states the claim before and after. An incomplete answer reports
+only that the revision reads better.
 
-**Problem 6.** Placeholder.
+**Problem 3.** Work in three passes, in this order.
+
+First, count. Compare the number of citations before and after
+the restructuring. Any change in count is a defect, and it is
+the one failure the tool cannot hide from you.
+
+Second, check the mapping. For each claim in the revised
+paragraph, name the source that supports it, then confirm that
+pairing against the original paragraph. Third, check the
+reference manager. Confirm that each surviving citation still
+resolves to the entry you intended [@zotero2024].
+
+The failure this procedure catches most often is subtler than a
+dropped citation. A citation stays in the paragraph but drifts
+one sentence away from the claim it supported. The count is
+unchanged and the prose reads well, so nothing signals the error
+except the check itself.
+
+**Problem 4.** The policy you found is specific to your venue,
+so this solution gives the method rather than the answer. Look
+under author guidelines, instructions for authors, or editorial
+policies, usually in a section headed "Artificial intelligence"
+or "Authorship". Then answer four questions. Does the policy
+permit an AI tool as an author? Does it require disclosure, and
+in which section? Does it exempt any category of use from
+declaration? Does it restrict what reviewers may upload?
+
+A good two-sentence summary states the authorship position and
+the disclosure requirement, including placement. Placement is
+the part most readers omit, and it is the part that determines
+what you actually do at submission. Springer Nature's policy has
+a common shape, and a summary of it would run as follows. The
+journal does not accept AI tools as authors, and it requires AI
+use in drafting or analysis to be described in the methods.
+AI-assisted copy editing is exempt from declaration in the
+manuscript, but it must be noted in the cover letter
+[@springernature2024ai]. Compare whatever you found against the
+ICMJE and COPE baselines [@icmje2025ai; @cope2023authorship].
+
+**Problem 5.** A usable statement for the paragraph from
+Problem 2:
+
+> The authors drafted all text in this manuscript. [Tool name
+> and version] was used to revise selected paragraphs of the
+> discussion for clarity and concision. The authors reviewed
+> every revised sentence, restored qualifying language where the
+> revision had weakened it, and take full responsibility for all
+> content.
+
+Three features make this statement adequate. It names the tool
+and version, so the claim can be evaluated later. It says what
+the tool did and what the authors did afterward, which is
+ICMJE's standard for describing how the tool was used
+[@icmje2025ai]. It records the specific correction you found in
+Problem 2, and that detail is what demonstrates the review
+actually happened.
+
+Place the statement in the acknowledgments unless the venue asks
+for methods. If an AI tool touched the analysis rather than only
+the prose, methods is the correct location.
+
+**Problem 6.** The strongest answers name the interpretation of
+results, the limitations section, or the claim of novelty.
+
+These three share one property, and naming that property is what
+makes the answer complete. In each case the claim is the
+contribution, and it exists nowhere else to be checked against.
+A reviewer-response skeleton can be verified against the
+reviewer report, and a talk outline against the manuscript. An
+interpretation cannot be verified against anything, because you
+are the source. A tool will produce a fluent interpretation
+regardless, and fluency is not evidence that the interpretation
+is either yours or correct.
+
+The limitations section deserves particular mention. Writing it
+requires knowing what went wrong in your own study, and that
+information is usually not in the manuscript at all. A weak
+answer rejects a task on grounds of tone. A strong answer ties
+the refusal to the editorial and substantive distinction, and to
+the absence of any source document against which the output
+could be checked.
 
 ## What's next
 

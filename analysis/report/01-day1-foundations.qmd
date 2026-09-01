@@ -507,17 +507,124 @@ the solution.
 
 ## Solutions
 
-**Problem 1.** Placeholder.
+**Problem 1.** A satisfactory answer makes three points. The
+model produces a probability distribution over its vocabulary
+and samples the next token from it. It conditions only on the
+text in front of it, consulting no database of facts at
+generation time. It then repeats that step until the response
+is complete.
 
-**Problem 2.** Placeholder.
+As an illustration, an answer of this shape would qualify:
+"The model computes which token is most likely to follow the
+prompt and everything it has generated so far, samples one, and
+repeats. Those probabilities come from statistical regularities
+learned during training, not from a lookup against a source."
 
-**Problem 3.** Placeholder.
+An answer that says the model "searches for" or "looks up" the
+answer has missed the central point of the day. That is exactly
+the confusion the check-your-understanding callout above
+corrects.
 
-**Problem 4.** Placeholder.
+**Problem 2.** The instruction to pick a topic you know well is
+the whole design of the exercise. On an unfamiliar topic you
+cannot distinguish a fabricated claim from a correct one, which
+is the warning stated earlier in this chapter.
 
-**Problem 5.** Placeholder.
+Most readers will find a claim that is wrong in a small and
+specific way rather than one that is grossly false. Common
+shapes include a real author credited with someone else's
+finding, a plausible but incorrect date, and a contested
+question described as settled. A good answer names the claim,
+states what is actually the case, and says how you knew.
 
-**Problem 6.** Placeholder.
+Two other outcomes are worth recording rather than treating as
+failures. The tool may hedge or decline, which is the behavior
+we want and is more common on well-known topics. It may also
+produce a claim you cannot check without opening a source. That
+is itself the finding, since confidence in the response carries
+no information about whether verification is needed.
+
+**Problem 3.** What you observe depends on the length of the
+session and on how the tool manages its history, so both
+outcomes are legitimate results. If the instruction was still
+followed, the session most likely remained inside the context
+window. If it was dropped, the instruction fell outside that
+window or was compressed away by the tool's own summarization.
+
+The conclusion is the same in both cases. Do not treat an early
+instruction as durable. Restate load-bearing constraints
+periodically, and paste the material a task depends on into the
+prompt that needs it rather than relying on an earlier turn.
+
+A stronger answer notes that this failure is silent. The tool
+does not announce that it has lost an instruction, so the only
+reliable detection is your own check of the output against the
+constraint you set.
+
+**Problem 4.** Three observations distinguish a good answer.
+
+Agreement between two tools is weak evidence of correctness.
+Models trained on overlapping corpora can be wrong in the same
+way, so convergence tells you less than it appears to.
+
+Disagreement is genuinely diagnostic. Where the two responses
+conflict, you have located a claim that at least one tool got
+wrong, and that is where verification effort belongs first.
+
+Usefulness often differs more than accuracy does. A response
+that names its sources can be checked in minutes. An equally
+fluent response without them cannot be checked at all without
+redoing the search yourself. For research work that difference
+matters more than the polish of the prose.
+
+**Problem 5.** Consider a weak prompt of the kind that produces
+a technically correct but unusable answer:
+
+```prompt
+Summarize this paper.
+```
+
+The four-part rewrite states the task, supplies the context the
+model lacks, sets the constraints, and names the output format:
+
+```prompt
+Task: Summarize the attached paper for a reader deciding
+whether it belongs in a literature review.
+Context: [paste the abstract and methods section] The review
+concerns whether remote work affects promotion rates in an
+employee's first five years.
+Constraints: Distinguish what the paper measured from what it
+concluded. Do not describe the findings as more definitive than
+the paper itself does. Name the study design and sample.
+Output format: Four bullets: design, sample, primary finding,
+relevance to the stated question.
+```
+
+The comparison to record is not that the second response is
+longer or better written. It is that the second response can be
+judged right or wrong, because the prompt stated what a correct
+answer would contain. The first cannot be judged at all.
+
+**Problem 6.** Any task whose output is expensive to verify and
+costly to get wrong belongs on this list. Producing citations
+for a manuscript without checking each one is the clearest
+example in this chapter, for the reasons *Mata v. Avianca* makes
+concrete [@mata2023avianca]. The fabrication is invisible in the
+output, and the professional consequence falls on the person who
+signed the work.
+
+A good justification names a specific failure mode rather than a
+general unease. Three from this chapter support the answer.
+Hallucination is structural rather than incidental
+[@ji2023hallucination]. Confidence in a response is uncorrelated
+with its correctness. Both are worst on narrow or specialized
+topics, which is where research questions usually sit.
+
+Other defensible answers include the final interpretation of a
+statistical result, any task involving confidential or
+unpublished material, and any output submitted under your name
+without a human review step. The common feature is not
+difficulty but unverifiability at a glance.
 
 ## What's next
 

@@ -534,17 +534,103 @@ the solution.
 
 ## Solutions
 
-**Problem 1.** Placeholder.
+**Problem 1.** The output to record is the citation list itself,
+in whatever form the tool produced it. Two features of that list
+matter for the problems that follow.
 
-**Problem 2.** Placeholder.
+Note first whether the tool named its sources or generated them
+from trained parameters alone. The chapter's distinction between
+search-augmented and general-purpose tools predicts different
+failure rates here [@lewis2020rag]. Note second whether each
+citation carries a resolvable identifier such as a DOI. A
+citation given without one is not yet checkable, and supplying
+that identifier is the tool's cheapest contribution to the work
+that follows.
 
-**Problem 3.** Placeholder.
+**Problem 2.** The verification itself is mechanical. Search the
+title and author list in a database of record, Crossref or
+PubMed rather than a search-engine snippet, and confirm that the
+year and venue match [@crossref2024api; @ncbi2024eutils].
 
-**Problem 4.** Placeholder.
+Report three categories rather than two. A citation may verify
+cleanly, fail to resolve at all, or resolve to a real record
+whose details differ from what the tool supplied. The third
+category is the interesting one, and it corresponds to the
+mismatched-details signature described in this chapter.
 
-**Problem 5.** Placeholder.
+Rates vary widely by tool and by how obscure the topic is, so
+there is no single expected number. What matters is that you now
+have one, measured in your own field rather than taken from a
+general claim about AI reliability. A retrieval-grounded tool
+will usually do better than a general-purpose assistant, and
+neither result licenses skipping the check next time.
 
-**Problem 6.** Placeholder.
+**Problem 3.** A blurred synthesis is the common outcome, and it
+has a recognizable shape. The disagreement is replaced by a
+hedge ("findings are mixed," "further research is needed") that
+names neither position. Alternatively, one paper's conclusion is
+presented as the consensus and the other is reduced to a caveat.
+
+A good answer quotes the flattening sentence and states what
+each paper actually found. That comparison is the evidence. A
+general impression that the synthesis seemed vague is not.
+
+If the synthesis did preserve the disagreement, record what the
+prompt asked for. An explicit instruction not to average
+conflicting findings, as in the lecture's prompt, materially
+changes the result. That is the practical point of the exercise.
+
+**Problem 4.** A workable checklist has five items, and it
+applies to every citation rather than to a sample:
+
+a) The record resolves in a database of record by title and
+   author, not merely in a web search.
+b) Year, venue, and volume match the resolved record exactly.
+c) The DOI, if one was supplied, resolves to that same record
+   rather than to another paper by the same author.
+d) The source actually contains the claim attached to it, which
+   requires opening it.
+e) The citation is one you would defend if an editor asked how
+   you found it.
+
+Item (d) is the one most often skipped, and it is the only one
+that catches a real paper cited for a claim it does not make.
+Item (e) checks provenance rather than the record. It separates
+a bibliography you assembled from one you inherited without
+inspection.
+
+**Problem 5.** Distortions in AI summaries are usually not
+fabrications. They are compressions that drop the qualifier the
+authors were careful to include.
+
+Look specifically for four shifts: a correlational finding
+described in causal language, a subgroup result stated as a
+whole-sample result, a stated limitation omitted, and a hedged
+conclusion firmed up. A good answer names which shift occurred
+and quotes both the paper and the summary.
+
+This exercise is the reason the extraction discipline in this
+chapter asks for the verbatim source sentence alongside each
+extracted value. A summary you cannot trace back to a sentence
+cannot be checked at the speed at which it was produced.
+
+**Problem 6.** Any review whose validity depends on completeness
+or on contested judgment is a poor candidate for unsupervised
+delegation. The clearest case is a systematic review's inclusion
+decision. There the methodological claim is precisely that
+screening was reproducible against pre-specified criteria, and
+PRISMA already requires you to report how any automation was
+used [@page2021prisma].
+
+A second defensible answer is a review of a literature you are
+entering for the first time. The chapter's warning applies with
+full force, since you cannot audit a synthesis of work you have
+not read. The delegation removes exactly the judgment that would
+have made it safe.
+
+A weaker answer names a task that is merely tedious. Tedium is
+an argument for delegation rather than against it. The criterion
+is whether you can check the result.
 
 ## What's next
 
