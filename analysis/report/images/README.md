@@ -84,16 +84,30 @@ people, no hands") and the same `magick -resize 1600x -strip
   the glowing filament, shallow depth of field, dark moody
   background. Style: editorial photography, 35mm lens aesthetic,
   photographic realism, no text, no logos, no people, no hands."
-- `day1-mid.jpg` — Prompt: "Generate a 16:9 landscape image with
-  the following description: Editorial photograph of a paper
-  scroll unrolled across a dark wooden table, only a narrow band
-  near the center in sharp focus and warm light, both ends of
-  the scroll fading into soft violet-tinted shadow and blur,
-  evoking a limited window of attention within a much longer
-  document. Muted cool violet-indigo palette with warm amber
-  light on the in-focus band. Style: editorial photography, 35mm
-  lens aesthetic, shallow depth of field, photographic realism,
-  no text, no logos, no people, no hands."
+- `day1-mid.jpg` — Regenerated 2026-09-01. The first attempt
+  produced a scroll still rolled into a tube, so no document was
+  visible and the metaphor did not read at all. The replacement
+  prompt states the geometry explicitly and asks for visible
+  text: "Generate a 16:9 landscape image with the following
+  description: Editorial photograph, straight-on side view of a
+  very long continuous strip of paper lying completely FLAT and
+  fully unrolled across a dark wooden desk, running horizontally
+  out of frame at both the left and right edges. The paper is
+  covered in dense lines of small printed text along its entire
+  length. A single narrow band of warm amber lamp light falls
+  across the middle of the strip, so the text inside that band
+  is sharply lit, while the paper to the left and to the right
+  falls away into deep violet shadow and darkness where the text
+  cannot be read. The paper must be flat and open, never rolled
+  into a tube or cylinder. Text is intentionally soft and
+  illegible, no readable words. Cool violet-indigo palette with
+  warm amber only in the lit band, shallow depth of field.
+  Style: editorial photography, 35mm lens aesthetic,
+  photographic realism, no logos, no people, no hands."
+  A filmstrip-on-a-lightbox variant was generated as an
+  alternative and rejected: it contained a human face in one
+  frame, and images are the wrong medium for a metaphor about a
+  window over text.
 - `day1-example.jpg` — Prompt: "Generate a 16:9 landscape image
   with the following description: Editorial macro photograph of
   warm light rays from many scattered small points of light

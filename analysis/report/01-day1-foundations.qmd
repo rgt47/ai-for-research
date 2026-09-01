@@ -298,11 +298,11 @@ simply no longer has the instruction in view. Restate the
 instruction rather than repeating the request and hoping.
 :::
 
-![](images/day1-mid.jpg){fig-alt="A paper scroll unrolled across a table, only a narrow band lit and legible while both ends fade into shadow" style="width:100%"}
+![](images/day1-mid.jpg){fig-alt="A long strip of densely printed paper unrolled flat across a desk, legible only where a band of lamplight falls, both ends lost to shadow" style="width:100%"}
 
-*A paper scroll unrolled across a table, only a narrow band lit
-and legible while both ends fade into shadow: what falls inside,
-and outside, a model's context window.*
+*A long strip of text unrolled across a desk, legible only where
+the lamp falls and lost to shadow at both ends: what sits
+inside, and outside, a model's context window.*
 
 ### Choosing a tool for the task
 
