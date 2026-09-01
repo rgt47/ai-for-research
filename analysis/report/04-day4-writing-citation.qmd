@@ -464,9 +464,12 @@ the solution.
    disclosure policy for a journal in your field. Summarize it
    in two sentences.
 
-5. **Write a disclosure statement.** For the paragraph from
-   Problem 2, write the disclosure statement you would include
-   in a manuscript's methods or acknowledgments section.
+5. **Write a disclosure statement.** For the AI-revised
+   paragraph you produced in Problem 2, write the disclosure
+   statement you would include in a manuscript's methods or
+   acknowledgments section. Record the specific correction you
+   made there, since that detail is what shows the review
+   actually happened.
 
 6. **Name a writing task you would not delegate.** Describe a
    part of a manuscript (for example, the interpretation of a
@@ -554,8 +557,8 @@ manuscript, but it must be noted in the cover letter
 [@springernature2024ai]. Compare whatever you found against the
 ICMJE and COPE baselines [@icmje2025ai; @cope2023authorship].
 
-**Problem 5.** A usable statement for the paragraph from
-Problem 2:
+**Problem 5.** A usable statement for the AI-revised paragraph
+from Problem 2:
 
 > The authors drafted all text in this manuscript. [Tool name
 > and version] was used to revise selected paragraphs of the

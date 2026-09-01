@@ -446,7 +446,10 @@ the solution.
 2. **Audit an existing draft.** Apply the pre-submission
    checklist to a manuscript or report you have drafted with
    any AI assistance. List what passed and what needed
-   correction.
+   correction. If you have no AI-assisted draft on hand, audit
+   any recent draft of your own as though it were one, which
+   tests the checklist itself and usually surfaces at least one
+   unverified citation regardless.
 
 3. **Write a project-level disclosure statement.** Using the
    provenance log from Problem 1, write a disclosure statement
@@ -524,6 +527,12 @@ Item 5 rarely fails, and it still merits the minute it takes.
 Item 6 is worth checking with your co-authors rather than
 against your own memory alone. A complete answer states what you
 corrected, and not merely what failed.
+
+If you audited a draft written without AI assistance, items 2
+through 6 will pass trivially, and item 1 will not. Citation
+verification is a scholarly obligation independent of how the
+draft was produced, which is the point of running the checklist
+on an unassisted draft at all.
 
 **Problem 3.** A statement built from the log in Problem 1:
 
