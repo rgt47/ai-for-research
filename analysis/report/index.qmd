@@ -1,0 +1,78 @@
+# Welcome {.unnumbered .unlisted}
+
+This is the online version of **Leveraging AI Tools for
+Academic Research: A One-Week Boot Camp** by The rgtlab
+Curriculum Project, a short workshop for faculty researchers
+who run their own grant-funded projects, teach and supervise
+students, and want AI tools to make that whole workload faster
+without making it riskier.
+
+The primary payoff of this week is speed: compiling a working
+bibliography in minutes instead of hours, scaffolding a
+reproducible project skeleton in one prompt instead of an
+afternoon, and turning a scattered set of notes into a
+structured outline through a short dialog rather than a blank
+page. The book covers those efficiency techniques directly,
+alongside the verification and disclosure discipline
+(recognizing hallucination and fabricated citations, reviewing
+AI-generated code, protecting confidentiality, and disclosing
+AI use honestly) that keeps the speed from costing a
+retraction, a misconduct finding, or a withdrawn grant. That
+discipline matters, but it is in service of the efficiency, not
+the other way around: a faculty researcher takes this workshop
+to get more done in a week with the same number of hours, and
+reads the risk material because working fast on someone else's
+terms (a journal's, a funder's, an IRB's) is not actually fast
+if the work has to be redone. The book is designed for **five
+consecutive days** of work: one hour of lecture content each
+day, two hours of homework, no examinations.
+
+The organizing principle is that AI tools are accelerants,
+not replacements, for the judgment a researcher already
+exercises. Every chapter opens with a concrete research task,
+develops the AI-assisted technique that addresses it, and
+returns to the task to judge what the technique did and did
+not solve, including where it can mislead. An
+[appendix](appendix-faculty.qmd) extends this discipline into
+three roles specific to faculty life that the five-day
+curriculum does not otherwise cover: writing grant proposals
+under funder-specific AI rules, setting AI policy for one's own
+students, and resolving AI-related authorship questions with
+one's own trainees.
+
+The workshop is a companion to the rgtlab curriculum
+sequence:
+
+- **R for Biostatistics: A One-Week Boot Camp**
+  (<https://r-bootcamp.rgtlab.org>), the preparatory volume
+  for R.
+- [*Git and GitHub for
+  Biostatistics*](https://git-bootcamp.rgtlab.org), the
+  preparatory volume for version control.
+- [*Biostatistics Practicum*](https://practicum.rgtlab.org),
+  workflow infrastructure (Git in depth, Docker, renv,
+  Quarto, CDISC), which this workshop draws on for
+  reproducibility practice.
+- [*Reproducible Research for the Health
+  Sciences*](https://reproducibility.rgtlab.org), the
+  reproducibility volume that this workshop's final chapter
+  extends to cover AI provenance specifically.
+
+A reader who has completed *R for Biostatistics* and *Git and
+GitHub for Biostatistics* arrives at this workshop ready to
+use AI tools inside an already-versioned, reproducible
+research workflow.
+
+See the [Preface](preface.qmd) for the design rationale
+and the [Conventions](conventions.qmd) page for visual
+cues.
+
+## License
+
+This book is licensed under
+[Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+Code samples are licensed under
+[Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/),
+i.e. public domain.

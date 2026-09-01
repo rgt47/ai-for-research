@@ -1,0 +1,328 @@
+# Appendix: Considerations for Faculty and Principal Investigators {.unnumbered}
+
+![](images/appendix-hero.jpg){fig-alt="Three different hats hanging side by side on separate wooden hooks in a dim hallway" style="width:100%"}
+
+*Three hats on three hooks in one hallway: a faculty researcher
+is an author, an instructor, and a supervisor, and each role
+carries its own AI-use obligations.*
+
+The five days of this workshop are written from the standpoint
+of a researcher acting as an author: writing, coding, reviewing
+literature, and publishing. A faculty member holds three further
+roles that the daily curriculum does not address directly, each
+of which carries its own AI-use considerations: writing grant
+proposals under a funder's specific rules, setting AI policy for
+the students and trainees they teach, and supervising the
+research (and resolving the authorship questions) of graduate
+students and postdocs who are themselves using AI tools. This
+appendix extends the workshop's verify-and-disclose discipline
+into those three roles.
+
+## Grant writing and funder-specific AI policy
+
+Day 5's ethics section covers the *reviewer* side of grant
+funding: NIH's outright prohibition on generative AI in its
+peer-review process, adopted to protect the confidentiality of
+applicants' unpublished ideas [@nih2023genai]. The *applicant*
+side of the same funding relationship carries a separate and, as
+of this writing, still-evolving set of rules that a faculty PI
+needs to track independently, because it governs the proposal
+they are drafting, not the proposal they are reviewing.
+
+The National Science Foundation requires, as of PAPPG 24-1
+(effective for proposals due on or after May 20, 2024), that a
+proposer disclose the extent and manner of any generative AI use
+in preparing the proposal [@nsf2024pappg]. A later supplement,
+effective December 8, 2025, sharpened the stakes considerably:
+NSF's research-misconduct definition was amended to explicitly
+cover fabrication, falsification, or plagiarism committed
+through the use or assistance of AI-based tools
+[@nsf2025misconduct]. That amendment matters because it removes
+any ambiguity about whether AI-assisted misconduct is treated
+differently from misconduct committed unaided; it is not. A
+proposer who submits AI-fabricated preliminary data or an
+AI-fabricated citation is exposed to the same research-misconduct
+process as a proposer who fabricated it by hand.
+
+NIH's applicant-side policy, issued July 17, 2025 as
+NOT-OD-25-132 ("Supporting Fairness and Originality in NIH
+Research Applications"), takes a stricter substantive line than
+NSF's disclosure-based approach: NIH states it will not consider
+an application, or a section of one, that is "substantially
+developed by AI" to be the applicant's original idea, requires
+disclosure of AI-generated content, and backs the policy with
+AI-detection technology on submitted applications
+[@nih2025fairness]. The same notice introduced an unrelated but
+simultaneously effective cap of six new, renewal, resubmission,
+or revision applications per principal investigator per calendar
+year, a reminder that funder policy in this area is moving
+quickly enough that a policy read a year ago may already be
+superseded.
+
+The practical implication for a faculty PI is that "I disclosed
+my AI use" is not a uniform, portable compliance step across
+funders the way it functions across journals under ICMJE and
+COPE (Day 5). NSF's rule is a disclosure requirement layered onto
+an unusually explicit misconduct exposure; NIH's rule is closer
+to a substantive cap on how much of the intellectual content can
+be AI-produced at all, regardless of disclosure. A PI who applies
+to both agencies in the same year needs to check each notice
+directly, at proposal-drafting time, rather than assuming a
+disclosure practice adequate for one funder satisfies the other.
+
+### Where the efficiency actually is: boilerplate, not aims
+
+![](images/appendix-boilerplate.jpg){fig-alt="A document tray holding a thick stack of papers in shadow, with one single sheet in front of it lit by a narrow warm spotlight" style="width:100%"}
+
+*A thick stack in shadow beside one sheet under a spotlight: a
+proposal's small core of original argument, surrounded by the
+required material no reviewer scores for creativity.*
+
+NIH's "substantially developed by AI" standard is often read as
+a reason to avoid AI tools in proposal preparation altogether.
+That reading gives up a real and entirely compliant efficiency
+gain, because a competitive proposal is not a uniform document.
+It contains a small core of genuinely original intellectual
+content and a substantial surrounding mass of required,
+low-originality, high-volume material that every application
+needs and no reviewer scores for creativity.
+
+The originality-bearing sections are the ones NIH's policy is
+about: Specific Aims, Significance, Innovation, and the research
+strategy that makes the scientific case. These are the sections
+where an application is judged as the applicant's own idea, and
+they are the ones to draft unaided. The surrounding material is
+different in kind: data-management and sharing plans, facilities
+and other resources, equipment descriptions, biosketch personal
+statements retargeted for each application, authentication of key
+resources, formatting and page-limit compliance checks. This
+material is required, repetitive, largely reused across
+applications, and carries no originality claim. Drafting it from
+prior applications and the specifics of the project at hand is
+exactly the kind of mechanical restructuring task that AI
+assistance handles well, in the same sense as the
+reviewer-response skeleton in Day 4.
+
+Two cautions keep this on the right side of the line. First,
+disclosure obligations attach to the whole application, not only
+to the interesting parts: if the funder requires disclosure of
+the extent and manner of AI use, as NSF does [@nsf2024pappg],
+boilerplate assistance is part of what gets disclosed, and there
+is nothing costly about saying so. Second, "boilerplate" refers
+to the section's *function*, and not to how carefully it must be
+read. A data-management plan is a commitment the institution
+will be held to, and an AI-drafted plan that misstates where
+data will be deposited, or how long it will be retained, creates
+a real compliance problem rather than merely an aesthetic one.
+Delegate the drafting; keep the review.
+
+A useful practical test for whether a given proposal section is
+safe to delegate is the following. If a reviewer would score the
+section as evidence of the applicant's scientific originality, it
+should be drafted unaided. If a reviewer would only check that
+the section is present, complete, and compliant, an AI assistant
+can draft it and the PI can verify it.
+
+## Teaching implications: setting AI policy for students
+
+Every other section of this book treats the reader as an AI
+tool's user. A faculty member is also, simultaneously, the
+person who decides what AI use is permitted in their own
+classroom, and who has to act when a student's AI use crosses
+into academic dishonesty. That role reversal is not a minor
+variation on the material in Days 2 and 4; it is a distinct skill,
+because the faculty member is now applying the verification and
+disclosure judgment this book teaches to *someone else's* work,
+under an institutional academic-integrity process rather than a
+personal writing or research discipline.
+
+In my view, a syllabus AI policy is more useful to students, and
+more defensible in an integrity hearing, when it states
+affirmatively what is permitted rather than only what is
+forbidden, and when it varies by assignment rather than applying
+one blanket rule to an entire course. An instructor who permits
+AI-assisted brainstorming on a problem set but prohibits it on a
+proctored exam needs to say so on each assignment, and should
+not rely on a single course-wide sentence in the syllabus. The
+disclosure-norms discussion in Day 4 applies here in a mirrored
+form. Ambiguity in the instructor's own policy produces exactly
+the same kind of undisclosed, contested AI use discussed in Day
+4's book-deal worked example, except that the faculty member is
+now the one who must adjudicate it rather than the one being
+accused.
+
+When a suspected violation does arise, the same epistemic
+discipline this book has taught throughout applies directly.
+An AI-detection tool's output is evidence, not proof: the same
+false-positive risk documented in Day 4's discussion of the
+contested book-deal case applies to student writing, arguably
+with higher stakes, since a false accusation against a student
+can trigger a formal disciplinary process. A detector score
+warrants the treatment Day 2 recommends for an AI-produced
+citation: it is an unverified claim that must be corroborated
+(through a conversation with the student, a comparison against
+their earlier work, or independent evidence) before it is acted
+upon, and it is not a self-sufficient verdict.
+
+## IRB and human-subjects data in third-party AI tools
+
+Day 5's confidentiality discussion covers uploading an
+unpublished *manuscript or proposal* to a generative AI tool. A
+sharper version of the same risk arises when a faculty PI or a
+member of their research team pastes actual human-subjects
+data, such as raw interview transcripts, identifiable survey
+responses, or clinical notes, into a consumer AI tool to
+summarize, code, or analyze it. This is not merely a
+confidentiality courtesy, as the manuscript case is; for
+IRB-approved human-subjects research, it is a question of
+whether the data handling matches what was disclosed to, and
+approved by, the IRB in the first place.
+
+University guidance on this point is now fairly consistent and
+worth taking at face value rather than assuming it does not
+apply to a "harmless" summarization task. The University of
+Chicago's generative AI guidance prohibits using confidential
+data, explicitly including HIPAA-covered patient data,
+FERPA-covered student data, and not-yet-public research
+findings, with public generative AI tools absent a prior
+security and privacy review [@uchicago2024genai]. Yale's
+guidance for health-sciences research is explicit that a
+vendor's own marketing claim of "HIPAA-compliance" is not
+sufficient on its own; whether a given tool is actually approved
+for HIPAA-covered data is a determination made case-by-case by
+the relevant university and health-system committees, not by
+the tool's own documentation [@yale2024genai]. The practical
+rule that follows from both is straightforward. A
+general-purpose AI tool should never be treated as authorized
+for identifiable human-subjects data unless the institution has
+specifically reviewed and approved that tool for that data, in
+writing, and regardless of what the tool's own privacy page
+claims.
+
+The IRB dimension adds a second, independent problem beyond
+confidentiality. An approved protocol specifies the data-handling
+and data-sharing plan a researcher committed to when the study
+was approved; uploading identifiable data to a third-party AI
+tool not named in that plan is a deviation from the approved
+protocol, reportable to the IRB in most institutions' policies,
+independent of whether any actual harm resulted. A PI running a
+lab should treat this as a supervision responsibility, not only
+a personal one: a graduate student or research assistant who
+pastes interview transcripts into a consumer chatbot to speed up
+a coding pass may not realize they have created a protocol
+deviation, and the PI who set up the project's data-handling
+practices is the person positioned to have prevented it, by
+stating explicitly, before the data is collected, which tools
+(if any) are approved for use on that specific dataset.
+
+## Authorship and credit disputes with trainees
+
+Day 5's authorship discussion, grounded in ICMJE and COPE, settles
+the question of whether an AI tool can be an author (it cannot)
+and states that human authors remain fully responsible for
+AI-assisted content [@icmje2025ai; @cope2023authorship]. It does
+not address a distinct and increasingly common friction point: a
+graduate student or postdoc used an AI tool substantially in
+drafting a paper, running an analysis, or synthesizing
+literature, and the question of how much credit that trainee
+should receive, or how the AI use should be represented in the
+author list and contribution statement, becomes a live
+disagreement between the trainee and their supervisor.
+
+The Contributor Roles Taxonomy (CRediT), a community-owned
+taxonomy of fourteen specific contribution types now used by
+many journals including Elsevier's, was built precisely to
+separate the question "what did each person actually do" from
+the question "who counts as an author," on the premise that
+conflating the two is a recurring source of dispute
+[@credit2022niso]. Applied to a trainee's AI-assisted work, a
+CRediT-style breakdown can state plainly that a given trainee
+performed "formal analysis" and "writing -- original draft" with
+the assistance of an AI tool for literature search and prose
+editing, without that assistance either inflating or erasing the
+trainee's own claim to authorship credit. A recent analysis
+specifically proposes using CRediT to resolve authorship
+disputes at NIH-funded institutions, on the grounds that a
+contribution-based framework gives disputing parties (including
+a trainee and a supervisor who disagree about how much a given
+AI-assisted contribution counts) a shared vocabulary to reason
+from, rather than leaving the disagreement to compete
+unstructured intuitions about what "real" authorship requires
+[@partin2025credit].
+
+The supervisory responsibility this creates is to set the
+expectation before the dispute arises, not after. A PI who
+tells a new graduate student, at the start of a project, which
+AI tools are acceptable for which tasks (matching this book's
+own distinctions: editorial help is generally fine, substantive
+help needs disclosure and scrutiny, as developed in Day 4), and
+who states in advance how AI-assisted contributions will be
+represented in an eventual author-contribution statement, has
+converted a likely late-stage authorship argument into an
+early-stage, low-stakes policy conversation. Waiting until a
+manuscript is nearly finished to discover that a trainee used an
+AI tool far more heavily than the supervisor assumed is the
+predictable consequence of never having stated a policy in the
+first place.
+
+## Reconciling conflicting institutional policies
+
+![](images/appendix-policy.jpg){fig-alt="Four old measuring rulers of different materials laid side by side, their graduated scales visibly not aligning with one another" style="width:100%"}
+
+*Four rulers side by side, their scales not aligning: a journal,
+a university, a funder, and an IRB measuring the same AI use by
+different standards.*
+
+Day 5's homework (Problem 7) asks the reader to compare a single
+venue's AI policy against the ICMJE and COPE baseline. A faculty
+PI running an externally funded human-subjects project is rarely
+governed by a single policy at all: a journal's disclosure
+requirements, the university's own AI-use policy, the funding
+agency's proposal- and award-stage rules, and the IRB's approved
+data-handling plan can all apply to the same piece of work
+simultaneously, and they do not always agree with each other on
+particulars such as where disclosure belongs, how much AI
+assistance is permissible, or which tools are approved for which
+data.
+
+Unfortunately, there is no general legal or professional rule
+that resolves every such conflict automatically. From my
+perspective the workable default, consistent with the
+disclose-generously stance already argued for in Day 4, is to
+comply with whichever applicable policy is most restrictive on
+the specific point in question, and to disclose that this was
+done. If a university policy permits a category of AI use that
+an IRB-approved protocol's data-handling plan does not name, the
+protocol governs for that project's data, because it reflects a
+specific commitment made to research subjects and to the IRB
+rather than a general institutional default. If a funder's
+disclosure requirement is more detailed than a journal's,
+meeting the funder's standard automatically satisfies the
+journal's. The reverse is not guaranteed, so each policy warrants
+an explicit check rather than an assumption that a satisfied
+minimum transfers upward.
+
+The audit habit from Day 5 extends naturally to this problem. For
+a multi-funder or multi-site project, a PI's provenance log
+should record not only what the AI tools did and where, but also
+which policy governed which decision. Several bodies may later
+have a legitimate interest in that answer: a journal editor, a
+program officer, an IRB coordinator, or a university
+research-integrity office. A log of this kind lets the question
+be answered from the record rather than reconstructed under
+pressure. The discipline this workshop teaches for AI use itself
+turns out to generalize to the discipline of managing the AI
+*policies* that govern that use: write it down as it happens,
+and do not wait for a conflict to force the reconstruction.
+
+In conclusion, three points are to be emphasized for the faculty
+reader. First, funder rules are not portable, and a disclosure
+practice adequate for one agency does not establish compliance
+with another. Second, the roles beyond authorship, namely
+instructor and supervisor, are best handled by stating a policy
+in advance rather than adjudicating one after a dispute or a
+protocol deviation has already occurred. Third, when several
+authorities govern the same work, the most restrictive policy on
+the point in question is the safe default, and the record of
+which policy governed which decision belongs in the provenance
+log alongside everything else.

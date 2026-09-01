@@ -1,0 +1,555 @@
+# Day 2: Literature Review and Synthesis with AI Tools {#sec-day2}
+
+![](images/day2-hero.jpg){fig-alt="An index card pulled halfway from a stack of old library cards on a desk" style="width:100%"}
+
+*An index card pulled halfway from a stack of old library cards:
+a literature review, most sources still unchecked.*
+
+> Trust, but verify.
+>
+> Russian proverb (*doveryai, no proveryai*), used
+> repeatedly by U.S. President Ronald Reagan in nuclear
+> arms-reduction talks with Mikhail Gorbachev
+> [@trustbutverify]
+
+## Learning objectives
+
+By the end of this day you should be able to:
+
+- Compile a working bibliography efficiently, from a database of
+  record rather than one-by-one chat prompts, reserving AI tools
+  for discovery and synthesis rather than as the source of the
+  citation itself.
+- Triage a large compiled reference set down to a readable
+  evidence base, checking the discarded papers rather than the
+  kept ones, and extract structured, source-anchored notes from
+  what survives.
+- State the additional constraints that apply when AI-assisted
+  screening is used in a formal systematic review rather than a
+  narrative one.
+- Use an AI tool to accelerate literature search and
+  summarization without accepting its output uncorrected.
+- Verify every AI-produced citation against a primary source
+  before it enters a draft.
+- Synthesize across multiple papers with an AI assistant
+  while preserving genuine disagreement between sources rather
+  than flattening it.
+- Recognize the specific signatures of a fabricated or
+  misattributed citation.
+- Decide when AI-assisted synthesis is and is not appropriate
+  for a given review task.
+
+## Lecture
+
+Literature review is the task in this workshop with the
+clearest efficiency payoff and, done carelessly, the highest
+cost of an unverified error: a fabricated citation that reaches
+a manuscript damages the researcher's credibility directly. The
+two are related rather than opposed, and this chapter opens with
+the technique that delivers both at once.
+
+### Compiling a bibliography efficiently: best practice versus brute force
+
+We begin with the approach most researchers try first. The
+brute-force method of building a bibliography is
+conversational: ask a general-purpose AI assistant, in a chat
+window, "give me some references on topic X," read the result,
+ask for more, and repeat. It feels efficient because each
+individual exchange is fast. Unfortunately, it is not efficient
+at all, for two reasons. It does not scale (each reference costs
+a chat turn, and a literature review needs dozens), and every
+citation it produces is unverified in exactly the sense Day 1
+introduced, generated
+from the model's trained parameters rather than retrieved from
+any actual database, which is precisely the mechanism behind the
+fabrication risk this chapter spends the rest of its time
+addressing.
+
+The efficient alternative is to treat bibliography compilation
+as a database-query problem, not a conversation. Two free,
+keyless services cover most of academic literature. Crossref's
+REST API resolves a title or author query directly against the
+metadata for every DOI it has registered, and returns real
+bibliographic records rather than a model's reconstruction of
+one; content negotiation returns the result directly in
+BibTeX format [@crossref2024api]:
+
+```bash
+curl -s "https://api.crossref.org/works?query.bibliographic=attention+is+all+you+need&rows=1" \
+  | python3 -c "import json,sys; print(json.load(sys.stdin)['message']['items'][0]['DOI'])"
+```
+
+For biomedical literature, the NCBI E-utilities provide the same
+capability against PubMed: `esearch` finds matching record IDs
+and `efetch` retrieves their full metadata, both scriptable
+against dozens or hundreds of records in a single batch rather
+than one chat turn each [@ncbi2024eutils]. A reference manager
+such as Zotero sits on top of the same idea at the interactive
+level: its browser connector and "Add Item by Identifier"
+feature pull a citation directly from the publisher or a DOI,
+not from a chatbot's memory, and its own citation-graph search
+is often faster than typing a natural-language request into a
+chat window at all [@zotero2024].
+
+This does not mean AI tools have no role in literature discovery;
+it means their role is narrower and better-placed than
+originating the citation. A search-augmented AI tool (Day 1) is
+genuinely useful for breadth, surfacing candidate papers or
+search terms the researcher would not have thought to query
+directly. The efficient workflow uses the AI tool for that
+discovery step and then resolves every candidate through
+Crossref, PubMed, or a reference manager before it becomes a
+bibliography entry, rather
+than accepting the AI tool's own citation as the final record.
+Done this way, efficiency and verification are the same action:
+querying a database of record is both faster at scale than
+chatting one reference at a time, and structurally immune to the
+citation-fabrication risk the rest of this chapter addresses,
+because the bibliographic record never passed through the part
+of the AI tool that can hallucinate one.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: bibliography compilation
+
+**Q.** A colleague asks a chatbot for "ten key references" on
+their topic, one at a time across ten separate messages, and
+calls this an efficient use of AI for literature review. What is
+wrong with this assessment, on efficiency grounds alone, before
+even considering the fabrication risk?
+
+**A.** It does not scale: each reference costs a full
+conversational turn, and the same ten (or fifty) references can
+be retrieved from Crossref or PubMed in a single batch query or
+a few reference-manager searches. The conversational approach
+feels efficient locally, per message, but is slower in aggregate
+than querying a database of record directly.
+:::
+
+### From a comprehensive bibliography to a usable evidence base
+
+![](images/day2-triage.jpg){fig-alt="A wooden-framed sieve over a tray, fine gravel fallen through below and a few larger stones retained on the mesh" style="width:100%"}
+
+*A sieve over a tray, most of the gravel fallen through and a few
+stones retained: a comprehensive reference set triaged down to
+the papers worth reading.*
+
+Compiling comprehensively, as the previous section describes,
+creates a problem that used to be a good reason not to do it.
+For most of the history of literature review, breadth was
+self-limiting: a researcher kept the search narrow because every
+additional reference had to be read, and reading was the
+bottleneck. The database-query approach removes the *compilation*
+constraint entirely (a Crossref or PubMed query returns four
+hundred records as easily as forty) without touching the
+*reading* constraint at all. The bottleneck simply moved
+downstream, and that is where the next three techniques apply.
+
+The relationship is worth stating plainly because it inverts an
+old tradeoff. Comprehensive compilation is now cheap, and
+AI-assisted triage makes a large compiled set tractable to work
+through, so the rational strategy shifts from "search narrowly
+to keep the reading manageable" toward "search broadly and
+triage aggressively." That is a genuine methodological
+improvement, not merely a speed gain: a narrow search silently
+risks missing the paper that would have changed the conclusion,
+and no amount of careful reading of the papers actually found
+will surface it. But how trustworthy is the triage step? The
+shift only holds if it can be relied upon, and that is the
+subject of the rest of this section.
+
+**Triaging a reading backlog.** Given a compiled set of
+candidate references (or a stack of PDFs already sitting
+unread), an AI tool can perform a first-pass relevance screen
+against criteria stated explicitly, returning a keep/skip
+decision with a one-line reason for each. The reason matters more
+than the decision: a decision alone is unauditable, while a
+stated reason lets the researcher spot a systematic misreading
+of the criteria that would otherwise silently discard a whole
+category of relevant work.
+
+```prompt
+Task: Screen each of the following abstracts for relevance to my
+review question and return keep or skip for each, with a
+one-sentence reason.
+Context: My question is whether remote work affects promotion
+rates for employees in their first five years of employment.
+[paste abstracts, numbered]
+Constraints: Judge relevance only against my stated question. Do
+not judge study quality. If an abstract is ambiguous about
+whether it addresses my question, mark it keep, not skip.
+Output format: A numbered list: number, keep/skip, reason.
+```
+
+We note the asymmetry built into that prompt's constraints, and
+it should be carried into how the output is checked. A false
+*keep* costs a few minutes of reading and is self-correcting,
+because the irrelevance becomes apparent as soon as the paper is
+opened. A false *skip* is invisible: the paper silently never
+enters the review, and nothing downstream will ever signal its
+absence. So spot-check the *skips*, not the keeps, and instruct
+the tool to resolve ambiguity toward keeping.
+
+**Screening for a systematic review.** The same technique under
+formal systematic-review conditions is a stricter proposition,
+because a systematic review makes a methodological claim about
+its own completeness and reproducibility that a narrative review
+does not. Three constraints follow. The screen must run against
+the protocol's pre-specified inclusion and exclusion criteria
+rather than an informal description; AI screening belongs as one
+pass within a documented dual-screening workflow (a second
+independent screen, human or otherwise, with disagreements
+adjudicated by a human), not as a replacement for it; and the use
+must be reported. PRISMA 2020 already requires that authors
+describe how automation tools were used in the review, including
+in the search, study-selection, and data-collection processes
+[@page2021prisma], which means AI-assisted screening in a
+systematic review is not merely permitted-if-disclosed in the
+general sense developed on Day 1, but falls under an existing,
+specific reporting standard that readers and reviewers will
+expect to have been followed.
+
+**Extracting structured notes from papers.** Once a set is
+triaged down to what will actually be read, the third technique
+converts each paper into consistent structured fields (design,
+population, sample size, outcome measure, effect estimate,
+stated limitations) that can be compared across studies in a
+table rather than recalled from prose. This is where most of the
+downstream synthesis time is actually saved, because a
+comparison table makes the disagreements between studies visible
+in a way that a folder of PDFs never does.
+
+It is also where this chapter's verification discipline applies
+most sharply, because extraction failures are exactly the "real
+paper cited for a claim it does not make" signature described
+below, produced at scale and in a tidy table that looks
+authoritative. The mitigation is to require provenance in the
+extraction itself: instruct the tool to include, for every
+extracted value, the verbatim sentence and section it came
+from. An extracted effect size accompanied by the sentence
+stating it can be checked in seconds; the same number sitting
+alone in a table cell cannot be checked at all without
+re-reading the paper, which defeats the purpose of having
+extracted it.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: triage asymmetry
+
+**Q.** When spot-checking an AI-assisted relevance screen of 300
+abstracts, why should you concentrate your checking effort on
+the papers the tool marked *skip* rather than the ones it marked
+*keep*?
+
+**A.** A false keep is self-correcting (you notice the
+irrelevance as soon as you read the paper) and costs only
+reading time. A false skip is silent and permanent: the paper
+never enters the review, and no later step in your workflow will
+reveal that it is missing. The undetectable error is the one
+worth spending verification effort on.
+:::
+
+### AI-assisted search and summarization
+
+Two different kinds of tool both call themselves useful for
+literature work, and Day 1 already introduced the distinction
+that matters here. A plain general-purpose assistant, asked to
+summarize research on a topic, draws on whatever it absorbed
+during training; it has no live connection to a paper database
+and cannot signal that it is drawing a blank rather than
+recalling accurately. A search-augmented or retrieval-augmented
+tool instead issues a real query against a real corpus (a search
+engine, a paper database, an index the researcher controls) and
+grounds its summary in the documents that query returns
+[@lewis2020rag]. The retrieval step does not make the tool
+infallible, but it changes the nature of the risk: an error in
+a retrieval-augmented summary is more often a misreading of a
+real document than an invention of a nonexistent one, and a
+misreading is far easier to catch by opening the source.
+
+For literature work specifically, prefer a tool that shows
+which documents it drew from over one that does not, even if
+the one that does not is more fluent, for exactly the reason
+Day 1's "Check your understanding: tool choice" made explicit:
+traceability, not polish, is what lets a researcher convert an
+unverified claim into a verified one.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: search-augmented tools
+
+**Q.** A retrieval-augmented literature tool cites a real,
+existing paper, but the specific claim it attributes to that
+paper is not actually in it. Is this the same failure mode as
+a general-purpose assistant fabricating a nonexistent citation?
+
+**A.** No, though both need to be caught the same way,
+by verification. Retrieval reduced the risk of inventing a
+citation, but it did not remove the risk of misreading or
+overstating what a real, retrieved source actually says. A
+citation existing is necessary for it to be usable; it is not
+sufficient.
+:::
+
+### Verifying citations against primary sources
+
+Every citation an AI tool produces is unverified, in the
+sense defined on the Conventions page, until the researcher has
+checked it against a primary source. The check itself is
+mechanical and fast: confirm the title, author list, year, and
+venue against a database of record such as PubMed, Crossref
+(which resolves DOIs), or a publisher's own site, rather than
+trusting a search-engine snippet or the AI tool's own
+restatement of the citation. A citation that resolves to a real
+DOI and a real author list is not yet fully verified: the last
+step is opening the source and confirming it actually supports
+the specific claim attached to it, not merely that the citation
+exists.
+
+This is not a pedantic extra step. In *Mata v. Avianca*,
+introduced on Day 1, the fabricated citations had the surface
+form of real case law: plausible party names, plausible
+citation formatting, invented but internally consistent
+quotations [@mata2023avianca]. Nothing about how the citation
+*looked* distinguished it from a real one; only checking it
+against the actual case reporter did. The same is true of a
+fabricated academic citation: format is not evidence of
+existence.
+
+::: {.callout-tip}
+## Tip
+
+Verify citations as you receive them, not in a batch at the end
+of a writing session. A citation is cheapest to check the
+moment you have it in front of you and cannot yet remember why
+you believed it; it is most expensive to check after it has
+already shaped three paragraphs of argument built on top of it.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: verification
+
+**Q.** An AI tool gives you a citation with a real author, a
+real journal, and a plausible year, but the DOI it provides
+resolves to a different paper by the same author. What should
+you conclude?
+
+**A.** Treat the citation as unverified and search the
+database directly by title and author rather than trusting the
+provided DOI; a mismatched DOI is a specific, checkable
+signature that something in the citation was reconstructed
+rather than retrieved, discussed further below.
+:::
+
+### Synthesizing across papers without flattening disagreement
+
+Asked to synthesize several papers, an AI tool has a structural
+tendency to produce a smooth, well-organized narrative, because
+that is what its training rewards, and a smooth narrative is
+often achieved by averaging over disagreement rather than
+stating it. Two papers that reach opposite conclusions on the
+same question can come back from a naive synthesis prompt as a
+single hedged sentence that represents neither paper's actual
+finding.
+
+We counteract this tendency by prompting for disagreement
+explicitly rather than hoping the tool preserves it on its own:
+
+```prompt
+Task: Compare the findings of these two papers on <topic>.
+Context: [paste abstracts or key sections of both papers]
+Constraints: Do not average or split the difference between
+conflicting findings. If the papers disagree, state the
+disagreement explicitly: what each paper found, and one
+plausible reason (different population, different method,
+different time period) the findings might differ.
+Output format: A short table, one row per paper, columns for
+finding, method, and population; followed by one paragraph
+naming the disagreement if one exists.
+```
+
+A synthesis that says "the evidence is mixed" without saying
+what the actual conflicting findings were has quietly discarded
+the information a literature review exists to preserve.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: synthesis
+
+**Q.** Why is a bland, uniformly hedged synthesis ("results are
+mixed," "further research is needed") a warning sign rather
+than a neutral summary?
+
+**A.** Because it is exactly the shape a smoothing-over of real
+disagreement takes: it is easier for the model to produce than
+naming which specific studies conflict and why, and it discards
+the comparative information a synthesis is supposed to
+preserve.
+:::
+
+### Recognizing a fabricated citation
+
+![](images/day2-mid.jpg){fig-alt="A magnifying glass held over an aged library index card, its printed lines dissolving into a smudge" style="width:100%"}
+
+*A magnifying glass held over a library card, its printed lines
+dissolving into a smudge under close inspection: a citation that
+looks right until it is examined.*
+
+A handful of concrete signatures recur across documented cases
+of fabricated or misattributed AI citations [@academai2024;
+@mata2023avianca]:
+
+- **A plausible-sounding author, journal, or case name that
+  does not resolve** to any real record in a database of
+  record, even though it sounds exactly like a real one for the
+  subfield.
+- **Mismatched or shifted bibliographic details**: a real
+  paper's title paired with the wrong year, wrong volume, or an
+  author list that has been reordered or altered.
+- **A real paper cited for a claim it does not make.** The
+  citation exists and is correctly formatted; the specific
+  factual claim attached to it is not actually in the source.
+  This is the hardest signature to catch by database lookup
+  alone, since the citation itself checks out; catching it
+  requires reading the source.
+- **Suspiciously perfect support.** A citation that appears to
+  confirm the hypothesis exactly, with no caveats, on a topic
+  where the real literature is actually contested, merits
+  extra scrutiny; real findings are rarely that clean.
+
+None of these signatures is a substitute for the verification
+workflow above; they are what to look for when deciding where
+to spend limited verification effort first.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: signatures
+
+**Q.** Which of the four signatures above survives a database
+lookup and therefore requires reading the actual source to
+catch?
+
+**A.** "A real paper cited for a claim it does not make." The
+citation itself resolves correctly in any database; only
+opening the paper reveals that it does not support the claim
+attached to it.
+:::
+
+## Further reading
+
+- Crossref REST API documentation [@crossref2024api] and NCBI
+  E-utilities documentation [@ncbi2024eutils]. The two database
+  APIs behind this chapter's bibliography-compilation technique;
+  worth reading once to see the full range of queryable fields
+  beyond title and author.
+- Page, M. J. et al. (2021). The PRISMA 2020 Statement. *BMJ*
+  372:n71 [@page2021prisma]. Read item-level guidance on
+  reporting automation tools before using AI-assisted screening
+  in any review that claims to be systematic.
+- *Mata v. Avianca, Inc.*, 678 F. Supp. 3d 443 (S.D.N.Y. 2023)
+  [@mata2023avianca]. The primary legal record of a real,
+  professionally costly fabricated-citation incident.
+- Academ-AI project (2024). Documenting the Undisclosed Use of
+  Generative Artificial Intelligence in Academic Publishing
+  [@academai2024]. An ongoing effort to catalog real instances
+  of undisclosed AI use and fabricated content reaching
+  published academic work.
+- Lewis, P. et al. (2020). Retrieval-Augmented Generation for
+  Knowledge-Intensive NLP Tasks [@lewis2020rag]. Revisit this
+  from Day 1 for the technical basis of why search-augmented
+  tools are the safer default for literature work.
+- ICMJE, *Recommendations: Artificial Intelligence*
+  [@icmje2025ai]. Read the passage on authors' responsibility
+  to assert the absence of plagiarism in AI-produced text and
+  images, previewed here and developed fully in Day 5's ethics
+  section.
+
+## Worked example: reviewing AI-assisted summaries of five papers
+
+![](images/day2-example.jpg){fig-alt="Five folders fanned on a table, four clipped in green and one in red" style="width:100%"}
+
+*Five folders fanned on a table, four clipped in green and one in
+red: a five-paper review, four verified and one set aside.*
+
+To illustrate, consider an AI research-search tool that has
+produced one-paragraph summaries of five papers relevant to a
+review, each with a citation. Before any of the five summaries
+enters the draft, we work through them with the discipline this
+chapter has built:
+
+1. **Resolve each citation independently.** For each of the
+   five, look up the title and author list in a database of
+   record. Suppose four resolve cleanly and the fifth's DOI
+   points to a different paper by the same last author, one of
+   the signatures from above.
+2. **Mark the fifth unverified and set it aside**, rather than
+   silently correcting the DOI and moving on. Either find the
+   paper the summary actually describes by searching the title
+   directly, or drop the claim if you cannot locate a source
+   that matches it.
+3. **Spot-check the four verified summaries against their
+   sources**, not just their existence. Suppose paper 3's
+   summary states a stronger causal claim than the paper's own
+   abstract does; that is the "real paper cited for a claim it
+   does not make" signature, and the fix is to revise the
+   summary to match what the paper actually says, not to drop
+   the citation.
+4. **Ask for a synthesis across the four now-verified papers**,
+   using the disagreement-preserving prompt structure above,
+   rather than the original five.
+
+What enters the draft is now four claims personally verified
+against their sources, one flagged and excluded citation, and a
+synthesis built only from material the researcher can
+stand behind. That is a slower process than accepting the
+tool's first output, and it is the entire point of this
+chapter: the AI tool's speed is real, and so is the requirement
+that a human close the loop before anything reaches a
+manuscript.
+
+## Homework
+
+Attempt each problem in your own environment before checking
+the solution.
+
+1. **Request a literature summary.** Ask an AI tool to
+   summarize the state of research on a narrow topic in your
+   field, with citations. List the citations it produced.
+
+2. **Verify every citation.** For each citation from Problem 1,
+   confirm it exists (title, authors, year, venue) using a
+   primary database. Report how many verified and how many did
+   not.
+
+3. **Find a flattened disagreement.** Ask an AI tool to
+   synthesize two papers you know take different positions.
+   Did the synthesis preserve the disagreement or blur it?
+
+4. **Draft a verification checklist.** Write a short checklist
+   you would apply to any AI-produced bibliography before using
+   it in a manuscript.
+
+5. **Compare AI synthesis to your own reading.** For one paper
+   you have read carefully, compare an AI-generated summary of
+   it against your own understanding. Note any distortion.
+
+6. **Decide a boundary case.** Describe a literature-review
+   task you would not delegate to an AI tool even for a first
+   pass, and explain why.
+
+## Solutions
+
+**Problem 1.** Placeholder.
+
+**Problem 2.** Placeholder.
+
+**Problem 3.** Placeholder.
+
+**Problem 4.** Placeholder.
+
+**Problem 5.** Placeholder.
+
+**Problem 6.** Placeholder.
+
+## What's next
+
+Day 3 turns from prose to code. We shall apply the same
+verify-before-trust discipline to AI-assisted coding and data
+analysis, where the failure mode shifts from fabricated
+citations to code that runs and looks correct while silently
+mishandling the data.

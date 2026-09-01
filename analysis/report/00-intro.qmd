@@ -1,0 +1,101 @@
+# How to use this book {.unnumbered}
+
+We begin with a short orientation. In this chapter we set
+out the daily cadence, the chapter template, and the
+conventions used throughout, so that the reader knows what
+to expect.
+
+## The daily cadence
+
+Each day has the same shape:
+
+- **Lecture content (~1 hour).** Read the chapter, trying each
+  prompt against an AI tool of your choice as you encounter
+  it. Do not skip the exercises; the chapter is designed to be
+  read with an AI assistant open and a real (or scratch)
+  research task at hand.
+- **Homework (~2 hours).** Five to eight problems, with worked
+  solutions at the end of the chapter. Attempt each problem
+  before checking the solution.
+
+The cadence assumes one chapter per day for five consecutive
+days. The workshop may be compressed (two chapters per day
+across two-and-a-half days) or expanded (one chapter per week
+across a month) depending on the reader's other commitments;
+we leave the choice to the reader.
+
+## Chapter template
+
+Each chapter follows the same template, and we shall keep to
+it consistently:
+
+1. **Learning objectives.** A bulleted list of what the reader
+   should be able to do by the end of the day.
+2. **Lecture.** The substantive content for the day, with
+   prompts to try and outputs to evaluate. Each major
+   subsection ends with a short **Check your understanding**
+   callout.
+3. **Further reading.** The primary sources behind the
+   chapter's claims: papers, court records, incident reports,
+   and policy documents, so the reader can verify a claim
+   rather than take the book's word for it.
+4. **Worked example.** A small but realistic research scenario
+   that uses the day's content end to end.
+5. **Homework.** Problems organized from easier to harder.
+6. **Solutions.** Worked solutions to all homework problems.
+   Read only after attempting the problem.
+
+There are no examinations in this book. The per-subsection
+check-your-understanding callouts are low-stakes
+comprehension checks, not graded quizzes; the homework
+solutions remain the primary vehicle for self-assessment.
+
+## A note on scope
+
+This book concerns the effective, efficient, and responsible use
+of existing AI tools within an active research project, and we
+mean that in order of emphasis. Each day leads with a concrete
+technique for getting research work done faster, and follows it
+with the verification and disclosure judgment that keeps the
+speed from costing more time than it saved.
+
+We do not teach how such tools are built, and we treat no single
+vendor's tool as the subject. Both the efficiency techniques and
+the verification judgment presented here apply regardless of
+which large language model or coding assistant the reader
+adopts. Where an example names a specific tool (Claude, ChatGPT,
+Claude Code, GitHub Copilot), it does so for concreteness, not
+endorsement.
+
+## Conventions
+
+The visual cues used throughout the book are described on the
+[Conventions](conventions.qmd) page. In brief:
+
+- A command the reader types follows a `$` prompt; output has no
+  prompt.
+- Prompts sent to an AI tool appear in `prompt` blocks; tool
+  responses appear in `response` blocks.
+- Claims about AI output are marked **verified** or
+  **unverified**.
+- Placeholders the reader replaces are written in
+  `<angle-brackets>`.
+
+## Companion volumes
+
+This workshop sits within the rgtlab curriculum sequence. The
+two preparatory boot camps precede it, and two related volumes
+extend its reproducibility material:
+
+- *R for Biostatistics*
+  (<https://r-bootcamp.rgtlab.org>)
+- *Git and GitHub for Biostatistics*
+  (<https://git-bootcamp.rgtlab.org>)
+- *Biostatistics Practicum*
+  (<https://practicum.rgtlab.org>)
+- *Reproducible Research for the Health Sciences*
+  (<https://reproducibility.rgtlab.org>)
+
+Day 5 describes how the provenance and disclosure material
+here connects to *Git and GitHub for Biostatistics* and to
+*Reproducible Research for the Health Sciences*.

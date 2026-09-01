@@ -1,0 +1,192 @@
+# Preface {.unnumbered}
+
+This volume is a one-week workshop for faculty researchers. We
+have in mind the reader who runs a grant-funded project,
+publishes under their own name, and usually teaches and
+supervises trainees as well, and who wants AI tools to make that
+entire workload faster. We assume an active researcher, not a
+beginner to research itself. Where a general-audience book would
+teach prompting from nothing, this one teaches specific
+techniques for getting real research work done faster (compiling
+a bibliography, scaffolding a project, drafting an outline),
+together with the judgment that keeps that speed from costing
+the researcher a retraction, a misconduct finding, or a
+withdrawn grant. The goal is a working, disciplined practice,
+not a tour of features.
+
+The design constraint is deliberate: five lectures, ten hours of
+homework, and the reader finishes the week doing the same
+research work in substantially less time, while knowing precisely
+where the tools that bought that speed are reliable and where
+they are not.
+
+## Efficiency first, discipline in service of it
+
+The primary reason to take this workshop is speed, not safety.
+A faculty researcher juggling grant deadlines, a teaching load,
+and a lab full of trainees does not have a spare afternoon to
+hand-assemble a bibliography one reference at a time, or to
+scaffold a new project's directory structure from memory, or to
+stare at a blank page until an argument's shape appears. Each day
+of this workshop presents a specific technique for doing that
+work faster: batch-compiling a working bibliography from a
+database of record instead of one-by-one chat prompts (Day 2);
+using a coding assistant to bootstrap a reproducible project
+skeleton instead of copying one by hand (Day 3); and building a
+structured outline through a short clarifying dialog instead of
+drafting blind (Day 4).
+
+Unfortunately, none of that speed is worth much if the work has
+to be redone. That is the entire reason this book also treats
+the recognition of hallucination and fabricated citations, the
+review of AI-generated code, the protection of confidentiality,
+and the honest disclosure of AI use. Safety is not the point of
+the week. The point is that a faculty researcher who works fast
+on a journal's, a funder's, or an IRB's terms, and who then has
+to retract a citation, redo an analysis, or explain an
+undisclosed AI contribution, has not actually saved any time at
+all. We may consider three frictions that make this concrete:
+
+- A literature-review assistant can fabricate plausible
+  citations that do not exist, and the fabrication is
+  invisible unless every citation is checked against a
+  primary source, which is exactly why Day 2 teaches querying a
+  database of record directly rather than trusting a chatbot's
+  free-text citation list in the first place.
+- A coding assistant can produce code that runs and looks
+  correct while silently mishandling edge cases, missing
+  data, or unit conversions, which is why Day 3 pairs the
+  scaffolding technique with a review habit for anything the
+  assistant writes beyond the skeleton itself.
+- A writing assistant can smooth prose into a voice that is
+  not the author's, and journals increasingly require explicit
+  disclosure of where AI assistance was used, which is why
+  Day 4's outlining technique keeps the AI's role bounded to
+  structure while the argument stays the author's own.
+
+The verification and disclosure habits in this book are the
+guardrails that make the efficiency gains sustainable across an
+entire career, not a tax on using AI tools at all.
+
+## What this book covers
+
+We proceed over five days, one chapter each. We begin in Day 1
+with the foundations, turn in Days 2 through 4 to the three
+efficiency techniques that give the week its payoff, and close
+in Day 5 with the provenance and disclosure practice that makes
+the whole arrangement defensible:
+
+1. **Foundations: how LLMs work and where they fit in
+   research.** What a large language model does and does not
+   do; tokens, context windows, and hallucination as a
+   structural property, not a bug; choosing a tool for a task;
+   the shape of a good prompt.
+2. **Literature review and synthesis with AI tools.**
+   Compiling a working bibliography efficiently, from a database
+   of record rather than one-by-one chat prompts; AI-assisted
+   search and summarization; verifying citations against primary
+   sources; synthesizing across papers without flattening
+   disagreement; the specific risk of fabricated references and
+   how to catch it.
+3. **AI-assisted coding and data analysis.** Scaffolding a
+   reproducible project skeleton with a coding assistant such as
+   Claude Code or GitHub Copilot; working with a coding assistant
+   more generally; reviewing AI-generated code for correctness,
+   not just plausibility; using AI to accelerate data cleaning
+   and exploratory analysis while keeping a human in the loop for
+   inference.
+4. **Writing, editing, and citation management with AI.**
+   Generating a structured outline through chatbot dialog before
+   drafting any prose; drafting and revising with AI assistance
+   while preserving the author's argument and voice;
+   reference-manager integration; what journals currently
+   require for AI-use disclosure.
+5. **Reproducibility, provenance, and responsible use in
+   publication.** Recording what AI tools did in a project;
+   version-controlling prompts and AI-assisted artifacts
+   alongside code; disclosure norms and venue policies;
+   a checklist for auditing a finished manuscript for
+   undisclosed or unverified AI contributions.
+
+An appendix extends Day 5's discipline into three roles specific
+to faculty life: grant writing under funder-specific AI rules,
+setting AI policy for one's own students, and resolving
+AI-related authorship and credit questions with one's own
+trainees.
+
+Each chapter is approximately 1 hour of reading and worked
+examples plus 2 hours of homework problems with worked
+solutions provided.
+
+## What this book does not cover
+
+The book deliberately omits, and points elsewhere for,
+material that surrounds AI-assisted research but is not the
+subject of this workshop itself:
+
+- Learning R, Python, or statistics from scratch. We assume
+  the reader arrives already doing research in some
+  discipline. See *R for Biostatistics*.
+- Version control with Git and GitHub. Day 5 uses Git to track
+  AI-assisted work, but does not teach it. See *Git and GitHub
+  for Biostatistics*.
+- Containerized and dependency-pinned reproducibility in depth
+  (validated pipelines, multi-container orchestration, renv at
+  the scale of a large team). Day 3 covers using an AI assistant
+  to bootstrap a basic renv/Docker project skeleton; the deeper
+  practice sits in the *Biostatistics Practicum* and
+  *Reproducible Research for the Health Sciences*.
+- Building or fine-tuning language models. We use existing
+  tools as a researcher would, not as a model developer would.
+
+The workshop is intentionally narrow. The reader finishes Day
+5 able to use AI tools across a real research project while
+keeping the work verifiable, attributable, and reproducible.
+
+## How this book is meant to be used
+
+The five-day cadence is the spine. A reader starting the week
+using AI tools informally can finish the week with a
+disciplined, disclosed, and reproducible practice. The cadence
+assumes roughly 3 hours of focused work per day:
+
+- **Hour 1:** Read the chapter, running every example against
+  an AI tool of your choice as you reach it. The judgment this
+  book teaches is learned by checking real outputs, not by
+  reading about them.
+- **Hours 2-3:** Complete the homework problems. Solutions are
+  at the end of each chapter; check yourself only after
+  attempting each problem.
+
+The examples in this book are tool-agnostic where possible and
+note tool-specific behavior where it matters.
+
+## Prerequisites
+
+The book assumes:
+
+- Active involvement in an academic research project, in any
+  discipline.
+- Access to at least one general-purpose AI assistant (for
+  example Claude or ChatGPT) and, for Day 3, a coding
+  assistant.
+- Basic familiarity with the command line: opening a terminal,
+  changing directories with `cd`, listing files with `ls`.
+
+Prior completion of *R for Biostatistics* and *Git and GitHub
+for Biostatistics* is helpful for Day 3 and Day 5, since the
+worked examples assume a version-controlled project, but
+neither is strictly required; the AI-use judgment this book
+teaches is independent of the specific tools used to manage
+the underlying project.
+
+## Acknowledgments
+
+This workshop consolidates patterns developed while
+integrating AI tools into ongoing research and teaching work.
+The documentation for the AI tools in current use, and the
+emerging literature on AI-use disclosure in scholarly
+publication, provide the technical scaffolding; the workshop
+pedagogy reflects experience with what a working researcher
+actually needs in order to use these tools well, as distinct
+from the full capabilities of any one tool.

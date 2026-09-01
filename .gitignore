@@ -1,0 +1,36 @@
+# Quarto
+_book/
+.quarto/
+/.quarto/
+_freeze/
+**/*.quarto_ipynb
+*.html
+!nav-toggle.html
+*.pdf
+
+# LaTeX intermediates left behind by the PDF render
+*.aux
+*.log
+*.toc
+*.out
+Rplots.pdf
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+inst/doc
+
+# renv
+renv/library/
+renv/staging/
+
+# zzcollab
+.make/
+.zzcollab.log
+
+# OS / editors
+.DS_Store
+node_modules/

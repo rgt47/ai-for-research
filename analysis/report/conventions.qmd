@@ -1,0 +1,114 @@
+# Conventions {.unnumbered}
+
+This page summarizes the visual conventions used throughout
+the book.
+
+## Commands and output
+
+This book mixes terminal commands, AI prompts, and document
+source. Shell commands appear in syntax-highlighted blocks. A
+command the reader types is shown after a `$` prompt; the
+prompt itself is not typed. Output appears on the following
+lines, without a prompt:
+
+```bash
+$ claude --version
+1.5.0
+```
+
+Prompts sent to an AI tool are shown in fenced blocks labeled
+`prompt`; the tool's response, where shown, follows in a
+fenced block labeled `response`:
+
+```prompt
+Summarize the methods section of the attached paper in
+three sentences, and flag any claim that is not supported
+by a citation.
+```
+
+```response
+The paper uses a stepped-wedge cluster-randomized design
+across six sites... [response abbreviated for illustration]
+```
+
+Inline commands, file names, and tool names are set in
+`monospace`. Placeholders that the reader must replace with
+their own values are written in angle brackets, for example
+`claude "<your prompt here>"`. The angle brackets are not
+typed.
+
+## Callouts
+
+Three callout types appear:
+
+::: {.callout-tip}
+## Tip
+
+A small practical recommendation.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: example
+
+A short question testing comprehension of the just-read
+material. Click to expand the answer.
+:::
+
+::: {.callout-warning}
+## Warning
+
+A pitfall the reader may otherwise hit, most often a place
+where an AI tool's output looks correct but is not.
+:::
+
+## Verification markers
+
+Because this book is about judgment as much as mechanics, we
+mark claims about AI output explicitly:
+
+- **Verified** means the reader (or the author) checked the
+  claim against a primary source or by running the code.
+- **Unverified** means the claim is exactly as the AI tool
+  produced it and has not yet been checked.
+
+This distinction recurs throughout the book, most heavily on
+Day 2 (citations) and Day 3 (code).
+
+## Cross-references
+
+Within this book, sections are referenced by their Quarto
+label (`@sec-day1`, `@sec-verification`). These resolve to
+clickable links in HTML and section numbers in PDF.
+
+References to the companion volumes *R for Biostatistics*,
+*Git and GitHub for Biostatistics*, and the *Biostatistics
+Practicum* use **prose pointers** rather than Quarto
+cross-references, because cross-references do not resolve
+across separate books. For example: 'see the version-control
+chapter of the companion *Git and GitHub for Biostatistics*
+volume'.
+
+## Chapter structure
+
+Every content chapter follows the same template:
+
+1. **Learning objectives.** What the reader will be able to do
+   after the day.
+2. **Lecture.** The substantive content, with prompts to try
+   and outputs to evaluate in the reader's own environment as
+   the chapter proceeds. Each major subsection ends with a
+   short **Check your understanding** callout (see above);
+   attempt it before moving on.
+3. **Further reading.** The primary sources, studies, and
+   documented incidents behind the chapter's claims, so that a
+   claim in this book is never the end of the trail. Follow
+   these before taking any claim on this book's word alone.
+4. **Worked example.** A small but realistic research scenario
+   that uses the day's content end to end.
+5. **Homework.** Problems organized from easier to harder.
+6. **Solutions.** Worked solutions to all homework problems.
+   Read only after attempting the problem.
+
+Each chapter closes with a short **What's next** pointer. The
+pattern repeats deliberately; by the third chapter the reader
+knows where to find each component without looking.

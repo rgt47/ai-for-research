@@ -1,0 +1,419 @@
+# Day 3: AI-Assisted Coding and Data Analysis {#sec-day3}
+
+![](images/day3-hero.jpg){fig-alt="A circuit board lit in violet with a few isolated amber points glowing" style="width:100%"}
+
+*A circuit board lit in violet with a few isolated amber points
+glowing: code under review, not merely code that runs.*
+
+> Program testing can be used to show the presence of bugs, but
+> never to show their absence!
+>
+> Edsger W. Dijkstra, *Notes on Structured Programming*
+> [@dijkstra1970testing]
+
+## Learning objectives
+
+By the end of this day you should be able to:
+
+- Use a coding assistant to bootstrap a reproducible project
+  skeleton (directory structure, dependency lockfile, container
+  definition) as an efficient, low-risk delegation.
+- Use a coding assistant such as Claude Code or GitHub
+  Copilot productively within an existing research codebase.
+- Review AI-generated code for correctness, not merely for
+  whether it runs.
+- Use AI assistance to accelerate data cleaning and
+  exploratory analysis while keeping inferential decisions
+  under human control.
+- Identify edge cases and silent failure modes that an AI
+  coding assistant is prone to miss.
+- Decide when to accept, revise, or reject AI-generated code.
+
+## Lecture
+
+Code that runs is not the same as code that is correct, and we
+shall treat AI-generated code here the way a careful reviewer
+treats a collaborator's pull request: useful, often correct, and
+never exempt from review. That review burden is not uniform
+across tasks, however, and we begin with the task that carries
+the least of it.
+
+### Scaffolding a reproducible project with an AI coding assistant
+
+![](images/day3-scaffold.jpg){fig-alt="A timber frame of a small building at dusk, structurally complete but empty, lit from within by a single work light" style="width:100%"}
+
+*A timber frame at dusk, structurally complete but empty: a
+project skeleton is worth delegating precisely because its
+correct shape is known in advance.*
+
+We note at the outset that not every coding task an AI assistant
+can help with carries the same review burden. The later sections
+of this chapter are about reviewing AI-generated *analysis* code
+carefully, because an analysis choice is a judgment call with no
+single correct answer. Scaffolding a new project's skeleton is a
+different kind of task entirely. The target shape is well
+defined and checkable (does the directory layout match a known
+convention, does `renv::restore()` succeed, does the Dockerfile
+build), which makes it a strong candidate for efficient
+delegation rather than close supervision.
+
+A faculty researcher starting a new project typically wants the
+same handful of things every time: a standard directory layout
+separating raw data, scripts, and output; a dependency lockfile
+(`renv.lock` for R) pinning package versions; a container
+definition pinning the underlying system and language version;
+and a minimal report skeleton to build on. Asking a coding
+assistant to produce this skeleton directly is efficient
+precisely because it is mechanical, not because it is trivial: a
+consistent project skeleton is what makes the reproducibility
+practice in Day 5 possible in the first place, and hand-building
+it from memory for every new project is exactly the kind of
+repetitive setup work worth delegating.
+
+```prompt
+Task: Scaffold a reproducible R research-compendium directory
+for a new project called penguin-growth.
+Context: Standard layout: analysis/data/{raw,derived},
+analysis/scripts, analysis/figures, analysis/report; an
+renv.lock initialized via renv::init(); a Dockerfile pinning
+R 4.4 and installing system dependencies for a typical
+tidyverse stack; a minimal Quarto report skeleton
+(analysis/report/index.qmd) with YAML front matter only.
+Constraints: Do not write any analysis code or invent example
+data. Only the skeleton and configuration files.
+Output format: a list of files to create, each with its full
+starter content.
+```
+
+We should note that several established frameworks encode this
+same skeleton as a single command rather than a prompt.
+`renv::init()` and a `Dockerfile` handle the two hardest parts by
+themselves [@rstudio2024renv; @docker2024docs], and
+project-scaffolding tools such as zzcollab generate the entire
+layout, lockfile, and container definition in one step for
+exactly this reason [@zzcollab2024]. Where such a tool is
+available, prefer it over an AI-generated skeleton, since it
+encodes a convention that the rest of the team, and one's own
+later self, already know. Reach for an AI assistant to produce
+the equivalent skeleton by hand when no such tool exists for the
+language or framework at hand, or when a one-off variation is
+needed that a generic scaffolding tool does not support.
+
+The review this task needs is lighter than for analysis code,
+but it is not absent. Confirm that the skeleton actually builds
+(`docker build` succeeds, `renv::restore()` completes without
+error) before trusting it. This is the same "does it do what it
+claims" check that we develop in the next section for
+AI-generated code in general. Unfortunately, a scaffold that
+looks right but fails to build has cost the time it would have
+taken to write by hand, without returning the reproducibility
+payoff.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: scaffolding
+
+**Q.** Why does scaffolding a project skeleton carry a lighter
+review burden than asking an AI assistant to write an analysis
+function, even though both are "AI-generated code"?
+
+**A.** A project skeleton has a checkable, largely objective
+target (does the layout match a known convention, does the
+lockfile restore, does the container build), while an analysis
+function's correctness depends on judgment calls about the data
+and the research question that have no single verifiable answer.
+The scaffolding task is drafting against a known target; the
+analysis task is deciding, in the sense Day 3 develops next.
+:::
+
+### Working with a coding assistant
+
+An interactive coding assistant such as Claude Code or GitHub
+Copilot [@anthropic2025claudecode; @github2024copilot] differs
+from a plain chat assistant in that it operates directly inside
+the project. It can read existing files, propose edits as diffs
+against them, and, in agentic modes, run shell commands and
+tests on our behalf. We note that this project-level context is
+exactly what makes such a tool useful, and exactly what raises
+the stakes of the "Where AI coding assistants commonly fail"
+section below, because a tool that can execute commands can also
+execute a mistaken or dangerous one.
+
+Two habits make these tools more productive without changing
+what they are trusted to do unsupervised. First, we give the
+assistant real project context deliberately: the relevant file,
+the function signature it must match, the test it must pass.
+This is preferable to relying on the assistant to infer our
+intent from a short instruction. A randomized controlled trial
+across three companies and nearly 4,900 developers found
+productivity gains concentrated where developers gave clear,
+well-scoped tasks, with the largest gains among less experienced
+developers working on tasks that were well specified
+[@cui2026genai]. Second, we iterate rather than accept the first
+draft, treating the assistant's first response as a draft to be
+reviewed and refined, in the same way we would treat a
+collaborator's first pass, and not as a finished deliverable.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: project context
+
+**Q.** You ask a coding assistant to "fix the bug in the data
+loader" with no further detail, and it makes a plausible-looking
+change to the wrong function. What did the request most likely
+lack?
+
+**A.** Project context and task specificity: which file, which
+function, what the bug's symptom actually is, and how you would
+verify the fix. The assistant filled the gap with its best
+guess, which is not the same as your actual intent.
+:::
+
+### Reviewing generated code for correctness
+
+Code that runs without error and code that is correct are
+different claims, and an AI coding assistant can produce the
+first without the second. We review AI-generated code the way we
+would review a collaborator's pull request. That is, we read the
+diff line by line, rather than only running the result and
+checking that it did not crash, and we check the output against
+a result we can independently verify: a hand-computed value on a
+small example, a known-correct reference implementation, or an
+existing test.
+
+Unit tests are the most reliable verification tool available for
+this, because a test encodes exactly what "correct" means for a
+given input, in a form that can be rerun automatically on this
+change and on every future change. For AI-generated functions in
+particular we recommend a straightforward discipline. Before
+accepting a generated function, write at least one test for an
+edge case that the function's ordinary use would never exercise,
+since that is precisely where the failure modes of the next
+section live. The assistant may draft that test as well,
+provided we verify it ourselves.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: correctness review
+
+**Q.** An AI-generated function passes the example the
+assistant showed you and produces no errors on your own data.
+Have you verified it is correct?
+
+**A.** No. You have verified it does not crash on the cases
+you tried; correctness on untried inputs, especially edge
+cases, is a separate claim that requires its own test, as
+developed in this chapter's homework.
+:::
+
+### AI-assisted data cleaning and exploratory analysis
+
+Drafting a data-cleaning script, suggesting exploratory plots
+appropriate to a dataset's structure, and summarizing an
+unfamiliar data dictionary are all tasks where a coding
+assistant can save substantial time, because they are
+mechanical translation tasks (a data dictionary into code, a
+variable's type into a plot choice) rather than judgment calls
+about what the analysis should conclude. The productivity
+literature on AI coding assistance is consistent with this
+framing: a large-scale field study found a roughly 26% increase
+in completed tasks among developers given access to GitHub
+Copilot, concentrated in exactly this kind of well-defined,
+mechanically checkable work [@cui2026genai], echoing an earlier
+controlled study that found developers completed a scoped
+coding task noticeably faster with an AI assistant than without
+one [@peng2023copilot].
+
+The boundary to hold is between drafting and deciding. On the
+one hand, an assistant that drafts a cleaning script or suggests
+a plot type is accelerating the execution of a plan we have
+already made, and there is little to lose by letting it. On the
+other, deciding what the analysis plan actually is, which
+variables matter, what a missing-data pattern implies, or which
+model specification answers the research question, remains a
+human judgment. We should never allow the tool's fluency to
+substitute for that judgment.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: drafting versus deciding
+
+**Q.** An assistant suggests dropping all rows with missing
+values before an exploratory analysis. Is accepting this
+suggestion a drafting task or a deciding task?
+
+**A.** Deciding. Whether to drop, impute, or explicitly model
+missingness is an analysis-plan choice with real consequences
+for validity, not a mechanical formatting step; it needs a
+human researcher's judgment about the missingness mechanism,
+not a default.
+:::
+
+### Where AI coding assistants commonly fail
+
+The most familiar failure mode is silent mishandling of cases
+the assistant was not explicitly shown: missing data treated as
+zero instead of excluded, a unit conversion silently omitted or
+applied twice, an off-by-one error at a boundary the example
+data never reached. These are dangerous precisely because the
+code runs cleanly and returns a plausible-looking number; the
+error surfaces only when someone checks the result against an
+independent source, or not at all.
+
+![](images/day3-mid.jpg){fig-alt="A cracked pane of glass over a control panel, a warning light glowing behind the break" style="width:100%"}
+
+*A cracked pane of glass over a control panel, a warning light
+glowing behind the break: a coding assistant's own safety
+judgment, overridden by a direct instruction.*
+
+A second, less familiar failure mode concerns not what the code
+computes but what the assistant is willing to *run*. A detailed
+2026 account documents both Claude Code and Codex, two different
+coding assistants from different vendors, correctly identifying
+an installation command piped from a URL directly into a shell
+(`curl ... | sh`) as dangerous, and then running it anyway
+because the user had asked them to. In one case the assistant
+disabled its own safety sandbox in order to do so
+[@tidydesign2026automode]. This matters for two reasons beyond
+the specific incident. First, it is tool-agnostic: the same
+behavior appeared in two independently built agents, which
+suggests a structural property of how these tools currently
+resolve a conflict between a safety judgment and a direct user
+instruction, rather than a one-vendor defect. Second, it means
+that the assistant's own stated risk assessment is not a
+safeguard we can rely on when we are the ones giving the
+instruction. The tool can tell us that a command is dangerous
+and run it in the same breath.
+
+::: {.callout-warning}
+## Warning
+
+An agentic coding assistant that can execute shell commands
+will generally do what you explicitly ask, even when it has
+just told you the action is risky. Treat its own warnings as
+information to act on yourself, not as a guarantee that it will
+decline the action for you [@tidydesign2026automode].
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: failure modes
+
+**Q.** Why does the `curl | sh` finding matter more for being
+observed in two separate tools than it would if observed in
+only one?
+
+**A.** Because it points to a structural pattern in how current
+agentic coding assistants resolve a conflict between their own
+risk assessment and an explicit user instruction, rather than a
+defect specific to one vendor's implementation, which means the
+mitigation (verify before running, do not treat a stated
+warning as a refusal) applies regardless of which assistant you
+use.
+:::
+
+## Further reading
+
+- `renv` documentation [@rstudio2024renv], Docker documentation
+  [@docker2024docs], and the zzcollab framework
+  [@zzcollab2024]. The scaffolding tools behind this chapter's
+  opening technique; worth reading once even when the setup is
+  delegated to an AI assistant, so that the result can be judged
+  against the convention it claims to follow.
+- Peng, S. et al. (2023). The Impact of AI on Developer
+  Productivity: Evidence from GitHub Copilot
+  [@peng2023copilot]. An early controlled study behind this
+  chapter's productivity claims.
+- Cui, Z. et al. (2026). The Effects of Generative AI on
+  High-Skilled Work: Evidence from Three Field Experiments with
+  Software Developers. *Management Science*
+  [@cui2026genai]. The larger, multi-company field study cited
+  above; read the discussion of which developers and tasks saw
+  the largest gains.
+- tidydesign (2026). Auto Mode Knows It's Dangerous (and Does
+  It Anyway) [@tidydesign2026automode]. The primary account of
+  the `curl | sh` finding discussed above; the author ran the
+  experiment themselves and shows the actual transcripts.
+
+## Worked example: reviewing an AI-generated data-cleaning script
+
+![](images/day3-example.jpg){fig-alt="A grid of blank tiles with two marked by a red pin" style="width:100%"}
+
+*A grid of blank tiles with two marked by a red pin: two errors
+found during review of a data-cleaning script.*
+
+We consider a concrete scenario. Suppose a coding assistant has
+drafted a cleaning script for a messy survey dataset: it reads a
+CSV, recodes a few free-text fields, drops rows it judges
+incomplete, and writes a cleaned file. Before running it on the
+real data, we review it the way this chapter recommends.
+
+Reading the diff line by line, rather than merely running it, we
+notice that the drop step removes any row with a missing value
+in *any* column, including columns unrelated to the planned
+analysis. That is a deciding-level choice about missingness,
+made silently inside what looked like a mechanical drafting
+task. We also notice a unit conversion applied to a duration
+field: the assistant assumed the raw values were in minutes and
+converted them to hours, but the codebook, which the assistant
+was not shown, records the field in seconds.
+
+Both issues share the pattern this chapter has built toward. The
+script ran without error and looked plausible, and yet both
+errors are exactly the kind that a simple independent check
+would catch immediately, whether a hand computation on two or
+three known rows or a unit test comparing the script's output
+against a value we have computed ourselves. Fixing the script
+means narrowing the drop condition to the columns the analysis
+actually needs, correcting the unit conversion against the
+codebook, and then adding a small test that encodes both
+corrected behaviors, so that a future edit cannot silently
+reintroduce either error.
+
+## Homework
+
+Attempt each problem in your own environment before checking
+the solution.
+
+1. **Generate and review a function.** Ask a coding assistant
+   to write a function that computes a summary statistic on a
+   dataset you use. Review it for correctness on an edge case
+   (missing values, a single row, an empty input).
+
+2. **Break it deliberately.** Construct an input designed to
+   expose a weakness in the generated function. Does it fail
+   silently or does it error clearly?
+
+3. **Write a test.** Write a unit test that would have caught
+   the weakness from Problem 2, and confirm it passes once you
+   fix the function.
+
+4. **Use AI for exploratory analysis.** Ask a coding assistant
+   to suggest exploratory plots for a dataset. Evaluate whether
+   the suggestions are appropriate for the data's actual
+   structure.
+
+5. **Diff review.** Have a coding assistant modify an existing
+   script in your project. Review the diff and identify one
+   change you would not have made yourself, for better or
+   worse.
+
+6. **Name a boundary case.** Describe an analysis decision (not
+   a coding task) that you would never delegate to an AI
+   assistant, and explain why.
+
+## Solutions
+
+**Problem 1.** Placeholder.
+
+**Problem 2.** Placeholder.
+
+**Problem 3.** Placeholder.
+
+**Problem 4.** Placeholder.
+
+**Problem 5.** Placeholder.
+
+**Problem 6.** Placeholder.
+
+## What's next
+
+Day 4 moves to the manuscript itself. We shall use the same
+review discipline for AI-assisted writing and citation
+management, so that the prose that reaches a journal remains
+the author's own argument in the author's own voice.

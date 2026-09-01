@@ -1,0 +1,24 @@
+# Credits {.unnumbered}
+
+The chapter list was constructed by surveying publicly
+available guidance on AI-assisted research workflows,
+including documentation for large language model tools used
+in literature review, coding, writing, and reproducibility,
+and adopting the topics common to the majority of them.
+
+Cover artwork generated procedurally by the R script at
+`images/build-cover.R`. Watercolor palette: deep violet
+through amethyst to pale mist, anchored on a brand violet
+`#6a4c93`. Typography: Avenir family (Apple system font);
+body text in Source Serif 4.
+
+The three ambiance photographs in each day chapter (an opening
+image, a mid-lecture image, and a worked-example image) are
+AI-generated; see the Colophon for the disclosure and
+`images/README.md` for every image's full generation prompt.
+
+The epigraphs opening each day chapter are drawn from published
+primary sources (an academic paper, a proverb, a technical
+report, a memoir on writing, and a commencement address), cited
+in full in the References; none was written or paraphrased by
+an AI tool, in keeping with this book's own subject matter.

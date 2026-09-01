@@ -1,0 +1,495 @@
+# Day 4: Writing, Editing, and Citation Management with AI {#sec-day4}
+
+![](images/day4-hero.jpg){fig-alt="A fountain pen resting on a handwritten manuscript page" style="width:100%"}
+
+*A fountain pen resting on a handwritten page: an argument still
+in the author's own hand.*
+
+> Almost all good writing begins with terrible first efforts.
+> You need to start somewhere.
+>
+> Anne Lamott, *Bird by Bird: Some Instructions on Writing
+> and Life* [@lamott1994birdbybird]
+
+## Learning objectives
+
+By the end of this day you should be able to:
+
+- Generate a structured outline through an iterative chatbot
+  dialog before drafting any prose, keeping the AI's role
+  bounded to structure rather than content.
+- Delegate the mechanical part of three recurring high-volume
+  tasks (point-by-point reviewer responses, converting a paper
+  into a talk, and journal-fit and cover-letter drafting) while
+  retaining the scientific and rhetorical judgment each
+  requires.
+- Use AI assistance to draft and revise academic prose without
+  surrendering the argument or the voice to the tool.
+- Distinguish editorial help (clarity, grammar, structure) from
+  substantive help (claims, evidence, interpretation), and
+  apply different scrutiny to each.
+- Integrate AI-assisted drafting with a reference manager so
+  that citations remain accurate through revision.
+- State, in a sentence, what a given journal or venue currently
+  requires for AI-use disclosure.
+- Produce a paragraph that has been AI-assisted and can be
+  honestly disclosed as such.
+
+## Lecture
+
+Writing assistance is the task most likely to change how a
+manuscript sounds. We shall consider how to use AI tools to work
+faster at every stage of writing, from the blank page to the
+final disclosure statement, while keeping the argument and the
+voice the author's own throughout.
+
+### Generating outlines through chatbot dialog
+
+Before any prose gets drafted, a faculty researcher usually
+starts with something far messier: a stack of notes, a rough
+argument sketched between meetings, a stream-of-consciousness
+voice memo transcript. Turning that into a structured outline is
+often the slowest part of writing, precisely because staring at
+disorganized material and imposing order on it is cognitively
+expensive in a way that filling in an already-organized outline
+is not. This is a distinct technique from the draft-first and
+AI-first workflows that the next section develops for prose
+itself. It operates one stage earlier, on structure rather than
+content, and it merits separate treatment because it changes
+what we ask the AI tool to do.
+
+The technique is to withhold the outline from the AI tool and to
+ask it to extract one from us, through questions, rather than
+asking it to impose one on the raw notes directly:
+
+```prompt
+Task: Help me build a structured outline for a paper on
+whether remote work affects junior employees' long-term career
+progression. Do not draft any prose yet, and do not propose an
+outline yet.
+Context: [paste your rough notes, however disorganized]
+Constraints: Ask me clarifying questions, one at a time, about
+gaps, ordering, or unclear scope in my notes. Only propose a
+final outline after at least three rounds of questions and my
+answers.
+Output format: eventually, a numbered outline with one sentence
+describing each section.
+```
+
+We note that this is more efficient than either drafting an
+outline from scratch or asking an AI tool to draft one from the
+notes in a single pass. The reason is a specific one. Raw notes
+almost always contain gaps and ambiguities that are invisible
+from inside them, and a single-pass AI-generated outline will
+silently paper over those gaps with a plausible-sounding
+structure rather than surfacing them. Forcing a
+question-and-answer exchange makes the gaps visible while they
+are still cheap to fix, before a single sentence of prose has
+been written around a structural choice that turns out to be
+wrong.
+
+The technique also carries less risk than either of the drafting
+workflows in the next section, because an outline is structure
+rather than a factual or interpretive claim. There is little
+here for the AI tool to hallucinate, and the substantive content
+of every section still comes from our own notes and our own
+answers to its questions. That said, the boundary warrants
+watching. If the assistant's clarifying questions begin
+proposing substantive claims ("should the outline argue that
+remote work primarily hurts networking access?") rather than
+asking about scope and evidence, we have crossed from structural
+help into the substantive-help territory that the next section
+addresses, and the heavier scrutiny described there applies.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: outlining via dialog
+
+**Q.** Why does asking an AI tool to *ask you questions* about
+your notes produce a better outline than asking it to propose
+one directly from the same notes?
+
+**A.** A single-pass outline from raw notes tends to paper over
+gaps and ambiguities in those notes with a plausible-looking
+structure, because the model has no way to signal uncertainty
+about what you actually meant. A question-and-answer exchange
+surfaces those gaps explicitly, while your answers still cost
+little because no prose has been written yet.
+:::
+
+### Editorial help versus substantive help
+
+Not every request sent to an AI writing assistant carries the
+same risk, and this chapter draws one dividing line to govern
+how much scrutiny a given request needs. **Editorial help**
+changes how an existing argument is expressed: fixing grammar,
+tightening a sentence, reorganizing a paragraph for flow,
+matching a required style. **Substantive help** changes what is
+being claimed: proposing an interpretation of a result,
+suggesting which finding matters most, drafting the argument
+itself rather than the prose around it.
+
+The distinction matters because the two carry very different
+verification burdens. Editorial help can go wrong in ways that
+are easy to catch by rereading (a garbled sentence, a broken
+claim), and the underlying facts do not change. Substantive help
+can go wrong in ways that are much harder to catch, because a
+fluent, well-argued but wrong interpretation reads exactly like
+a fluent, well-argued correct one. Accepting it silently
+transfers authorship of the *argument*, and not merely of the
+*prose*, from the author to the tool. Springer Nature's
+editorial policy draws a version of this same line explicitly:
+AI-assisted copy editing of already-human-authored text does not
+need to be declared in the manuscript, while generative
+editorial work and autonomous content creation must be
+[@springernature2024ai]. Borderline cases exist. A request to
+"make this paragraph flow better" can drift into substantive
+help when the requested improvement requires deciding what point
+the paragraph should be making, which is exactly why this
+distinction requires active judgment on our part rather than a
+mechanical rule.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: editorial versus substantive
+
+**Q.** You ask an AI assistant to "make the conclusion
+stronger." Is this an editorial request or a substantive one?
+
+**A.** As phrased, it is ambiguous and likely substantive: a
+stronger conclusion often means a stronger *claim*, not merely
+better prose, and accepting the tool's rewrite without checking
+whether the underlying evidence actually supports the
+strengthened claim risks quietly overstating your own findings.
+:::
+
+### Drafting and revising without losing your voice
+
+Two workflows both produce an AI-assisted paragraph, and they
+carry different risks to the author's own voice and argument. In
+the **draft-first, then revise** workflow, we write our own
+argument in our own words first, however roughly, and use the AI
+tool only to polish clarity and style afterward. This keeps the
+substantive content under our authorship throughout and confines
+the tool's contribution to editorial help as defined above. In
+the **AI-first, then heavy revision** workflow, we let the tool
+draft from a prompt describing the argument and then edit its
+output substantially. This can be faster for a first pass, but
+it risks two things: the tool's phrasing and rhetorical habits
+persisting into the final text even after editing, producing a
+voice that is subtly not our own, and a substantive claim
+introduced by the tool surviving revision simply because it read
+as plausible while we were editing for clarity rather than
+re-deriving the argument.
+
+Neither workflow is prohibited by this book, and the difference
+lies in which failure mode we need to guard against. On the plus
+side, draft-first protects the voice and the argument
+automatically; on the minus side, it costs more of our own time
+at the outset. AI-first, conversely, is faster at the outset,
+but it requires deliberate re-checking, sentence by sentence,
+that every substantive claim in the result is one we actually
+hold and can defend, and not merely one that reads well.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: workflow risk
+
+**Q.** A researcher uses the AI-first workflow, edits the
+result for two minutes, and submits it. What is the most likely
+failure, given this section's analysis?
+
+**A.** A substantive claim introduced by the tool, not
+originally held by the researcher, surviving into the final
+text because a two-minute edit is enough to catch awkward
+phrasing but not enough to re-derive and check every claim
+against the researcher's actual evidence and argument.
+:::
+
+### High-volume writing tasks: reviewer responses, talks, and submission letters
+
+![](images/day4-tasks.jpg){fig-alt="A tall stack of identical blank sheets in cool shadow beside one single sheet lit by warm lamp light" style="width:100%"}
+
+*A tall stack of identical sheets beside one lit page: the
+recurring bulk of academic writing, and the part that actually
+needs your judgment.*
+
+Three writing tasks recur constantly in a faculty career,
+consume substantial time, and share a useful property. In each,
+the substantive content already exists in a document we have
+written, and the work is largely one of *restructuring* it for a
+different audience or format. That makes these tasks strong
+candidates for delegation, on the same logic as Day 3's
+scaffolding technique. The intellectual content is settled, and
+what remains is mechanical transformation, which is where AI
+assistance is both fastest and safest.
+
+**Reviewer responses.** A point-by-point response to a reviewer
+report is tedious in a specific, structural way. Every comment
+must be located, addressed, and mapped to a concrete change at a
+specific place in the manuscript, and the resulting document
+must be complete, because a missed comment reads to an editor as
+evasion. An AI tool given the reviewer report and the manuscript
+can produce the *skeleton* of that document quickly: each
+comment extracted and numbered, restated neutrally, with a
+placeholder for our response and for the manuscript location it
+touches. What the tool should not produce is the substance of
+the responses themselves, which are precisely the scientific
+judgments under review. The division is the same
+editorial/substantive line drawn above, applied here to a
+document whose whole purpose is to demonstrate that the author
+engaged with the criticism personally.
+
+```prompt
+Task: Extract every distinct point from the attached reviewer
+reports into a numbered response skeleton. Do not write my
+responses.
+Context: [paste reviewer reports]
+Constraints: Split multi-part comments into separate numbered
+items. Restate each comment neutrally, without agreeing or
+disagreeing. Flag any comment where two reviewers raise the
+same issue.
+Output format: A numbered table: comment number, reviewer,
+restated comment, blank response column, blank
+manuscript-location column.
+```
+
+**Converting a paper into a talk.** A manuscript and a
+conference talk carry the same findings under opposite
+constraints. The paper is complete, linear, and read at the
+reader's pace, while the talk is selective, redundant by design,
+and consumed at the speaker's pace. Restructuring one into the
+other is a genuine translation task, and one an AI tool performs
+well because the constraints are statable: given the manuscript,
+propose a slide-level outline for a talk of a stated length,
+with one message per slide, marking which figures carry the
+argument and which are supporting detail that can be dropped.
+The judgment that remains ours is which finding leads. A paper's
+ordering is often dictated by convention (methods before
+results) that a talk should abandon, and deciding what the
+audience most needs to hear first is a rhetorical decision about
+our own work.
+
+**Journal fit and submission letters.** Matching a manuscript to
+candidate venues is a task where an AI tool's breadth genuinely
+helps and its unreliability genuinely bites. The output is
+therefore best treated as a candidate list to verify rather than
+as a recommendation to act on. Ask for candidate journals along
+with the reason each is plausible (scope overlap, comparable
+papers published there, article type), and then confirm every
+claim about a journal's scope, article types, or recent content
+against the journal's own site. The reason is the same one that
+makes Day 2 require verification of a citation: a
+plausible-sounding claim about what a journal publishes is
+exactly the kind of thing a language model will generate
+confidently and incorrectly. The cover letter itself, by
+contrast, is genuinely boilerplate-shaped (statement of the
+work's contribution, fit to the journal, confirmation of
+originality and non-concurrent submission), and it is a
+reasonable delegation once the venue is settled, subject to our
+reading every sentence for claims about our own work that we
+would not make ourselves.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: high-volume tasks
+
+**Q.** What do these three tasks have in common that makes them
+safer AI delegations than drafting a discussion section from
+scratch?
+
+**A.** In each, the substantive content already exists in a
+document you wrote, and the remaining work is restructuring it
+for a different audience or format. The scientific judgments
+have already been made and can be checked against the source
+document; drafting a discussion section, by contrast, asks the
+tool to make interpretive claims that do not yet exist anywhere
+in your own work.
+:::
+
+### Reference-manager integration
+
+![](images/day4-mid.jpg){fig-alt="A vintage typewriter loosely tied by a string to a stack of index cards" style="width:100%"}
+
+*A typewriter loosely tied by a string to a stack of index cards:
+a citation staying linked to its source through revision.*
+
+A reference manager such as Zotero [@zotero2024] or EndNote
+should remain the single source of truth for a project's
+citations throughout AI-assisted drafting and revision, precisely
+because an AI tool asked to restructure a paragraph can also
+silently restructure, drop, or misattach the citations inside
+it. When an AI tool moves a sentence, splits a paragraph, or
+reorders a list of claims, the citation attached to each claim
+needs to move with it correctly. Unfortunately, this is exactly
+the kind of mechanical-looking step that can go wrong without
+any visible sign of failure. After any AI-assisted revision that
+touches cited text, re-verify that each citation is still
+attached to the claim it originally supported, and that no
+citation was dropped or duplicated in the process. A
+restructuring that reads smoothly should not be assumed to have
+preserved the citation mapping correctly.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: reference integrity
+
+**Q.** After an AI tool merges two paragraphs, each of which
+had one citation, the merged paragraph has only one citation
+remaining. What should you do before accepting the merge?
+
+**A.** Check whether the merge silently dropped one citation's
+supporting claim or whether the two claims were legitimately
+consolidated under one still-accurate citation; do not assume
+the disappearance is either safe or a bug without checking the
+source paragraphs against the reference manager directly.
+:::
+
+### Disclosure norms and venue policies
+
+Journal and funder policy on AI-use disclosure has converged
+faster than most academic norms do, and Day 5's ethics section
+develops the full set of positions (ICMJE, COPE, and related
+bodies) in depth. The version relevant here, for writing
+specifically, is straightforward. Disclose AI-assisted drafting
+and editing in the methods or acknowledgments section as
+appropriate to the venue, describe what the tool did rather than
+merely that a tool was used, and check the specific venue's
+policy before submission, since wording and required placement
+still vary. Where a venue's policy is silent or unclear,
+disclose anyway. The cost of an unnecessary disclosure is far
+lower than the cost of an undisclosed use later treated as
+misconduct, a point developed further in Day 5.
+
+The stakes of getting this wrong are not hypothetical. In 2026,
+a debut author's roughly \$2 million book deal was withdrawn
+after an AI-detection tool flagged the manuscript as
+overwhelmingly likely to be AI-generated; the author has denied
+using AI to write the book and disputes the detector's finding,
+and the case remains contested and unresolved as of this
+writing [@plagiarismtoday2026falade; @post2026falade]. Whatever
+the underlying truth of that specific case, it illustrates two
+things this chapter has been building toward: a publisher acted
+on an AI-detection result before the facts were settled, and
+the mere *suspicion* of undisclosed AI use was costly regardless
+of what actually happened. The worked example below uses this
+case directly, not to adjudicate it, but to practice exactly the
+verified/unverified discipline this book has asked for since
+Day 1.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: disclosure
+
+**Q.** A journal's author guidelines do not mention AI use at
+all. You used an AI tool for substantial copyediting. Should
+you disclose it?
+
+**A.** Yes. Silence in a venue's policy is not permission to
+omit disclosure; the asymmetry between the cost of an
+unnecessary disclosure and the cost of a later-discovered
+undisclosed use favors disclosing by default.
+:::
+
+## Further reading
+
+- ICMJE, *Recommendations: Artificial Intelligence*
+  [@icmje2025ai] and COPE, *Authorship and AI Tools*
+  [@cope2023authorship]. The primary disclosure-policy sources
+  developed in full in Day 5.
+- Plagiarism Today (2026). Author Loses \$2 Million Book Deal
+  Over AI Allegations [@plagiarismtoday2026falade]. Read this
+  alongside the Substack roundtable below and note where the
+  two sources agree, disagree, or simply do not know.
+- Post (Substack, 2026). An Author's \$2 Million Book Deal Was
+  Pulled Over Suspected AI Use. Where Does Publishing Go From
+  Here? [@post2026falade]. Covers AI-detector false-positive
+  concerns and a documented equity concern that accused authors
+  are disproportionately Black; read this as a case study in
+  unresolved, contested claims, not as a settled account.
+- Zotero project documentation [@zotero2024]. Worth reading
+  once for the "Word and Google Docs" citation-plugin behavior
+  this section assumes.
+
+## Worked example: applying verified/unverified to a contested case
+
+![](images/day4-example.jpg){fig-alt="Three wax seals side by side, one intact, one cracked open, one half-melted" style="width:100%"}
+
+*Three wax seals side by side, one intact, one cracked open, one
+half-melted: a claim that is verified, one that is unverified,
+and one that is contested.*
+
+The book-deal case introduced above is unusually well suited to
+practicing this book's own verification discipline, because the
+underlying facts are genuinely unresolved even in the original
+reporting, and not merely unresolved for us. Rather than
+treating the news coverage as settled fact, we work through it
+the way we would treat any AI-adjacent claim reaching our own
+writing:
+
+| Claim | Status | Why |
+|---|---|---|
+| An AI-detection tool scored the manuscript as ~97% AI-generated | **Verified** (as a reported fact) | Multiple outlets report the same detector result from the same source; the *result* is well attested, even though what it means is not. |
+| The manuscript was in fact substantially AI-generated | **Unverified** | This is the detector's inference, not a directly observed fact; AI detectors are known to produce false positives, and the author disputes this specific finding. |
+| The author used AI only for research, not drafting | **Unverified** | This is the author's own claim, reported alongside the detector's contrary claim; neither has been independently confirmed as of this writing. |
+| The publisher's agents withdrew the deal without directly asking the author about AI use first | **Contested** | Reported by some coverage; treat as an open factual question rather than settled, since accounts vary. |
+
+We note what this table does *not* do: it does not decide who is
+right. It separates what multiple independent sources agree
+happened (a detector produced a specific score, a deal was
+withdrawn) from what remains a contested inference drawn from
+that event (whether the manuscript was actually AI-written).
+That separation, applied to a real and still-unresolved case
+rather than to a tidy textbook example, is the same discipline
+that Day 2 applied to a citation and Day 1 applied to a factual
+claim. We mark what we actually know, we mark what we are
+inferring, and we never let the two collapse into a single
+confident-sounding sentence, whether that sentence is an AI
+tool's or our own.
+
+## Homework
+
+Attempt each problem in your own environment before checking
+the solution.
+
+1. **Classify a request.** For five prompts you might send an
+   AI writing assistant, classify each as editorial or
+   substantive help, and justify one borderline case.
+
+2. **Draft-then-revise.** Write a short paragraph of your own
+   argument, then ask an AI tool to revise it for clarity.
+   Identify one place where the revision changed the meaning,
+   not just the phrasing.
+
+3. **Re-verify citations after revision.** Take a paragraph
+   with citations, ask an AI tool to restructure it, and
+   confirm every citation still refers to the correct source
+   after restructuring.
+
+4. **Look up a real disclosure policy.** Find the AI-use
+   disclosure policy for a journal in your field. Summarize it
+   in two sentences.
+
+5. **Write a disclosure statement.** For the paragraph from
+   Problem 2, write the disclosure statement you would include
+   in a manuscript's methods or acknowledgments section.
+
+6. **Name a writing task you would not delegate.** Describe a
+   part of a manuscript (for example, the interpretation of a
+   result) you would not draft with AI assistance, and explain
+   why.
+
+## Solutions
+
+**Problem 1.** Placeholder.
+
+**Problem 2.** Placeholder.
+
+**Problem 3.** Placeholder.
+
+**Problem 4.** Placeholder.
+
+**Problem 5.** Placeholder.
+
+**Problem 6.** Placeholder.
+
+## What's next
+
+Day 5 closes the week by making AI use in a project auditable:
+recording what the tools did, version-controlling
+AI-assisted artifacts, and applying a checklist before
+submission.

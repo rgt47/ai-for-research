@@ -1,0 +1,512 @@
+# Day 5: Reproducibility, Provenance, and Responsible Use in Publication {#sec-day5}
+
+![](images/day5-hero.jpg){fig-alt="An open ledger beside a wax stamp and a lit candle on a dark wooden desk" style="width:100%"}
+
+*An open ledger beside a wax stamp and a lit candle: a record
+kept honestly, as the work happens.*
+
+> The first principle is that you must not fool yourself --
+> and you are the easiest person to fool.
+>
+> Richard P. Feynman, *Cargo Cult Science* [@feynman1974cargocult]
+
+## Learning objectives
+
+By the end of this day you should be able to:
+
+- Record what an AI tool contributed to a research artifact
+  (code, prose, or analysis) so the contribution is auditable
+  later.
+- Version-control prompts and AI-assisted outputs alongside
+  the rest of a reproducible project.
+- Apply a pre-submission checklist that surfaces undisclosed or
+  unverified AI contributions in a manuscript.
+- State how the major journal, funder, and university-integrity
+  policies currently treat AI authorship, AI-assisted
+  plagiarism, and reviewer confidentiality, and cite the
+  specific policy language when justifying a disclosure
+  decision.
+- Explain how this workshop's practices connect to the
+  reproducibility infrastructure covered in the companion
+  volumes.
+
+## Lecture
+
+A project can use AI tools extensively and still be fully
+reproducible and honestly disclosed, provided the use is
+recorded as it happens rather than reconstructed afterward.
+
+### Recording AI contributions as you work
+
+Provenance is easy to maintain prospectively and nearly
+impossible to reconstruct retrospectively. The practical
+solution is a lightweight log, kept next to the artifact it
+describes (a `PROVENANCE.md` at the project root, or a comment
+block at the top of a script), recording each significant AI
+interaction as it happens: the date, the tool, the task, and
+what the tool produced. "Significant" excludes routine
+autocomplete-style suggestions and includes anything that
+materially shaped a result: a drafted function, a synthesized
+literature summary, a substantially AI-revised paragraph.
+
+The habit only works if it is cheap enough to keep up in
+practice. A one-line entry recorded at the moment a substantial
+AI contribution is accepted costs seconds. Reconstructing the
+same information three months later, while assembling a
+disclosure statement for a sprawling manuscript, can cost hours,
+and the result will be less accurate however carefully the
+reconstruction is attempted.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: provenance logging
+
+**Q.** Why is a provenance log kept "as you go" more reliable
+than one reconstructed at submission time, even if both
+ultimately claim to describe the same AI use?
+
+**A.** Because memory of exactly which passages were
+AI-drafted, revised, or generated degrades quickly and
+compounds across a long project; a log written at the moment of
+use captures a fact directly, while a reconstruction relies on
+recall that is systematically less complete and less accurate
+the longer the delay.
+:::
+
+### Version-controlling AI-assisted artifacts
+
+![](images/day5-mid.jpg){fig-alt="A young branch grafted onto an older trunk, the graft wrapped and lit" style="width:100%"}
+
+*A young branch grafted onto an older trunk, the graft wrapped
+and lit: a reviewed branch of work merged back into the main
+history.*
+
+We recommend committing the provenance log itself, alongside
+AI-drafted files and their human-reviewed revisions, under the
+same version control already in use for the rest of the project
+(see the companion volume *Git and GitHub for Biostatistics* for
+the underlying Git practice this assumes). This has two benefits
+beyond simple record-keeping. First, the commit history becomes
+evidence: a diff showing a human's substantive revision of an
+AI-drafted passage is a stronger disclosure record than a
+sentence asserting that review happened, because it shows the
+review rather than claiming it occurred. Second, treating
+AI-assisted drafts as ordinary version-controlled artifacts,
+rather than as scratch material to be discarded once a "clean"
+final version exists, keeps the actual editing history
+available if a disclosure question arises later, whether from a
+co-author, an editor, or an integrity inquiry.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: version control as evidence
+
+**Q.** A co-author asks, six months after submission, exactly
+which parts of a manuscript's introduction were AI-drafted. What
+lets you answer with confidence rather than best-effort recall?
+
+**A.** A commit history that captures the AI-drafted version and
+the subsequent human revision as separate, dated commits, plus
+the provenance log entry made at the time; together these let
+you point to the actual record rather than reconstruct the
+answer from memory.
+:::
+
+### Ethics: authorship, intellectual contribution, and plagiarism {#sec-day5-ethics}
+
+The verify-and-disclose habits built across this workshop are
+not merely good practice. By 2025 they are, in substance,
+policy: journal editors, funders, publishers, and university
+integrity offices have each converged on a similar position,
+and departing from it can be treated as misconduct rather than
+a style violation.
+
+**AI cannot be an author.** The International Committee of
+Medical Journal Editors (ICMJE), the Committee on Publication
+Ethics (COPE), the World Association of Medical Editors, and
+the JAMA Network all state a version of the same rule. ICMJE
+puts it this way:
+
+> "Chatbots (such as ChatGPT) and other AI-assisted
+> technologies should not be listed as authors because they
+> cannot be responsible for the accuracy, integrity, and
+> originality of the work, and these responsibilities are
+> required for authorship."
+> ICMJE, *Recommendations: AI-Assisted Technology*
+> [@icmje2025ai]
+
+COPE reaches the same conclusion for the same reason:
+
+> "AI tools cannot be listed as an author of a paper... Authors
+> are fully responsible for the content of their manuscript,
+> even those parts produced by an AI tool, and are thus liable
+> for any breach of publication ethics."
+> COPE, *Authorship and AI tools* [@cope2023authorship]
+
+The reasoning behind both statements is the same, and it is
+worth stating plainly: authorship is a claim of accountability,
+not merely a claim of contribution. A tool that cannot be
+deposed, cannot hold a conflict of interest, and cannot be
+sanctioned for misconduct cannot hold the position that
+authorship confers. This is also why the U.S. Copyright Office
+takes a parallel line on intellectual property: its 2023
+guidance and 2025 report on AI and copyrightability hold that
+human authorship remains a prerequisite for copyright
+protection, that purely AI-generated material is not
+copyrightable, and that a human's mere selection of prompts,
+however detailed, does not by itself make the output the
+human's own creative work [@uscopyright2023ai]. The same
+question (*whose intellectual contribution is this, actually?*)
+runs through both the authorship debate and the
+copyright debate, and this workshop's disclosure habit (Day 4)
+is the practical answer to it: name what the tool did, so
+that what remains is unambiguously the researcher's own
+contribution.
+
+**Disclosure failures are treated as misconduct or
+plagiarism, not merely as omissions.** ICMJE is explicit that
+"nondisclosure of AI use may require corrective action and
+may be construed as misconduct in some circumstances," and
+folds AI output into the existing plagiarism standard:
+"authors should be able to assert that there is no plagiarism
+in their paper, including in text and images produced by the
+AI" [@icmje2025ai]. University academic-integrity offices have
+adopted the identical framing one level down, for coursework
+and theses rather than journal articles: submitting
+AI-generated text as one's own without disclosure, or
+paraphrasing AI output without attribution, is classified as
+plagiarism under the same policies that govern copying another
+author's words. The mechanism differs (a retraction or
+corrigendum at a journal; an academic-integrity finding at a
+university) but the underlying claim is identical in both
+settings: presenting a machine's language or reasoning as
+one's own unaided work, without saying so, is dishonest
+regardless of whether a human or an algorithm supplied the
+uncredited material.
+
+**Confidentiality is a distinct ethical duty from
+authorship.** A researcher who never puts a word of AI-drafted
+prose into a manuscript can still commit an ethics violation by
+uploading someone *else's* unpublished work into a generative
+AI tool. Major publishers now prohibit this outright for peer
+review: Wiley states that reviewers must not upload manuscripts
+or any part of them, including figures and tables, into
+generative AI tools; Elsevier and Taylor & Francis give the
+same instruction and name the reason as protecting authors'
+confidentiality and proprietary rights, and, where the
+manuscript contains identifiable data, the subjects' privacy
+rights [@publisherconfidentiality2024]. Grant review carries
+the same rule with a funder behind it: NIH prohibits its
+scientific peer reviewers from using generative AI to analyze
+or draft critiques of grant applications, precisely because
+doing so would mean sharing confidential, unpublished research
+ideas with a third-party system outside NIH's control
+[@nih2023genai]. The rule generalizes beyond formal peer
+review: a manuscript draft, a student's raw interview
+transcripts, or a colleague's unpublished dataset carries the
+same confidentiality obligation whether the material sits in a
+private file or is copied into a chat window.
+
+::: {.callout-warning}
+## Warning
+
+"Private" or "enterprise" AI products are not an exception to
+the confidentiality rule above unless the institution or the
+data's owner has specifically approved that product for the
+data in question. The obligation runs to the people whose
+unpublished work or personal data it is, and not to a technical
+claim about where a vendor stores the data.
+:::
+
+**Synthesis.** We note that none of this is new in kind. It is
+an extension of scholarly norms that predate AI by centuries,
+applied to a new source of unattributed material. What is new is
+the speed at which the norm can be broken without noticing. A
+single paste into a chat window can violate a confidentiality
+obligation that took months of trust to build, and a single
+un-reviewed paragraph can cross the line from "AI-assisted
+writing" into plagiarism as ICMJE and COPE define it. The
+verification habit from Day 2, the code-review habit from
+Day 3, and the disclosure habit from Day 4 are, in aggregate,
+this chapter's ethics practice. The provenance log and the
+audit checklist below are the means by which that practice
+becomes demonstrable to an editor, a funder, or an integrity
+office, rather than merely asserted after the fact with nothing
+to show for it.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: ethics synthesis
+
+**Q.** A colleague argues that using a "private" enterprise AI
+tool for peer review is fine because the tool's vendor promises
+not to train on submitted content. Does this satisfy the
+confidentiality obligation described above?
+
+**A.** Not necessarily. The obligation runs to the manuscript's
+authors and any identifiable subjects, not to a technical
+promise about training data; unless the journal, funder, or
+data owner has specifically approved that tool for that
+content, uploading it still shares confidential material with a
+third-party system outside the reviewer's control, regardless
+of the vendor's retention policy.
+:::
+
+One further development on the industry side of this picture
+merits notice, as a complement to the author-side rules above.
+In August 2026, Anthropic began embedding an invisible, in-text
+watermark in Claude's output, in response to transparency
+requirements under Article 50 of the European Union's AI Act.
+The mark is woven into the generated text itself rather than
+attached as removable metadata, and Anthropic applied it
+worldwide rather than only to European users
+[@anthropic2026watermark].
+
+We should be clear that this is a complement to disclosure and
+not a substitute for it. A detected watermark shows only that a
+Claude model was probably involved at some point. It cannot
+distinguish AI-drafted text from lightly AI-edited text, it
+carries no record of who used the tool, and it can be removed or
+degraded by sufficiently heavy rewriting. Unfortunately, this
+means its *absence* proves nothing about whether AI was used.
+The watermark is best regarded as one weak, partial signal that
+may eventually support a "no AI was used" check in peer review,
+and not as a reason for any author to disclose less carefully.
+
+### Disclosure and venue policy, revisited
+
+Day 4 developed disclosure at the level of a single paragraph:
+say what a tool did, where the venue expects that to be said.
+At the level of a whole project, the same obligation compounds
+across every chapter of this workshop, and a project-level
+disclosure statement should say so explicitly rather than
+describing only the most visible use. A disclosure statement
+built from a provenance log kept since Day 1 might read, in
+outline:
+
+> AI assistance was used in this project as follows: an
+> AI-assisted literature search (Day 2 practice) informed the
+> initial reference list, and every citation was independently
+> verified against its primary source before inclusion. An AI
+> coding assistant drafted the data-cleaning script in
+> `scripts/clean.R`; all functions were reviewed and tested by
+> the authors before use (commit history: `scripts/clean.R`,
+> commits a1b2c3d through e4f5g6h). AI tools were used for
+> copyediting of the manuscript prose; no AI-generated content
+> was incorporated without author review and revision.
+
+This is a stronger disclosure than a single blanket sentence
+("AI was used to assist with this manuscript") because it names
+which parts of the project were touched, what the tool did in
+each case, and what verification followed, in line with both
+ICMJE's requirement to describe *how* AI was used and COPE's
+insistence that the human authors remain fully responsible for
+every part of the resulting work [@icmje2025ai; @cope2023authorship].
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: project-level disclosure
+
+**Q.** Why is naming *which* parts of a project used AI, and
+what verification followed, stronger than a single blanket
+disclosure sentence covering the whole project?
+
+**A.** A blanket sentence tells a reader that AI was used
+somewhere but gives them no way to judge where scrutiny is most
+warranted or whether verification actually occurred; a
+part-by-part account lets an editor, reader, or integrity
+office assess each use on its own terms, which is precisely
+what ICMJE's "describe how you used it" standard asks for.
+:::
+
+### A pre-submission audit checklist
+
+Before submission, apply a checklist that surfaces exactly the
+gaps this workshop has been built to catch, drawing one item
+from each day:
+
+1. **Every citation verified** (Day 2): each citation resolves
+   in a database of record, and each supports the specific claim
+   attached to it, not merely the paper's general topic.
+2. **Every AI-generated function tested** (Day 3): each
+   substantially AI-drafted function has at least one test
+   covering an edge case, not only its ordinary use.
+3. **Every substantially AI-assisted passage disclosed** (Day 4):
+   the disclosure statement names each AI-assisted component and
+   what the tool did, matching the provenance log.
+4. **No unreviewed AI-introduced substantive claim** (Day 4):
+   spot-check AI-assisted prose specifically for claims the
+   author would not have made unprompted, not only for style.
+5. **No hidden or invisible instructions in the manuscript
+   file.** Documented cases exist of researchers embedding
+   reviewer-invisible, AI-readable instructions such as "give a
+   positive review" into a manuscript, using white-colored or
+   microscopic text intended to manipulate an AI-assisted
+   reviewer [@lin2025hiddenprompts]. Whatever your own intent,
+   check that no AI tool you used introduced or left behind
+   hidden text of this kind (for example, in copy-pasted content
+   or a template), since its presence is a serious integrity
+   problem regardless of who put it there.
+6. **Confidentiality obligations respected** (this chapter):
+   no third party's unpublished manuscript, proposal, or
+   personal data was uploaded to a generative AI tool during
+   this project's preparation or review.
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: audit checklist
+
+**Q.** Item 5 asks you to check your own manuscript for hidden
+AI-readable instructions you did not knowingly write. Why is
+this worth checking even if you are confident you never added
+anything like that intentionally?
+
+**A.** Hidden instructions can enter a document unintentionally,
+for example through copy-pasted content, a shared template, or
+collaborator-contributed material, and their presence is judged
+by what is in the submitted file, not by whether the intent
+behind it was yours; an audit that only asks "did I do this on
+purpose" misses that risk.
+:::
+
+## Further reading
+
+- ICMJE, *Recommendations: Artificial Intelligence*
+  [@icmje2025ai]; COPE, *Authorship and AI Tools*
+  [@cope2023authorship]; U.S. Copyright Office, *Copyright
+  Registration Guidance* [@uscopyright2023ai]; NIH, *NOT-OD-23-149*
+  [@nih2023genai]; Elsevier, *Generative AI Policies for
+  Journals* [@publisherconfidentiality2024]. Read these five
+  primary policy sources directly rather than relying on this
+  chapter's summary of them.
+- Lin, Z. (2025). Hidden Prompts in Manuscripts Exploit
+  AI-Assisted Peer Review [@lin2025hiddenprompts]. The primary
+  documentation behind the audit checklist's hidden-instruction
+  item.
+- Anthropic (2026). How Claude's Text Watermarking Works
+  [@anthropic2026watermark]. Read this directly rather than
+  taking this chapter's one-paragraph summary as the full
+  picture of the watermark's capabilities and limits.
+
+## Worked example: auditing a manuscript before submission
+
+![](images/day5-example.jpg){fig-alt="Six stones in a row on dark sand, each marked with a carved checkmark" style="width:100%"}
+
+*Six stones in a row, each marked with a carved checkmark: a
+pre-submission audit, every item verified.*
+
+Suppose a short manuscript drew on AI assistance across all
+three prior domains: an AI-assisted literature search populated
+part of the introduction's reference list, an AI coding
+assistant drafted the analysis script, and an AI writing
+assistant helped revise the discussion section for clarity.
+Applying the checklist above before submission:
+
+- **Citations:** three of the introduction's twelve references
+  came from the AI-assisted search. Checking the provenance log
+  confirms all three were verified against their primary sources
+  at the time (Day 2 practice), so no further action is needed
+  beyond a final spot check that none was miscited during later
+  editing (Day 4's reference-integrity concern).
+- **Generated functions:** the analysis script's data-cleaning
+  function has a test covering ordinary use but none for an
+  empty input. The audit adds that test before submission,
+  following Day 3's practice, and it fails, revealing the
+  function returns an unhandled error rather than a controlled
+  message; the function is fixed and the test now passes.
+- **AI-assisted prose:** the discussion section's revised
+  paragraphs are re-read specifically for claims stronger than
+  the results support. One sentence, introduced during AI-assisted
+  revision, characterizes a marginal finding as "confirming" the
+  hypothesis; the authors did not intend this stronger claim and
+  revise it back to the qualified language their own results
+  actually support.
+- **Hidden text and confidentiality:** the manuscript file is
+  checked for non-printing or oddly formatted text (none found),
+  and the authors confirm no co-author's unpublished data or a
+  reviewer's confidential comments on an earlier draft were ever
+  uploaded to an AI tool during preparation.
+- **Disclosure statement:** drawing directly on the provenance
+  log, the authors write a project-level disclosure statement
+  in the form modeled above, naming the literature search, the
+  coding assistance, and the writing assistance separately, each
+  with the verification step that followed it.
+
+What made this audit possible was not any single check; it was
+that a provenance log had been kept since Day 1, so the audit
+was a matter of reviewing and verifying recorded facts rather
+than reconstructing, under submission-deadline pressure, what
+had actually happened over the course of the project.
+
+## Homework
+
+Attempt each problem in your own environment before checking
+the solution.
+
+1. **Start a provenance log.** For a project you are working
+   on, create a simple log recording each significant AI
+   interaction (task, tool, date). Commit it to version
+   control.
+
+2. **Audit an existing draft.** Apply the pre-submission
+   checklist to a manuscript or report you have drafted with
+   any AI assistance. List what passed and what needed
+   correction.
+
+3. **Write a project-level disclosure statement.** Using the
+   provenance log from Problem 1, write a disclosure statement
+   covering the whole project's AI use.
+
+4. **Connect to version control.** Describe how you would
+   structure a Git repository so that AI-assisted drafts and
+   the human-reviewed final versions are both visible in the
+   history.
+
+5. **Identify a gap.** Find one place in your own current
+   workflow where AI use is not currently recorded anywhere.
+   Propose how you would start recording it.
+
+6. **Reflect on the week.** In a short paragraph, describe the
+   single habit from this workshop most likely to change how
+   you use AI tools going forward, and why.
+
+7. **Compare your venue's policy against ICMJE and COPE.**
+   Find the AI-use policy of a journal or funder in your field
+   and your own institution's academic-integrity policy on
+   generative AI. For each, identify whether it (a) permits AI
+   authorship, (b) requires disclosure and where, and (c)
+   states any confidentiality restriction on uploading
+   unpublished work. Note any point on which it is stricter or
+   looser than the ICMJE and COPE positions summarized in this
+   chapter.
+
+## Solutions
+
+**Problem 1.** Placeholder.
+
+**Problem 2.** Placeholder.
+
+**Problem 3.** Placeholder.
+
+**Problem 4.** Placeholder.
+
+**Problem 5.** Placeholder.
+
+**Problem 6.** Placeholder.
+
+**Problem 7.** Placeholder.
+
+## What's next
+
+This concludes the workshop. In closing, three points are to be
+emphasized. First, the efficiency techniques of Days 2 through 4
+are the payoff of the week, and a researcher who adopts none of
+them has gained little from the exercise. Second, the
+verification and disclosure discipline is what keeps those gains
+from being surrendered to a retracted citation, an unreviewed
+analysis, or an undisclosed contribution, and it is therefore
+inseparable from the efficiency rather than opposed to it.
+Third, provenance recorded as the work happens, rather than
+reconstructed under deadline, is the one habit that makes the
+whole practice demonstrable to an editor, a funder, or an
+integrity office.
+
+Readers who want to build the reproducibility and
+version-control practices assumed here in more depth should
+continue to *Git and GitHub for Biostatistics* and *Reproducible
+Research for the Health Sciences*.
