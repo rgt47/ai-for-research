@@ -199,6 +199,15 @@ specifically reviewed and approved that tool for that data, in
 writing, and regardless of what the tool's own privacy page
 claims.
 
+A locally run open-weight model, described in Day 1's selection
+criteria, is worth considering here specifically. It keeps the
+data on hardware the institution already controls, which
+converts an approval question about a third-party vendor into an
+ordinary question about local computing practice
+[@ollama2026]. It does not remove the IRB obligation described
+next, since the protocol still governs where data may be
+processed, but it removes the vendor from the problem entirely.
+
 The IRB dimension adds a second, independent problem beyond
 confidentiality. An approved protocol specifies the data-handling
 and data-sharing plan a researcher committed to when the study

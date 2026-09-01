@@ -216,6 +216,16 @@ unpublished work or personal data it is, and not to a technical
 claim about where a vendor stores the data.
 :::
 
+There is one route that avoids the problem rather than managing
+it. A model run locally on your own hardware, described in Day
+1's selection criteria, sends nothing anywhere, so the
+confidentiality question does not arise
+[@ollama2026]. The capability is lower than a frontier hosted
+model, but for summarizing a transcript or extracting fields
+from a protected dataset it is often sufficient, and it is the
+only option that lets these tasks happen at all when the
+material cannot leave the institution.
+
 **Synthesis.** We note that none of this is new in kind. It is
 an extension of scholarly norms that predate AI by centuries,
 applied to a new source of unattributed material. What is new is

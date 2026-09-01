@@ -30,6 +30,9 @@ By the end of this day you should be able to:
   most likely.
 - Describe the role of context window and tokens in what a
   model can and cannot "see" in a session.
+- Select among tools on the five criteria that stay stable as
+  products change, and state when a locally run open-weight
+  model is the right choice for confidential material.
 - Choose an appropriate AI tool for a given research task
   (search and synthesis, coding, writing, general reasoning).
 - Write a prompt that states task, context, constraints, and
@@ -333,6 +336,97 @@ verifiability, not to its polish. A retrieval-augmented tool
 that shows its sources is worth more for literature work than
 a more articulate general-purpose assistant that shows none.
 
+### Selection criteria, and the case for a local model
+
+Within those three categories the specific products change
+constantly, and any ranking of named models in a printed book
+would be wrong within months. The criteria for choosing between
+them are more stable, and we recommend selecting on these five
+rather than on benchmark scores or reputation.
+
+*Retrieval grounding.* Does the tool show which documents it
+drew from, and can you open them? This is the single most
+useful property for literature work, for the reason Day 2
+develops at length.
+
+*Context window.* How much material can the tool hold in view at
+once? A tool that accepts a whole manuscript reasons about it
+differently from one that must be fed a section at a time. We
+note the practical test rather than the advertised number: paste
+in the document you actually work with and ask a question whose
+answer sits near the end.
+
+*Execution.* Can the tool run code and inspect the result, or
+only produce text? Day 3's assistants can execute; a chat window
+cannot. Execution is what makes the difference between a
+suggested analysis and a checked one, and it is also what raises
+the stakes discussed under failure modes.
+
+*Where the data goes.* Does the prompt leave your machine, and
+if so, to whom? This is the criterion most often ignored, and it
+is the one that determines whether a tool is usable at all for
+confidential material.
+
+*Cost and latency per task.* Reasoning-heavy models cost more
+and answer more slowly. They earn that cost on genuinely hard
+problems and waste it on formatting a bibliography.
+
+**The local option.** The fourth criterion has an answer that
+many researchers do not know they have. Open-weight models can
+be run entirely on your own hardware, through a runner such as
+Ollama or the llama.cpp engine beneath it
+[@ollama2026; @llamacpp2026]. A local model exposes an
+interface much like a hosted one, but no prompt, document, or
+dataset leaves the machine, because there is no remote service
+to send it to.
+
+This matters directly for the confidentiality problem developed
+in Day 5 and in the faculty appendix. A researcher holding
+identifiable interview transcripts, unpublished data under a
+data-use agreement, or a colleague's manuscript under review
+cannot paste any of it into a hosted assistant. Until now this
+book's advice in that situation has been simply to refrain. A
+locally run model changes the question from whether to use AI on
+such material to which model is good enough to be useful on it,
+and that is a far better position to be in.
+
+The trade-off is real and should be stated plainly. On the plus
+side, the confidentiality problem disappears at its root, the
+tool works offline, and there is no per-token cost. On the minus
+side, a model small enough to run on a laptop is meaningfully
+less capable than the frontier hosted models, hardware sets a
+ceiling on the model size you can load, and setup takes an hour
+you would not otherwise spend. Unfortunately, the capability gap
+is largest on exactly the reasoning-heavy tasks where assistance
+helps most. For summarizing, extracting structured fields, and
+first-pass triage, a local model is often entirely adequate, and
+those happen to be the tasks most likely to involve
+confidential material in the first place.
+
+::: {.callout-tip}
+## Tip
+
+Local models do not remove the verification obligation. They run
+the same kind of next-token prediction described above and
+hallucinate for the same structural reasons. What changes is
+who else sees your data, and nothing else.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Check your understanding: selection criteria
+
+**Q.** A colleague dismisses local models on the grounds that
+they perform worse than the best hosted model on published
+benchmarks. On what grounds might a researcher still prefer one?
+
+**A.** Benchmark rank answers only the capability question. For
+material that cannot leave the institution, such as identifiable
+subject data or a manuscript under review, a hosted model's
+capability is unavailable at any score, because using it would
+breach confidentiality. A less capable model that can lawfully
+see the data is more useful than a better one that cannot.
+:::
+
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: tool choice
 
@@ -423,6 +517,11 @@ form you needed and defaulted to a thorough general answer.
   Knowledge-Intensive NLP Tasks. *NeurIPS*
   [@lewis2020rag]. The paper behind the retrieval-augmented
   tool category described above.
+- Ollama [@ollama2026] and llama.cpp [@llamacpp2026]. The two
+  pieces of software behind the local-model option. Read the
+  Ollama quickstart before deciding whether a local model is
+  practical on the hardware you have; it is a shorter setup
+  than most researchers expect.
 - *Mata v. Avianca, Inc.*, 678 F. Supp. 3d 443 (S.D.N.Y. 2023)
   [@mata2023avianca]. Primary legal record of the sanctions
   opinion; read it once, in any field, as a concrete picture of
