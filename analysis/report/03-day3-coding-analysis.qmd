@@ -31,12 +31,12 @@ By the end of this day you should be able to:
 
 ## Lecture
 
-Code that runs is not the same as code that is correct, and we
+Code that runs is not the same as code that is correct. We
 shall treat AI-generated code here the way a careful reviewer
 treats a collaborator's pull request: useful, often correct, and
 never exempt from review. That review burden is not uniform
-across tasks, however, and we begin with the task that carries
-the least of it.
+across tasks, however. We begin with the task that carries the
+least of it.
 
 ### Scaffolding a reproducible project with an AI coding assistant
 
@@ -64,10 +64,10 @@ separating raw data, scripts, and output; a dependency lockfile
 definition pinning the underlying system and language version;
 and a minimal report skeleton to build on. Asking a coding
 assistant to produce this skeleton directly is efficient
-precisely because it is mechanical, not because it is trivial: a
-consistent project skeleton is what makes the reproducibility
-practice in Day 5 possible in the first place, and hand-building
-it from memory for every new project is exactly the kind of
+precisely because it is mechanical, not because it is trivial.
+A consistent project skeleton is what makes the reproducibility
+practice in Day 5 possible in the first place. Hand-building it
+from memory for every new project is exactly the kind of
 repetitive setup work worth delegating.
 
 ```prompt
@@ -132,11 +132,11 @@ Copilot [@anthropic2025claudecode; @github2024copilot] differs
 from a plain chat assistant in that it operates directly inside
 the project. It can read existing files, propose edits as diffs
 against them, and, in agentic modes, run shell commands and
-tests on our behalf. We note that this project-level context is
-exactly what makes such a tool useful, and exactly what raises
-the stakes of the "Where AI coding assistants commonly fail"
-section below, because a tool that can execute commands can also
-execute a mistaken or dangerous one.
+tests on our behalf. This project-level context is exactly what
+makes such a tool useful. It is also exactly what raises the
+stakes of the "Where AI coding assistants commonly fail" section
+below, because a tool that can execute commands can also execute
+a mistaken or dangerous one.
 
 Two habits make these tools more productive without changing
 what they are trusted to do unsupervised. First, we give the
@@ -146,11 +146,11 @@ This is preferable to relying on the assistant to infer our
 intent from a short instruction. A randomized controlled trial
 across three companies and nearly 4,900 developers found
 productivity gains concentrated where developers gave clear,
-well-scoped tasks, with the largest gains among less experienced
+well-scoped tasks. The largest gains fell among less experienced
 developers working on tasks that were well specified
-[@cui2026genai]. Second, we iterate rather than accept the first
-draft, treating the assistant's first response as a draft to be
-reviewed and refined, in the same way we would treat a
+[@cui2026genai]. Second, we iterate rather than accept the
+first draft. We treat the assistant's first response as a draft
+to be reviewed and refined, in the same way we would treat a
 collaborator's first pass, and not as a finished deliverable.
 
 ::: {.callout-note icon=false collapse=true}
@@ -174,7 +174,7 @@ different claims, and an AI coding assistant can produce the
 first without the second. We review AI-generated code the way we
 would review a collaborator's pull request. That is, we read the
 diff line by line, rather than only running the result and
-checking that it did not crash, and we check the output against
+checking that it did not crash. We also check the output against
 a result we can independently verify: a hand-computed value on a
 small example, a known-correct reference implementation, or an
 existing test.
@@ -185,10 +185,10 @@ given input, in a form that can be rerun automatically on this
 change and on every future change. For AI-generated functions in
 particular we recommend a straightforward discipline. Before
 accepting a generated function, write at least one test for an
-edge case that the function's ordinary use would never exercise,
-since that is precisely where the failure modes of the next
-section live. The assistant may draft that test as well,
-provided we verify it ourselves.
+edge case that the function's ordinary use would never exercise.
+That is precisely where the failure modes of the next section
+live. The assistant may draft that test as well, provided we
+verify it ourselves.
 
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: correctness review
@@ -208,28 +208,27 @@ developed in this chapter's homework.
 Drafting a data-cleaning script, suggesting exploratory plots
 appropriate to a dataset's structure, and summarizing an
 unfamiliar data dictionary are all tasks where a coding
-assistant can save substantial time, because they are
-mechanical translation tasks (a data dictionary into code, a
-variable's type into a plot choice) rather than judgment calls
-about what the analysis should conclude. The productivity
-literature on AI coding assistance is consistent with this
-framing: a large-scale field study found a roughly 26% increase
-in completed tasks among developers given access to GitHub
-Copilot, concentrated in exactly this kind of well-defined,
-mechanically checkable work [@cui2026genai], echoing an earlier
-controlled study that found developers completed a scoped
-coding task noticeably faster with an AI assistant than without
-one [@peng2023copilot].
+assistant can save substantial time. They are mechanical
+translation tasks (a data dictionary into code, a variable's
+type into a plot choice) rather than judgment calls about what
+the analysis should conclude. The productivity literature on AI
+coding assistance is consistent with this framing. A large-scale
+field study found a roughly 26% increase in completed tasks
+among developers given access to GitHub Copilot, concentrated in
+exactly this kind of well-defined, mechanically checkable work
+[@cui2026genai]. An earlier controlled study echoes the finding:
+developers completed a scoped coding task noticeably faster with
+an AI assistant than without one [@peng2023copilot].
 
 The boundary to hold is between drafting and deciding. On the
 one hand, an assistant that drafts a cleaning script or suggests
 a plot type is accelerating the execution of a plan we have
 already made, and there is little to lose by letting it. On the
-other, deciding what the analysis plan actually is, which
-variables matter, what a missing-data pattern implies, or which
-model specification answers the research question, remains a
-human judgment. We should never allow the tool's fluency to
-substitute for that judgment.
+other hand, a set of decisions remains squarely a human
+judgment: what the analysis plan actually is, which variables
+matter, what a missing-data pattern implies, and which model
+specification answers the research question. We should never
+allow the tool's fluency to substitute for that judgment.
 
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: drafting versus deciding
@@ -271,7 +270,7 @@ an installation command piped from a URL directly into a shell
 because the user had asked them to. In one case the assistant
 disabled its own safety sandbox in order to do so
 [@tidydesign2026automode]. This matters for two reasons beyond
-the specific incident. First, it is tool-agnostic: the same
+the specific incident. First, it is tool-agnostic. The same
 behavior appeared in two independently built agents, which
 suggests a structural property of how these tools currently
 resolve a conflict between a safety judgment and a direct user

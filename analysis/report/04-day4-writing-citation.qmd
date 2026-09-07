@@ -49,14 +49,14 @@ Before any prose gets drafted, a faculty researcher usually
 starts with something far messier: a stack of notes, a rough
 argument sketched between meetings, a stream-of-consciousness
 voice memo transcript. Turning that into a structured outline is
-often the slowest part of writing, precisely because staring at
-disorganized material and imposing order on it is cognitively
-expensive in a way that filling in an already-organized outline
-is not. This is a distinct technique from the draft-first and
-AI-first workflows that the next section develops for prose
-itself. It operates one stage earlier, on structure rather than
-content, and it merits separate treatment because it changes
-what we ask the AI tool to do.
+often the slowest part of writing. Staring at disorganized
+material and imposing order on it is cognitively expensive in a
+way that filling in an already-organized outline is not. This is
+a distinct technique from the draft-first and AI-first workflows
+that the next section develops for prose itself. It operates one
+stage earlier, on structure rather than content, and it merits
+separate treatment because it changes what we ask the AI tool to
+do.
 
 The technique is to withhold the outline from the AI tool and to
 ask it to extract one from us, through questions, rather than
@@ -137,16 +137,15 @@ fluent, well-argued but wrong interpretation reads exactly like
 a fluent, well-argued correct one. Accepting it silently
 transfers authorship of the *argument*, and not merely of the
 *prose*, from the author to the tool. Springer Nature's
-editorial policy draws a version of this same line explicitly:
+editorial policy draws a version of this same line explicitly.
 AI-assisted copy editing of already-human-authored text does not
-need to be declared in the manuscript, while generative
-editorial work and autonomous content creation must be
-[@springernature2024ai]. Borderline cases exist. A request to
-"make this paragraph flow better" can drift into substantive
-help when the requested improvement requires deciding what point
-the paragraph should be making, which is exactly why this
-distinction requires active judgment on our part rather than a
-mechanical rule.
+need to be declared in the manuscript. Generative editorial work
+and autonomous content creation must be [@springernature2024ai].
+Borderline cases exist. A request to "make this paragraph flow
+better" can drift into substantive help when the requested
+improvement requires deciding what point the paragraph should be
+making. That is exactly why this distinction requires active
+judgment on our part rather than a mechanical rule.
 
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: editorial versus substantive
@@ -173,17 +172,17 @@ the tool's contribution to editorial help as defined above. In
 the **AI-first, then heavy revision** workflow, we let the tool
 draft from a prompt describing the argument and then edit its
 output substantially. This can be faster for a first pass, but
-it risks two things: the tool's phrasing and rhetorical habits
-persisting into the final text even after editing, producing a
-voice that is subtly not our own, and a substantive claim
-introduced by the tool surviving revision simply because it read
-as plausible while we were editing for clarity rather than
+it risks two things. The tool's phrasing and rhetorical habits
+can persist into the final text even after editing, producing a
+voice that is subtly not our own. And a substantive claim
+introduced by the tool can survive revision simply because it
+read as plausible while we were editing for clarity rather than
 re-deriving the argument.
 
-Neither workflow is prohibited by this book, and the difference
-lies in which failure mode we need to guard against. On the plus
+Neither workflow is prohibited by this book. The difference lies
+in which failure mode we need to guard against. On the plus
 side, draft-first protects the voice and the argument
-automatically; on the minus side, it costs more of our own time
+automatically. On the minus side, it costs more of our own time
 at the outset. AI-first, conversely, is faster at the outset,
 but it requires deliberate re-checking, sentence by sentence,
 that every substantive claim in the result is one we actually
@@ -312,19 +311,19 @@ a citation staying linked to its source through revision.*
 
 A reference manager such as Zotero [@zotero2024] or EndNote
 should remain the single source of truth for a project's
-citations throughout AI-assisted drafting and revision, precisely
-because an AI tool asked to restructure a paragraph can also
-silently restructure, drop, or misattach the citations inside
-it. When an AI tool moves a sentence, splits a paragraph, or
-reorders a list of claims, the citation attached to each claim
-needs to move with it correctly. Unfortunately, this is exactly
-the kind of mechanical-looking step that can go wrong without
-any visible sign of failure. After any AI-assisted revision that
-touches cited text, re-verify that each citation is still
-attached to the claim it originally supported, and that no
-citation was dropped or duplicated in the process. A
-restructuring that reads smoothly should not be assumed to have
-preserved the citation mapping correctly.
+citations throughout AI-assisted drafting and revision. An AI
+tool asked to restructure a paragraph can also silently
+restructure, drop, or misattach the citations inside it. When an
+AI tool moves a sentence, splits a paragraph, or reorders a list
+of claims, the citation attached to each claim needs to move
+with it correctly. Unfortunately, this is exactly the kind of
+mechanical-looking step that can go wrong without any visible
+sign of failure. After any AI-assisted revision that touches
+cited text, re-verify that each citation is still attached to
+the claim it originally supported, and that no citation was
+dropped or duplicated in the process. A restructuring that reads
+smoothly should not be assumed to have preserved the citation
+mapping correctly.
 
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: reference integrity
@@ -359,16 +358,16 @@ misconduct, a point developed further in Day 5.
 The stakes of getting this wrong are not hypothetical. In 2026,
 a debut author's roughly \$2 million book deal was withdrawn
 after an AI-detection tool flagged the manuscript as
-overwhelmingly likely to be AI-generated; the author has denied
+overwhelmingly likely to be AI-generated. The author has denied
 using AI to write the book and disputes the detector's finding,
-and the case remains contested and unresolved as of this
-writing [@plagiarismtoday2026falade; @post2026falade]. Whatever
-the underlying truth of that specific case, it illustrates two
-things this chapter has been building toward: a publisher acted
-on an AI-detection result before the facts were settled, and
-the mere *suspicion* of undisclosed AI use was costly regardless
-of what actually happened. The worked example below uses this
-case directly, not to adjudicate it, but to practice exactly the
+and the case remains contested and unresolved as of this writing
+[@plagiarismtoday2026falade; @post2026falade]. Whatever the
+underlying truth of that specific case, it illustrates two
+things this chapter has been building toward. A publisher acted
+on an AI-detection result before the facts were settled, and the
+mere *suspicion* of undisclosed AI use was costly regardless of
+what actually happened. The worked example below uses this case
+directly, not to adjudicate it, but to practice exactly the
 verified/unverified discipline this book has asked for since
 Day 1.
 

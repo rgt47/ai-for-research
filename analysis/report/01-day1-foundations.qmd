@@ -72,54 +72,55 @@ The direct answer is that the major bodies governing academic
 publishing have already settled the central question, and they
 settled it permissively. The International Committee of Medical
 Journal Editors, the Committee on Publication Ethics, and the
-large publishers all reached the same two-part position: AI
+large publishers all reached the same two-part position. AI
 tools cannot be *authors*, because authorship requires
-accountability a tool cannot bear, and AI tools *may be used* by
+accountability a tool cannot bear. AI tools *may be used* by
 authors who disclose that use and take responsibility for the
 result [@icmje2025ai; @cope2023authorship]. We should note what
 the second half of that position is not. It is not grudging
-tolerance of an unfortunate practice; it is an explicit
+tolerance of an unfortunate practice. It is an explicit
 accommodation, written into the policies of the bodies with the
 most at stake in research integrity, of a category of assistance
 they expect authors to use.
 
-Springer Nature's policy goes further in a way worth knowing
+Springer Nature's policy goes further, and it is worth knowing
 precisely, because it marks how routine some AI use has already
-become: AI-assisted copy editing, meaning improvements to
+become. AI-assisted copy editing means improvements to
 human-written text for readability, style, grammar, spelling,
-punctuation, and tone, does not need to be declared in the
-manuscript at all, provided the authors remain accountable for
-the final text and it reflects their own work; only generative
-editorial work and autonomous content creation require
-declaration [@springernature2024ai]. A researcher running their
-own prose through an AI editor for clarity is, under that
-policy, doing something closer to using a spell-checker than to
-committing an ethical violation. Funders have drawn a line in a
-similar place rather than banning the tools: NSF requires
-disclosure of the extent and manner of generative AI use in
-proposal preparation [@nsf2024pappg], and NIH permits AI
-assistance for limited aspects of application preparation while
-refusing to treat an application substantially developed by AI
-as the applicant's own original work [@nih2025fairness].
+punctuation, and tone. That kind of editing does not need to be
+declared in the manuscript at all, provided the authors remain
+accountable for the final text and it reflects their own work.
+Only generative editorial work and autonomous content creation
+require declaration [@springernature2024ai]. A researcher
+running their own prose through an AI editor for clarity is,
+under that policy, doing something closer to using a
+spell-checker than to committing an ethical violation. Funders
+have drawn a line in a similar place rather than banning the
+tools. NSF requires disclosure of the extent and manner of
+generative AI use in proposal preparation [@nsf2024pappg]. NIH
+permits AI assistance for limited aspects of application
+preparation, but refuses to treat an application substantially
+developed by AI as the applicant's own original work
+[@nih2025fairness].
 
 The legitimate/illegitimate boundary these policies draw is
-therefore not "AI or no AI." It runs between *assistance*, where
-a human directs the work, verifies the output, and takes
-responsibility for it, and *substitution*, where the tool's
-output stands in for the researcher's own judgment,
-unverified and unacknowledged. Every technique in this book sits
-on the assistance side of that line by construction: compiling a
-bibliography faster from a database of record (Day 2),
-scaffolding a project skeleton (Day 3), or structuring an
-outline from one's own notes (Day 4) accelerates work the
+therefore not "AI or no AI." It runs between two categories.
+*Assistance* is work where a human directs the effort, verifies
+the output, and takes responsibility for it. *Substitution* is
+work where the tool's output stands in for the researcher's own
+judgment, unverified and unacknowledged. Every technique in this
+book sits on the assistance side of that line by construction.
+Compiling a bibliography faster from a database of record (Day
+2), scaffolding a project skeleton (Day 3), and structuring an
+outline from one's own notes (Day 4) all accelerate work the
 researcher would otherwise do unaided, and none of it hands the
 scholarly judgment to the tool. The residual anxiety about skill
 erosion merits being taken seriously on its own terms rather
 than dismissed. The honest answer is that it depends entirely on
-which side of that line a researcher's habits fall. One who
-verifies every citation and reviews every generated function is
-exercising exactly the judgment they are worried about losing,
-while one who accepts unverified output uncritically really is
+which side of that line a researcher's habits fall. A researcher
+who verifies every citation and reviews every generated function
+is exercising exactly the judgment they are worried about
+losing. One who accepts unverified output uncritically really is
 outsourcing it.
 
 ::: {.callout-tip}
@@ -156,19 +157,18 @@ without verification or disclosure, not assistance as such.
 ### What a large language model does
 
 We begin with the mechanism. A large language model (LLM) is,
-mechanically, a next-token
-predictor. Given the text so far, it produces a probability
-distribution over the vocabulary and samples the next unit of
-text (a *token*, roughly a word or word-fragment) from that
-distribution, then repeats. Nothing in this process consults a
-database of facts at generation time. What the model has
-instead is a set of statistical regularities learned from a
-very large training corpus of text, encoded as billions of
-numerical parameters, and refined afterward by additional
-training (often called instruction tuning and reinforcement
-learning from human feedback) that shapes the model toward
-producing helpful, confident-sounding, well-formatted answers
-[@ji2023hallucination].
+mechanically, a next-token predictor. Given the text so far, it
+produces a probability distribution over the vocabulary and
+samples the next unit of text (a *token*, roughly a word or
+word-fragment) from that distribution, then repeats. Nothing in
+this process consults a database of facts at generation time.
+What the model has instead is a set of statistical regularities
+learned from a very large training corpus of text, encoded as
+billions of numerical parameters. Those parameters are refined
+afterward by additional training, often called instruction
+tuning and reinforcement learning from human feedback, that
+shapes the model toward producing helpful, confident-sounding,
+well-formatted answers [@ji2023hallucination].
 
 We note an immediate consequence for research use. Fluency is
 not the same property as correctness, and nothing about the
@@ -225,11 +225,11 @@ case numbers. When the fabrication was discovered, the
 presiding judge sanctioned the attorneys under Federal Rule of
 Civil Procedure 11 for failing to verify the citations they had
 submitted under their own names [@mata2023avianca]. The lesson
-generalizes directly to research writing: an AI tool inventing
-a citation is not a remote, hypothetical risk, and the
-professional consequence falls on the human who submitted the
-work, not on the tool. Day 2 develops the verification habit
-that this case makes necessary.
+generalizes directly to research writing. An AI tool inventing a
+citation is not a remote, hypothetical risk. The professional
+consequence falls on the human who submitted the work, not on
+the tool. Day 2 develops the verification habit that this case
+makes necessary.
 
 ::: {.callout-warning}
 ## Warning
@@ -262,15 +262,15 @@ the underlying evidence is thin.
 
 An LLM does not have persistent memory of a conversation the
 way a person does. Everything it "knows" about the current
-exchange is whatever text sits inside its context window, the
+exchange is whatever text sits inside its context window: the
 fixed-size span of tokens (system instructions, conversation
 history, and any documents supplied by the user) that the model
-actually processes on each turn. Once a conversation grows
-past that window, or once a tool summarizes or truncates older
-turns to save space, instructions and facts supplied earlier can
-simply fall out of what the model is conditioning on, and it
-will proceed without them, often without any visible warning
-that it has done so.
+actually processes on each turn. Once a conversation grows past
+that window, or once a tool summarizes or truncates older turns
+to save space, instructions and facts supplied earlier can
+simply fall out of what the model is conditioning on. The model
+will proceed without them, often with no visible warning that it
+has done so.
 
 For research work we draw two practical consequences. First,
 restate load-bearing constraints (a citation style, a variable
@@ -386,22 +386,22 @@ identifiable interview transcripts, unpublished data under a
 data-use agreement, or a colleague's manuscript under review
 cannot paste any of it into a hosted assistant. Until now this
 book's advice in that situation has been simply to refrain. A
-locally run model changes the question from whether to use AI on
-such material to which model is good enough to be useful on it,
-and that is a far better position to be in.
+locally run model changes the question. It is no longer whether
+to use AI on such material, but which model is good enough to be
+useful on it, and that is a far better position to be in.
 
 The trade-off is real and should be stated plainly. On the plus
 side, the confidentiality problem disappears at its root, the
 tool works offline, and there is no per-token cost. On the minus
 side, a model small enough to run on a laptop is meaningfully
-less capable than the frontier hosted models, hardware sets a
+less capable than the frontier hosted models. Hardware sets a
 ceiling on the model size you can load, and setup takes an hour
 you would not otherwise spend. Unfortunately, the capability gap
 is largest on exactly the reasoning-heavy tasks where assistance
 helps most. For summarizing, extracting structured fields, and
-first-pass triage, a local model is often entirely adequate, and
-those happen to be the tasks most likely to involve
-confidential material in the first place.
+first-pass triage, a local model is often entirely adequate.
+Those happen to be the tasks most likely to involve confidential
+material in the first place.
 
 ::: {.callout-tip}
 ## Tip
@@ -542,9 +542,9 @@ that way, a general-purpose assistant will readily produce two
 or three confident, well-organized paragraphs, citing named
 studies and stating a qualified but definite-sounding
 conclusion. That response is a plausible answer to a vague
-prompt, which is a different thing from being a reliable answer
-to the actual question, and at this stage every citation and
-statistic in it is unverified in the sense defined on the
+prompt. That is a different thing from being a reliable answer
+to the actual question. At this stage every citation and
+statistic in it is unverified, in the sense defined on the
 Conventions page.
 
 Applying the four-part structure changes what comes back:
@@ -564,13 +564,13 @@ Output format: A bulleted list, one bullet per distinct
 finding, each bullet naming the source.
 ```
 
-The response to the revised prompt is still not verified; it
+The response to the revised prompt is still not verified. It
 is, however, now *structured for verification*, because each
-claim carries a named source that can be checked rather than an
-unattributed assertion that cannot. That shift from unattributed
-confidence to attributed, checkable claims is the entire point
-of the prompt, and it is also exactly the discipline Day 2
-extends to full literature review: never let a claim's
+claim carries a named source that can be checked, rather than
+an unattributed assertion that cannot. That shift, from
+unattributed confidence to attributed, checkable claims, is the
+entire point of the prompt. It is also exactly the discipline
+Day 2 extends to full literature review: never let a claim's
 fluency stand in for its verification.
 
 ## Homework

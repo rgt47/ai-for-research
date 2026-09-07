@@ -142,24 +142,23 @@ COPE reaches the same conclusion for the same reason:
 > COPE, *Authorship and AI tools* [@cope2023authorship]
 
 The reasoning behind both statements is the same, and it is
-worth stating plainly: authorship is a claim of accountability,
+worth stating plainly. Authorship is a claim of accountability,
 not merely a claim of contribution. A tool that cannot be
 deposed, cannot hold a conflict of interest, and cannot be
 sanctioned for misconduct cannot hold the position that
 authorship confers. This is also why the U.S. Copyright Office
-takes a parallel line on intellectual property: its 2023
+takes a parallel line on intellectual property. Its 2023
 guidance and 2025 report on AI and copyrightability hold that
 human authorship remains a prerequisite for copyright
 protection, that purely AI-generated material is not
 copyrightable, and that a human's mere selection of prompts,
 however detailed, does not by itself make the output the
 human's own creative work [@uscopyright2023ai]. The same
-question (*whose intellectual contribution is this, actually?*)
-runs through both the authorship debate and the
-copyright debate, and this workshop's disclosure habit (Day 4)
-is the practical answer to it: name what the tool did, so
-that what remains is unambiguously the researcher's own
-contribution.
+question, *whose intellectual contribution is this, actually?*,
+runs through both the authorship debate and the copyright
+debate. This workshop's disclosure habit (Day 4) is the
+practical answer to it: name what the tool did, so that what
+remains is unambiguously the researcher's own contribution.
 
 **Disclosure failures are treated as misconduct or
 plagiarism, not merely as omissions.** ICMJE is explicit that
@@ -170,40 +169,40 @@ folds AI output into the existing plagiarism standard:
 in their paper, including in text and images produced by the
 AI" [@icmje2025ai]. University academic-integrity offices have
 adopted the identical framing one level down, for coursework
-and theses rather than journal articles: submitting
+and theses rather than journal articles. Submitting
 AI-generated text as one's own without disclosure, or
 paraphrasing AI output without attribution, is classified as
 plagiarism under the same policies that govern copying another
 author's words. The mechanism differs (a retraction or
 corrigendum at a journal; an academic-integrity finding at a
-university) but the underlying claim is identical in both
-settings: presenting a machine's language or reasoning as
-one's own unaided work, without saying so, is dishonest
-regardless of whether a human or an algorithm supplied the
-uncredited material.
+university), but the underlying claim is identical in both
+settings. Presenting a machine's language or reasoning as one's
+own unaided work, without saying so, is dishonest regardless of
+whether a human or an algorithm supplied the uncredited
+material.
 
 **Confidentiality is a distinct ethical duty from
 authorship.** A researcher who never puts a word of AI-drafted
 prose into a manuscript can still commit an ethics violation by
 uploading someone *else's* unpublished work into a generative
 AI tool. Major publishers now prohibit this outright for peer
-review: Wiley states that reviewers must not upload manuscripts
+review. Wiley states that reviewers must not upload manuscripts
 or any part of them, including figures and tables, into
-generative AI tools; Elsevier and Taylor & Francis give the
-same instruction and name the reason as protecting authors'
+generative AI tools. Elsevier and Taylor & Francis give the same
+instruction and name the reason as protecting authors'
 confidentiality and proprietary rights, and, where the
 manuscript contains identifiable data, the subjects' privacy
-rights [@publisherconfidentiality2024]. Grant review carries
-the same rule with a funder behind it: NIH prohibits its
-scientific peer reviewers from using generative AI to analyze
-or draft critiques of grant applications, precisely because
-doing so would mean sharing confidential, unpublished research
-ideas with a third-party system outside NIH's control
-[@nih2023genai]. The rule generalizes beyond formal peer
-review: a manuscript draft, a student's raw interview
-transcripts, or a colleague's unpublished dataset carries the
-same confidentiality obligation whether the material sits in a
-private file or is copied into a chat window.
+rights [@publisherconfidentiality2024]. Grant review carries the
+same rule with a funder behind it. NIH prohibits its scientific
+peer reviewers from using generative AI to analyze or draft
+critiques of grant applications, precisely because doing so
+would mean sharing confidential, unpublished research ideas with
+a third-party system outside NIH's control [@nih2023genai]. The
+rule generalizes beyond formal peer review. A manuscript draft,
+a student's raw interview transcripts, or a colleague's
+unpublished dataset carries the same confidentiality obligation
+whether the material sits in a private file or is copied into a
+chat window.
 
 ::: {.callout-warning}
 ## Warning
@@ -272,7 +271,7 @@ worldwide rather than only to European users
 We should be clear that this is a complement to disclosure and
 not a substitute for it. A detected watermark shows only that a
 Claude model was probably involved at some point. It cannot
-distinguish AI-drafted text from lightly AI-edited text, it
+distinguish AI-drafted text from lightly AI-edited text. It
 carries no record of who used the tool, and it can be removed or
 degraded by sufficiently heavy rewriting. Unfortunately, this
 means its *absence* proves nothing about whether AI was used.

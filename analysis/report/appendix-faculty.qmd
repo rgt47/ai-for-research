@@ -33,13 +33,13 @@ The National Science Foundation requires, as of PAPPG 24-1
 (effective for proposals due on or after May 20, 2024), that a
 proposer disclose the extent and manner of any generative AI use
 in preparing the proposal [@nsf2024pappg]. A later supplement,
-effective December 8, 2025, sharpened the stakes considerably:
+effective December 8, 2025, sharpened the stakes considerably.
 NSF's research-misconduct definition was amended to explicitly
 cover fabrication, falsification, or plagiarism committed
 through the use or assistance of AI-based tools
 [@nsf2025misconduct]. That amendment matters because it removes
 any ambiguity about whether AI-assisted misconduct is treated
-differently from misconduct committed unaided; it is not. A
+differently from misconduct committed unaided. It is not. A
 proposer who submits AI-fabricated preliminary data or an
 AI-fabricated citation is exposed to the same research-misconduct
 process as a proposer who fabricated it by hand.
@@ -47,11 +47,11 @@ process as a proposer who fabricated it by hand.
 NIH's applicant-side policy, issued July 17, 2025 as
 NOT-OD-25-132 ("Supporting Fairness and Originality in NIH
 Research Applications"), takes a stricter substantive line than
-NSF's disclosure-based approach: NIH states it will not consider
+NSF's disclosure-based approach. NIH states it will not consider
 an application, or a section of one, that is "substantially
-developed by AI" to be the applicant's original idea, requires
-disclosure of AI-generated content, and backs the policy with
-AI-detection technology on submitted applications
+developed by AI" to be the applicant's original idea. It
+requires disclosure of AI-generated content, and backs the
+policy with AI-detection technology on submitted applications
 [@nih2025fairness]. The same notice introduced an unrelated but
 simultaneously effective cap of six new, renewal, resubmission,
 or revision applications per principal investigator per calendar
@@ -63,7 +63,7 @@ The practical implication for a faculty PI is that "I disclosed
 my AI use" is not a uniform, portable compliance step across
 funders the way it functions across journals under ICMJE and
 COPE (Day 5). NSF's rule is a disclosure requirement layered onto
-an unusually explicit misconduct exposure; NIH's rule is closer
+an unusually explicit misconduct exposure. NIH's rule is closer
 to a substantive cap on how much of the intellectual content can
 be AI-produced at all, regardless of disclosure. A PI who applies
 to both agencies in the same year needs to check each notice
@@ -81,11 +81,11 @@ required material no reviewer scores for creativity.*
 NIH's "substantially developed by AI" standard is often read as
 a reason to avoid AI tools in proposal preparation altogether.
 That reading gives up a real and entirely compliant efficiency
-gain, because a competitive proposal is not a uniform document.
-It contains a small core of genuinely original intellectual
-content and a substantial surrounding mass of required,
-low-originality, high-volume material that every application
-needs and no reviewer scores for creativity.
+gain. A competitive proposal is not a uniform document. It
+contains a small core of genuinely original intellectual content
+and a substantial surrounding mass of required, low-originality,
+high-volume material that every application needs and no
+reviewer scores for creativity.
 
 The originality-bearing sections are the ones NIH's policy is
 about: Specific Aims, Significance, Innovation, and the research
@@ -179,7 +179,7 @@ whether the data handling matches what was disclosed to, and
 approved by, the IRB in the first place.
 
 University guidance on this point is now fairly consistent and
-worth taking at face value rather than assuming it does not
+worth taking at face value, rather than assuming it does not
 apply to a "harmless" summarization task. The University of
 Chicago's generative AI guidance prohibits using confidential
 data, explicitly including HIPAA-covered patient data,
@@ -188,7 +188,7 @@ findings, with public generative AI tools absent a prior
 security and privacy review [@uchicago2024genai]. Yale's
 guidance for health-sciences research is explicit that a
 vendor's own marketing claim of "HIPAA-compliance" is not
-sufficient on its own; whether a given tool is actually approved
+sufficient on its own. Whether a given tool is actually approved
 for HIPAA-covered data is a determination made case-by-case by
 the relevant university and health-system committees, not by
 the tool's own documentation [@yale2024genai]. The practical
@@ -242,7 +242,7 @@ The Contributor Roles Taxonomy (CRediT), a community-owned
 taxonomy of fourteen specific contribution types now used by
 many journals including Elsevier's, was built precisely to
 separate the question "what did each person actually do" from
-the question "who counts as an author," on the premise that
+the question "who counts as an author." The premise is that
 conflating the two is a recurring source of dispute
 [@credit2022niso]. Applied to a trainee's AI-assisted work, a
 CRediT-style breakdown can state plainly that a given trainee
@@ -251,10 +251,10 @@ the assistance of an AI tool for literature search and prose
 editing, without that assistance either inflating or erasing the
 trainee's own claim to authorship credit. A recent analysis
 specifically proposes using CRediT to resolve authorship
-disputes at NIH-funded institutions, on the grounds that a
-contribution-based framework gives disputing parties (including
+disputes at NIH-funded institutions. The argument is that a
+contribution-based framework gives disputing parties, including
 a trainee and a supervisor who disagree about how much a given
-AI-assisted contribution counts) a shared vocabulary to reason
+AI-assisted contribution counts, a shared vocabulary to reason
 from, rather than leaving the disagreement to compete
 unstructured intuitions about what "real" authorship requires
 [@partin2025credit].
@@ -302,14 +302,14 @@ comply with whichever applicable policy is most restrictive on
 the specific point in question, and to disclose that this was
 done. If a university policy permits a category of AI use that
 an IRB-approved protocol's data-handling plan does not name, the
-protocol governs for that project's data, because it reflects a
-specific commitment made to research subjects and to the IRB
-rather than a general institutional default. If a funder's
-disclosure requirement is more detailed than a journal's,
-meeting the funder's standard automatically satisfies the
-journal's. The reverse is not guaranteed, so each policy warrants
-an explicit check rather than an assumption that a satisfied
-minimum transfers upward.
+protocol governs for that project's data. It reflects a specific
+commitment made to research subjects and to the IRB, rather than
+a general institutional default. If a funder's disclosure
+requirement is more detailed than a journal's, meeting the
+funder's standard automatically satisfies the journal's. The
+reverse is not guaranteed, so each policy warrants an explicit
+check rather than an assumption that a satisfied minimum
+transfers upward.
 
 The audit habit from Day 5 extends naturally to this problem. For
 a multi-funder or multi-site project, a PI's provenance log

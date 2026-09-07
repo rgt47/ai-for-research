@@ -42,11 +42,11 @@ By the end of this day you should be able to:
 ## Lecture
 
 Literature review is the task in this workshop with the
-clearest efficiency payoff and, done carelessly, the highest
-cost of an unverified error: a fabricated citation that reaches
-a manuscript damages the researcher's credibility directly. The
-two are related rather than opposed, and this chapter opens with
-the technique that delivers both at once.
+clearest efficiency payoff. Done carelessly, it also carries the
+highest cost of an unverified error: a fabricated citation that
+reaches a manuscript damages the researcher's credibility
+directly. The two are related rather than opposed. This chapter
+opens with the technique that delivers both at once.
 
 ### Compiling a bibliography efficiently: best practice versus brute force
 
@@ -56,14 +56,13 @@ conversational: ask a general-purpose AI assistant, in a chat
 window, "give me some references on topic X," read the result,
 ask for more, and repeat. It feels efficient because each
 individual exchange is fast. Unfortunately, it is not efficient
-at all, for two reasons. It does not scale (each reference costs
-a chat turn, and a literature review needs dozens), and every
-citation it produces is unverified in exactly the sense Day 1
-introduced, generated
-from the model's trained parameters rather than retrieved from
-any actual database, which is precisely the mechanism behind the
-fabrication risk this chapter spends the rest of its time
-addressing.
+at all, for two reasons. It does not scale, since each reference
+costs a chat turn and a literature review needs dozens. And
+every citation it produces is unverified, in exactly the sense
+Day 1 introduced: generated from the model's trained parameters
+rather than retrieved from any actual database. That generation
+mechanism is precisely what drives the fabrication risk this
+chapter spends the rest of its time addressing.
 
 The efficient alternative is to treat bibliography compilation
 as a database-query problem, not a conversation. Two free,
@@ -91,22 +90,21 @@ not from a chatbot's memory, and its own citation-graph search
 is often faster than typing a natural-language request into a
 chat window at all [@zotero2024].
 
-This does not mean AI tools have no role in literature discovery;
-it means their role is narrower and better-placed than
-originating the citation. A search-augmented AI tool (Day 1) is
-genuinely useful for breadth, surfacing candidate papers or
-search terms the researcher would not have thought to query
+This does not mean AI tools have no role in literature
+discovery. It means their role is narrower and better-placed
+than originating the citation. A search-augmented AI tool (Day
+1) is genuinely useful for breadth, surfacing candidate papers
+or search terms the researcher would not have thought to query
 directly. The efficient workflow uses the AI tool for that
-discovery step and then resolves every candidate through
-Crossref, PubMed, or a reference manager before it becomes a
-bibliography entry, rather
-than accepting the AI tool's own citation as the final record.
-Done this way, efficiency and verification are the same action:
-querying a database of record is both faster at scale than
-chatting one reference at a time, and structurally immune to the
-citation-fabrication risk the rest of this chapter addresses,
-because the bibliographic record never passed through the part
-of the AI tool that can hallucinate one.
+discovery step, then resolves every candidate through Crossref,
+PubMed, or a reference manager before it becomes a bibliography
+entry, rather than accepting the AI tool's own citation as the
+final record. Done this way, efficiency and verification are
+the same action. Querying a database of record is both faster
+at scale than chatting one reference at a time, and structurally
+immune to the citation-fabrication risk the rest of this chapter
+addresses, because the bibliographic record never passed through
+the part of the AI tool that can hallucinate one.
 
 ::: {.callout-note icon=false collapse=true}
 ## Check your understanding: bibliography compilation
@@ -136,21 +134,22 @@ the papers worth reading.*
 Compiling comprehensively, as the previous section describes,
 creates a problem that used to be a good reason not to do it.
 For most of the history of literature review, breadth was
-self-limiting: a researcher kept the search narrow because every
+self-limiting. A researcher kept the search narrow because every
 additional reference had to be read, and reading was the
-bottleneck. The database-query approach removes the *compilation*
-constraint entirely (a Crossref or PubMed query returns four
-hundred records as easily as forty) without touching the
-*reading* constraint at all. The bottleneck simply moved
-downstream, and that is where the next three techniques apply.
+bottleneck. The database-query approach removes the
+*compilation* constraint entirely (a Crossref or PubMed query
+returns four hundred records as easily as forty), without
+touching the *reading* constraint at all. The bottleneck simply
+moved downstream, and that is where the next three techniques
+apply.
 
 The relationship is worth stating plainly because it inverts an
 old tradeoff. Comprehensive compilation is now cheap, and
 AI-assisted triage makes a large compiled set tractable to work
-through, so the rational strategy shifts from "search narrowly
-to keep the reading manageable" toward "search broadly and
-triage aggressively." That is a genuine methodological
-improvement, not merely a speed gain: a narrow search silently
+through. The rational strategy therefore shifts, from "search
+narrowly to keep the reading manageable" toward "search broadly
+and triage aggressively." That is a genuine methodological
+improvement, not merely a speed gain. A narrow search silently
 risks missing the paper that would have changed the conclusion,
 and no amount of careful reading of the papers actually found
 will surface it. But how trustworthy is the triage step? The
@@ -194,17 +193,17 @@ formal systematic-review conditions is a stricter proposition,
 because a systematic review makes a methodological claim about
 its own completeness and reproducibility that a narrative review
 does not. Three constraints follow. The screen must run against
-the protocol's pre-specified inclusion and exclusion criteria
-rather than an informal description; AI screening belongs as one
+the protocol's pre-specified inclusion and exclusion criteria,
+rather than an informal description. AI screening belongs as one
 pass within a documented dual-screening workflow (a second
 independent screen, human or otherwise, with disagreements
-adjudicated by a human), not as a replacement for it; and the use
-must be reported. PRISMA 2020 already requires that authors
+adjudicated by a human), not as a replacement for it. And the
+use must be reported. PRISMA 2020 already requires that authors
 describe how automation tools were used in the review, including
 in the search, study-selection, and data-collection processes
-[@page2021prisma], which means AI-assisted screening in a
+[@page2021prisma]. This means AI-assisted screening in a
 systematic review is not merely permitted-if-disclosed in the
-general sense developed on Day 1, but falls under an existing,
+general sense developed on Day 1. It falls under an existing,
 specific reporting standard that readers and reviewers will
 expect to have been followed.
 
@@ -226,9 +225,9 @@ authoritative. The mitigation is to require provenance in the
 extraction itself: instruct the tool to include, for every
 extracted value, the verbatim sentence and section it came
 from. An extracted effect size accompanied by the sentence
-stating it can be checked in seconds; the same number sitting
+stating it can be checked in seconds. The same number sitting
 alone in a table cell cannot be checked at all without
-re-reading the paper, which defeats the purpose of having
+re-reading the paper, and that defeats the purpose of having
 extracted it.
 
 ::: {.callout-note icon=false collapse=true}
@@ -253,16 +252,16 @@ Two different kinds of tool both call themselves useful for
 literature work, and Day 1 already introduced the distinction
 that matters here. A plain general-purpose assistant, asked to
 summarize research on a topic, draws on whatever it absorbed
-during training; it has no live connection to a paper database
+during training. It has no live connection to a paper database
 and cannot signal that it is drawing a blank rather than
 recalling accurately. A search-augmented or retrieval-augmented
 tool instead issues a real query against a real corpus (a search
 engine, a paper database, an index the researcher controls) and
 grounds its summary in the documents that query returns
 [@lewis2020rag]. The retrieval step does not make the tool
-infallible, but it changes the nature of the risk: an error in
-a retrieval-augmented summary is more often a misreading of a
-real document than an invention of a nonexistent one, and a
+infallible, but it changes the nature of the risk. An error in a
+retrieval-augmented summary is more often a misreading of a real
+document than an invention of a nonexistent one, and a
 misreading is far easier to catch by opening the source.
 
 For literature work specifically, prefer a tool that shows
@@ -342,12 +341,11 @@ rather than retrieved, discussed further below.
 
 Asked to synthesize several papers, an AI tool has a structural
 tendency to produce a smooth, well-organized narrative, because
-that is what its training rewards, and a smooth narrative is
-often achieved by averaging over disagreement rather than
-stating it. Two papers that reach opposite conclusions on the
-same question can come back from a naive synthesis prompt as a
-single hedged sentence that represents neither paper's actual
-finding.
+that is what its training rewards. A smooth narrative is often
+achieved by averaging over disagreement rather than stating it.
+Two papers that reach opposite conclusions on the same question
+can come back from a naive synthesis prompt as a single hedged
+sentence that represents neither paper's actual finding.
 
 We counteract this tendency by prompting for disagreement
 explicitly rather than hoping the tool preserves it on its own:
@@ -414,7 +412,7 @@ of fabricated or misattributed AI citations [@academai2024;
   extra scrutiny; real findings are rarely that clean.
 
 None of these signatures is a substitute for the verification
-workflow above; they are what to look for when deciding where
+workflow above. They are what to look for when deciding where
 to spend limited verification effort first.
 
 ::: {.callout-note icon=false collapse=true}

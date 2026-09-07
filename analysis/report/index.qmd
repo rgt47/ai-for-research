@@ -1,38 +1,41 @@
 # Welcome {.unnumbered .unlisted}
 
 This is the online version of **Leveraging AI Tools for
-Academic Research: A One-Week Boot Camp** by The rgtlab
-Curriculum Project, a short workshop for faculty researchers
-who run their own grant-funded projects, teach and supervise
-students, and want AI tools to make that whole workload faster
-without making it riskier.
+Academic Research: A One-Week Boot Camp**, by The rgtlab
+Curriculum Project. We wrote it for faculty researchers who run
+their own grant-funded projects, teach and supervise students,
+and want AI tools to make that workload move faster without
+making it riskier.
 
-The primary payoff of this week is speed: compiling a working
-bibliography in minutes instead of hours, scaffolding a
-reproducible project skeleton in one prompt instead of an
-afternoon, and turning a scattered set of notes into a
-structured outline through a short dialog rather than a blank
-page. The book covers those efficiency techniques directly,
-alongside the verification and disclosure discipline
-(recognizing hallucination and fabricated citations, reviewing
-AI-generated code, protecting confidentiality, and disclosing
-AI use honestly) that keeps the speed from costing a
-retraction, a misconduct finding, or a withdrawn grant. That
-discipline matters, but it is in service of the efficiency, not
-the other way around: a faculty researcher takes this workshop
-to get more done in a week with the same number of hours, and
-reads the risk material because working fast on someone else's
-terms (a journal's, a funder's, an IRB's) is not actually fast
-if the work has to be redone. The book is designed for **five
-consecutive days** of work: one hour of lecture content each
-day, two hours of homework, no examinations.
+The primary payoff of this week is speed. A working
+bibliography that once took hours now compiles in minutes. A
+reproducible project skeleton that once took an afternoon now
+scaffolds from a single prompt. A scattered set of notes
+becomes a structured outline through a short dialog rather than
+a blank page. We cover these efficiency techniques directly. We
+also cover the verification and disclosure discipline that
+keeps the speed from costing something worse: recognizing
+hallucination and fabricated citations, reviewing AI-generated
+code, protecting confidentiality, and disclosing AI use
+honestly. A retraction, a misconduct finding, or a withdrawn
+grant is expensive in a way that no week of saved time offsets.
 
-The organizing principle is that AI tools are accelerants,
-not replacements, for the judgment a researcher already
-exercises. Every chapter opens with a concrete research task,
-develops the AI-assisted technique that addresses it, and
-returns to the task to judge what the technique did and did
-not solve, including where it can mislead. An
+That discipline matters, but it serves the efficiency rather
+than the other way around. A faculty researcher takes this
+workshop to get more done in a week with the same number of
+hours. The risk material is worth reading because working fast
+on someone else's terms (a journal's, a funder's, an IRB's) is
+not fast at all if the work has to be redone. The book is
+designed for **five consecutive days** of work: one hour of
+lecture content each day, two hours of homework, and no
+examinations.
+
+The organizing principle is that AI tools are accelerants, not
+replacements, for the judgment a researcher already exercises.
+Each chapter opens with a concrete research task, develops the
+AI-assisted technique that addresses it, and returns to the
+task to judge what the technique did and did not solve,
+including where it can mislead. An
 [appendix](appendix-faculty.qmd) extends this discipline into
 three roles specific to faculty life that the five-day
 curriculum does not otherwise cover: writing grant proposals
@@ -64,8 +67,8 @@ use AI tools inside an already-versioned, reproducible
 research workflow.
 
 See the [Preface](preface.qmd) for the design rationale
-and the [Conventions](conventions.qmd) page for visual
-cues.
+and the [Conventions](conventions.qmd) page for the visual
+cues used throughout.
 
 ## License
 

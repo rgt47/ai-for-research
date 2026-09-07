@@ -3,78 +3,78 @@
 This volume is a one-week workshop for faculty researchers. We
 have in mind the reader who runs a grant-funded project,
 publishes under their own name, and usually teaches and
-supervises trainees as well, and who wants AI tools to make that
-entire workload faster. We assume an active researcher, not a
-beginner to research itself. Where a general-audience book would
-teach prompting from nothing, this one teaches specific
-techniques for getting real research work done faster (compiling
-a bibliography, scaffolding a project, drafting an outline),
-together with the judgment that keeps that speed from costing
-the researcher a retraction, a misconduct finding, or a
-withdrawn grant. The goal is a working, disciplined practice,
-not a tour of features.
+supervises trainees as well. That reader wants AI tools to make
+the entire workload faster. We assume an active researcher, not
+a beginner to research itself. A general-audience book would
+teach prompting from nothing. This one teaches specific
+techniques for getting real research work done faster:
+compiling a bibliography, scaffolding a project, drafting an
+outline. It pairs those techniques with the judgment that keeps
+the speed from costing the researcher a retraction, a
+misconduct finding, or a withdrawn grant. The goal is a working,
+disciplined practice, not a tour of features.
 
-The design constraint is deliberate: five lectures, ten hours of
-homework, and the reader finishes the week doing the same
-research work in substantially less time, while knowing precisely
-where the tools that bought that speed are reliable and where
-they are not.
+The design constraint is deliberate: five lectures and ten
+hours of homework. By the end of the week, the reader does the
+same research work in substantially less time. Just as
+important, the reader knows precisely where the tools that
+bought that speed are reliable, and where they are not.
 
 ## Efficiency first, discipline in service of it
 
 The primary reason to take this workshop is speed, not safety.
 A faculty researcher juggling grant deadlines, a teaching load,
 and a lab full of trainees does not have a spare afternoon to
-hand-assemble a bibliography one reference at a time, or to
-scaffold a new project's directory structure from memory, or to
-stare at a blank page until an argument's shape appears. Each day
-of this workshop presents a specific technique for doing that
-work faster: batch-compiling a working bibliography from a
-database of record instead of one-by-one chat prompts (Day 2);
-using a coding assistant to bootstrap a reproducible project
-skeleton instead of copying one by hand (Day 3); and building a
-structured outline through a short clarifying dialog instead of
-drafting blind (Day 4).
+hand-assemble a bibliography one reference at a time. Nor is
+there time to scaffold a new project's directory structure from
+memory, or to stare at a blank page until an argument's shape
+appears. Each day of this workshop presents a specific
+technique for doing that work faster. Day 2 batch-compiles a
+working bibliography from a database of record instead of
+one-by-one chat prompts. Day 3 uses a coding assistant to
+bootstrap a reproducible project skeleton instead of copying one
+by hand. Day 4 builds a structured outline through a short
+clarifying dialog instead of drafting blind.
 
 Unfortunately, none of that speed is worth much if the work has
-to be redone. That is the entire reason this book also treats
-the recognition of hallucination and fabricated citations, the
+to be redone. That is the reason this book also treats the
+recognition of hallucination and fabricated citations, the
 review of AI-generated code, the protection of confidentiality,
 and the honest disclosure of AI use. Safety is not the point of
-the week. The point is that a faculty researcher who works fast
-on a journal's, a funder's, or an IRB's terms, and who then has
+the week. The point is narrower: a faculty researcher who works
+fast on a journal's, a funder's, or an IRB's terms, and then has
 to retract a citation, redo an analysis, or explain an
-undisclosed AI contribution, has not actually saved any time at
-all. We may consider three frictions that make this concrete:
+undisclosed AI contribution, has not saved any time at all.
+Three frictions make this concrete:
 
 - A literature-review assistant can fabricate plausible
-  citations that do not exist, and the fabrication is
-  invisible unless every citation is checked against a
-  primary source, which is exactly why Day 2 teaches querying a
-  database of record directly rather than trusting a chatbot's
-  free-text citation list in the first place.
+  citations that do not exist. The fabrication is invisible
+  unless every citation is checked against a primary source.
+  That is why Day 2 teaches querying a database of record
+  directly, rather than trusting a chatbot's free-text citation
+  list.
 - A coding assistant can produce code that runs and looks
-  correct while silently mishandling edge cases, missing
-  data, or unit conversions, which is why Day 3 pairs the
-  scaffolding technique with a review habit for anything the
-  assistant writes beyond the skeleton itself.
-- A writing assistant can smooth prose into a voice that is
-  not the author's, and journals increasingly require explicit
-  disclosure of where AI assistance was used, which is why
-  Day 4's outlining technique keeps the AI's role bounded to
-  structure while the argument stays the author's own.
+  correct while silently mishandling edge cases, missing data,
+  or unit conversions. That is why Day 3 pairs the scaffolding
+  technique with a review habit for anything the assistant
+  writes beyond the skeleton itself.
+- A writing assistant can smooth prose into a voice that is not
+  the author's. Journals increasingly require explicit
+  disclosure of where AI assistance was used. That is why Day
+  4's outlining technique keeps the AI's role bounded to
+  structure, while the argument stays the author's own.
 
-The verification and disclosure habits in this book are the
-guardrails that make the efficiency gains sustainable across an
-entire career, not a tax on using AI tools at all.
+The verification and disclosure habits in this book function as
+guardrails, not a tax on using AI tools. They are what make the
+efficiency gains sustainable across an entire career.
 
 ## What this book covers
 
-We proceed over five days, one chapter each. We begin in Day 1
-with the foundations, turn in Days 2 through 4 to the three
-efficiency techniques that give the week its payoff, and close
-in Day 5 with the provenance and disclosure practice that makes
-the whole arrangement defensible:
+We proceed over five days, one chapter each. Day 1 lays the
+foundations. Days 2 through 4 turn to the three efficiency
+techniques that give the week its payoff. Day 5 closes with the
+provenance and disclosure practice that makes the whole
+arrangement defensible:
 
 1. **Foundations: how LLMs work and where they fit in
    research.** What a large language model does and does not
@@ -120,9 +120,9 @@ solutions provided.
 
 ## What this book does not cover
 
-The book deliberately omits, and points elsewhere for,
-material that surrounds AI-assisted research but is not the
-subject of this workshop itself:
+The book deliberately omits certain material that surrounds
+AI-assisted research, and points elsewhere for it, because it
+is not the subject of this workshop:
 
 - Learning R, Python, or statistics from scratch. We assume
   the reader arrives already doing research in some
@@ -175,18 +175,18 @@ The book assumes:
 
 Prior completion of *R for Biostatistics* and *Git and GitHub
 for Biostatistics* is helpful for Day 3 and Day 5, since the
-worked examples assume a version-controlled project, but
-neither is strictly required; the AI-use judgment this book
-teaches is independent of the specific tools used to manage
-the underlying project.
+worked examples assume a version-controlled project. Neither is
+strictly required. The AI-use judgment this book teaches is
+independent of the specific tools used to manage the underlying
+project.
 
 ## Acknowledgments
 
 This workshop consolidates patterns developed while
 integrating AI tools into ongoing research and teaching work.
-The documentation for the AI tools in current use, and the
-emerging literature on AI-use disclosure in scholarly
-publication, provide the technical scaffolding; the workshop
-pedagogy reflects experience with what a working researcher
-actually needs in order to use these tools well, as distinct
-from the full capabilities of any one tool.
+The documentation for the AI tools in current use, together
+with the emerging literature on AI-use disclosure in scholarly
+publication, provides the technical scaffolding. The workshop
+pedagogy itself reflects experience with what a working
+researcher actually needs in order to use these tools well,
+which is distinct from the full capabilities of any one tool.

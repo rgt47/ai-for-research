@@ -21,8 +21,8 @@ Each day has the same shape:
 The cadence assumes one chapter per day for five consecutive
 days. The workshop may be compressed (two chapters per day
 across two-and-a-half days) or expanded (one chapter per week
-across a month) depending on the reader's other commitments;
-we leave the choice to the reader.
+across a month), depending on the reader's other commitments.
+We leave the choice to the reader.
 
 ## Chapter template
 
@@ -47,7 +47,7 @@ it consistently:
 
 There are no examinations in this book. The per-subsection
 check-your-understanding callouts are low-stakes
-comprehension checks, not graded quizzes; the homework
+comprehension checks, not graded quizzes. The homework
 solutions remain the primary vehicle for self-assessment.
 
 ## A note on scope
@@ -55,17 +55,17 @@ solutions remain the primary vehicle for self-assessment.
 This book concerns the effective, efficient, and responsible use
 of existing AI tools within an active research project, and we
 mean that in order of emphasis. Each day leads with a concrete
-technique for getting research work done faster, and follows it
-with the verification and disclosure judgment that keeps the
-speed from costing more time than it saved.
+technique for getting research work done faster. It follows
+that technique with the verification and disclosure judgment
+that keeps the speed from costing more time than it saved.
 
-We do not teach how such tools are built, and we treat no single
-vendor's tool as the subject. Both the efficiency techniques and
-the verification judgment presented here apply regardless of
-which large language model or coding assistant the reader
-adopts. Where an example names a specific tool (Claude, ChatGPT,
-Claude Code, GitHub Copilot), it does so for concreteness, not
-endorsement.
+We do not teach how such tools are built. Nor do we treat any
+single vendor's tool as the subject. Both the efficiency
+techniques and the verification judgment presented here apply
+regardless of which large language model or coding assistant
+the reader adopts. Where an example names a specific tool
+(Claude, ChatGPT, Claude Code, GitHub Copilot), it does so for
+concreteness, not endorsement.
 
 ## Conventions
 
