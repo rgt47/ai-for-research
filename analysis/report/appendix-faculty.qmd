@@ -151,7 +151,7 @@ the same kind of undisclosed, contested AI use discussed in Day
 now the one who must adjudicate it rather than the one being
 accused.
 
-When a suspected violation does arise, the same epistemic
+When a suspected violation does arise, the same evidentiary
 discipline this book has taught throughout applies directly.
 An AI-detection tool's output is evidence, not proof: the same
 false-positive risk documented in Day 4's discussion of the
